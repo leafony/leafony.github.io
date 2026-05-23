@@ -123,46 +123,46 @@
 <div class="sl-heading-wrapper level-h3"><h3 id="ソースコード">ソースコード</h3><a class="sl-anchor-link" href="#ソースコード"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “ソースコード”</span></a></div>
 <ol>
 <li>
-<p>マイコンにプログラムを書き込むために、<a href="https://docs.leafony.com/docs/environment/avr/arduino/">Arduino IDEの設定</a>をして下さい。<br></p>
+<p>マイコンにプログラムを書き込むために、<a href="https://docs.leafony.com/docs/environment/avr/arduino/">Arduino IDEの設定</a>をしてください。<br></p>
 </li>
 <li>
-<p>以下のソースコードをGitHubからダウンロードし、パソコンに保存<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> して下さい。<br></p>
+<p>以下のソースコードをGitHubからダウンロードし、パソコンに保存<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> してください。<br></p>
 <ul>
 <li>ソースコード：<a href="https://github.com/Leafony/Sample-Sketches/tree/master/Blink/Blink.ino">Blink.ino</a></li>
 </ul>
 </li>
 </ol>
 <ol start="3">
-<li>マイコンにプログラムを書き込んで下さい。<br></li>
+<li>マイコンにプログラムを書き込んでください。<br></li>
 </ol>
 <div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.v4551.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="c++"><code><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">void</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">setup</span><span style="--0:#D6DEEB;--1:#403F53">() {</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#919F9F;--1:#5D6376">  </span></span><span style="--0:#919F9F;--1:#5D6376">// initialize digital pin LED_BUILTIN as an output.</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">pinMode</span><span style="--0:#D6DEEB;--1:#403F53">(LED_BUILTIN, OUTPUT);</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div><div class="ec-line"><div class="code">
 </div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">void</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">loop</span><span style="--0:#D6DEEB;--1:#403F53">() {</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">digitalWrite</span><span style="--0:#D6DEEB;--1:#403F53">(LED_BUILTIN, HIGH);</span><span style="--0:#919F9F;--1:#5D6376">   // turn the LED on (HIGH is the voltage level)</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">delay</span><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#F78C6C;--1:#AA0982">1000</span><span style="--0:#D6DEEB;--1:#403F53">);</span><span style="--0:#919F9F;--1:#5D6376">                       // wait for a second</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">digitalWrite</span><span style="--0:#D6DEEB;--1:#403F53">(LED_BUILTIN, LOW);</span><span style="--0:#919F9F;--1:#5D6376">    // turn the LED off by making the voltage LOW</span></div></div><div class="ec-line"><div class="code"><span class="indent">  </span><span style="--0:#82AAFF;--1:#3B61B0">delay</span><span style="--0:#D6DEEB;--1:#403F53">(</span><span style="--0:#F78C6C;--1:#AA0982">1000</span><span style="--0:#D6DEEB;--1:#403F53">);</span><span style="--0:#919F9F;--1:#5D6376">                       // wait for a second</span></div></div><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">}</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="void setup() {  // initialize digital pin LED_BUILTIN as an output.  pinMode(LED_BUILTIN, OUTPUT);}void loop() {  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)  delay(1000);                       // wait for a second  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW  delay(1000);                       // wait for a second}"><div></div></button></div></figure></div>
 <div class="sl-heading-wrapper level-h3"><h3 id="実行結果">実行結果</h3><a class="sl-anchor-link" href="#実行結果"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “実行結果”</span></a></div>
 <ol>
-<li>AVR MCUリーフに搭載されたLEDを1秒間隔で、点灯/消灯を繰り返すことを確認して下さい。<br></li>
+<li>AVR MCUリーフに搭載されたLEDを1秒間隔で、点灯/消灯を繰り返すことを確認してください。<br></li>
 </ol>
 <div class="sl-heading-wrapper level-h2"><h2 id="platformio-ide-の場合">PlatformIO IDE の場合</h2><a class="sl-anchor-link" href="#platformio-ide-の場合"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “PlatformIO IDE の場合”</span></a></div>
 <div class="sl-heading-wrapper level-h3"><h3 id="ソースコード-1">ソースコード</h3><a class="sl-anchor-link" href="#ソースコード-1"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “ソースコード”</span></a></div>
 <ol>
 <li>
-<p>マイコンにプログラムを書き込むために、<a href="/environment/avr/platformio">PlatformIO IDE for VSCodeの設定</a> をして下さい。<br></p>
+<p>マイコンにプログラムを書き込むために、<a href="/environment/avr/platformio">PlatformIO IDE for VSCodeの設定</a> をしてください。<br></p>
 </li>
 <li>
-<p>「Hello Wolrd」のクイックスタートを行って、PlatformIO IDEの仕組みを把握して下さい。<br></p>
+<p>「Hello World」のクイックスタートを行って、PlatformIO IDEの仕組みを把握してください。<br></p>
 </li>
 <li>
-<p>以下のソースコードをGitHubからダウンロードし、パソコンに保存して下さい。<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup><br></p>
+<p>以下のソースコードをGitHubからダウンロードし、パソコンに保存してください。<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup><br></p>
 <ul>
 <li>ソースコード：<a href="https://github.com/Leafony/platformio-sample-projects/tree/main/avr/Blink_Pjt">Blink.Pjt</a>　<br></li>
 </ul>
 </li>
 </ol>
 <ol start="4">
-<li>マイコンにプログラムを書き込んで下さい。<br></li>
+<li>マイコンにプログラムを書き込んでください。<br></li>
 </ol>
 <div class="sl-heading-wrapper level-h3"><h3 id="実行結果-1">実行結果</h3><a class="sl-anchor-link" href="#実行結果-1"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “実行結果”</span></a></div>
 <ol>
-<li>AVR MCUリーフに搭載されたLEDを1秒間隔で、点灯/消灯を繰り返すことを確認して下さい。<br></li>
+<li>AVR MCUリーフに搭載されたLEDを1秒間隔で、点灯/消灯を繰り返すことを確認してください。<br></li>
 </ol>
 <section data-footnotes="" class="footnotes"><div class="sl-heading-wrapper level-h2"><h2 class="sr-only" id="footnote-label">Footnotes</h2><a class="sl-anchor-link" href="#footnote-label"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “Footnotes”</span></a></div>
 <ol>
