@@ -99,27 +99,48 @@
 URL: https://docs.leafony.com/environment/stm32/platformio/
 
 概要・見出し（抜粋）: VS CodeとPlatformIOでSTM32 MCUリーフの開発環境を整え、プログラムを書き込む手順 / はじめに / 用意するもの / 事前準備 / 1. VS CodeとPlatformIO IDEをインストールする</textarea> </details> </div> </leafony-ai-help> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const n=async i=>{try{await navigator.clipboard.writeText(t.value),o.textContent=i}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{n(this.dataset.copied??"")};const s=this.querySelector("[data-copy-on-open]");s&&(s.onclick=()=>{n(this.dataset.geminiCopied??"")})}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script> </div> </div> <div class="content-panel astro-7nkwcw3z"> <div class="sl-container astro-7nkwcw3z"> <div class="sl-markdown-content"> <div class="sl-heading-wrapper level-h2"><h2 id="はじめに">はじめに</h2><a class="sl-anchor-link" href="#はじめに"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “はじめに”</span></a></div>
-<p>Visual Studio Code（VS Code）に拡張機能のPlatformIO IDEを追加すると、STM32 MCUリーフ（AP03）のプログラムを作成・ビルドできます。このページでは、USBリーフ経由でプログラムを書き込み、シリアルモニターに1秒ごとに<code dir="auto">Hello World</code>を表示するところまで説明します。</p>
+<p>このページでは、STM32 MCUリーフ（AP03）にプログラムを書き込み、シリアルモニターで動作を確認する手順を説明します。作成するプログラムは、1秒ごとに<code dir="auto">Hello World</code>を表示するものです。</p>
+<p>プログラムの作成・ビルドには、Visual Studio Code（VS Code）と拡張機能のPlatformIO IDEを使います。書き込みにはSTM32CubeProgrammerを使い、USBリーフ経由でパソコンと接続します。</p>
 <p>ソフトウェアは、各公式サイトで配布されている<strong>最新の安定版</strong>をインストールしてください。以前の手順にあったSTM32CubeProgrammerの旧バージョン指定は不要です。</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="用意するもの">用意するもの</h2><a class="sl-anchor-link" href="#用意するもの"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “用意するもの”</span></a></div>
 <ul>
-<li>STM32 MCUリーフ（AP03）とUSBリーフ。Basic Kit 2を使う場合は、AVR MCUリーフをSTM32 MCUリーフに交換します。</li>
-<li>データ通信対応のUSBケーブル。</li>
-<li>Windows、macOS、またはLinuxのパソコンとインターネット接続。</li>
+<li>STM32 MCUリーフ（AP03）</li>
+<li>USBリーフ</li>
+<li>データ通信対応のUSBケーブル</li>
+<li>Windows、macOS、またはLinuxのパソコン</li>
+<li>インターネット接続</li>
 </ul>
+<p>Basic Kit 2を使う場合は、組み込まれているAVR MCUリーフをSTM32 MCUリーフに交換します。</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="事前準備">事前準備</h2><a class="sl-anchor-link" href="#事前準備"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “事前準備”</span></a></div>
 <div class="sl-heading-wrapper level-h3"><h3 id="1-vs-codeとplatformio-ideをインストールする">1. VS CodeとPlatformIO IDEをインストールする</h3><a class="sl-anchor-link" href="#1-vs-codeとplatformio-ideをインストールする"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “1. VS CodeとPlatformIO IDEをインストールする”</span></a></div>
 <ol>
-<li><a href="https://code.visualstudio.com/download">VS Codeの公式ダウンロードページ</a>から、使用するOS・CPUに合ったインストーラーをダウンロードしてインストールします。</li>
-<li>VS Codeを起動し、左側の<strong>拡張機能</strong>を開きます。</li>
-<li><code dir="auto">PlatformIO IDE</code>を検索し、発行元が<strong>PlatformIO</strong>の拡張機能をインストールします。</li>
-<li>PlatformIOの初期セットアップが完了するまで待ち、再起動を求められた場合はVS Codeを再起動します。</li>
+<li>
+<p><strong>VS Codeのインストール</strong></p>
+<p><a href="https://code.visualstudio.com/download">VS Codeの公式ダウンロードページ</a>から、使用するOS・CPUに合ったインストーラーを入手して実行します。</p>
+</li>
+<li>
+<p><strong>拡張機能一覧の表示</strong></p>
+<p>VS Codeを起動し、左側の<strong>拡張機能</strong>を開きます。</p>
+</li>
+<li>
+<p><strong>PlatformIO IDEのインストール</strong></p>
+<p><code dir="auto">PlatformIO IDE</code>を検索し、発行元が<strong>PlatformIO</strong>の拡張機能をインストールします。</p>
+</li>
+<li>
+<p><strong>初期セットアップの完了確認</strong></p>
+<p>セットアップの完了まで待ちます。再起動の案内が表示された場合は、VS Codeを再起動します。</p>
+</li>
 </ol>
-<p>PlatformIO Coreは拡張機能に含まれています。対応するOSではPythonも自動で用意されるため、まずはこのセットアップを実行してください。Pythonのインストールを求められた場合は、<a href="https://docs.platformio.org/en/latest/faq/install-python.html">PlatformIO公式のPython導入手順</a>に従います。Linuxでは<code dir="auto">python3-venv</code>も必要です。</p>
-<p>日本語表示にしたい場合は、<code dir="auto">Japanese Language Pack for Visual Studio Code</code>を追加します。シリアル通信の確認にはPlatformIO内蔵のシリアルモニターを使います。グラフ表示用のTeleplotは、<a href="#%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%97%E3%83%AD%E3%83%83%E3%82%BF%E3%83%BC">後半の手順</a>で必要に応じて追加します。</p>
+<p>PlatformIO Coreとシリアルモニターは、PlatformIO IDEに含まれています。対応するOSではPythonも自動で用意されます。</p>
+<p>Pythonのインストールを求められた場合は、<a href="https://docs.platformio.org/en/latest/faq/install-python.html">PlatformIO公式のPython導入手順</a>に従ってください。Linuxでは<code dir="auto">python3-venv</code>も必要です。</p>
+<p>次の拡張機能は、必要に応じて追加します。</p>
+<ul>
+<li>日本語表示：<code dir="auto">Japanese Language Pack for Visual Studio Code</code></li>
+<li>グラフ表示：<a href="#%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%97%E3%83%AD%E3%83%83%E3%82%BF%E3%83%BC">Teleplot</a></li>
+</ul>
 <p>操作の詳細は<a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">PlatformIO IDEの公式ドキュメント</a>も参照してください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="2-stm32cubeprogrammerをインストールする">2. STM32CubeProgrammerをインストールする</h3><a class="sl-anchor-link" href="#2-stm32cubeprogrammerをインストールする"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “2. STM32CubeProgrammerをインストールする”</span></a></div>
-<p><a href="https://www.st.com/en/development-tools/stm32cubeprog.html">ST公式のSTM32CubeProgrammerダウンロードページ</a>から使用するOSに合った最新版を入手し、インストールします。これはSTM32 MCUへの書き込みに使うソフトウェアです。</p>
+<p>STM32CubeProgrammerは、STM32 MCUにプログラムを書き込むソフトウェアです。<a href="https://www.st.com/en/development-tools/stm32cubeprog.html">ST公式のダウンロードページ</a>から、使用するOSに合った最新版を入手してインストールします。</p>
 <p>このページでは、PlatformIOからSTM32CubeProgrammerのコマンドラインツールを直接呼び出します。Arduino IDEやArduino IDE用のボードパッケージを別途インストールする必要はありません。</p>
 <p>インストール後は、次の実行ファイルの場所を確認しておきます。<a href="#3-platformioini%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B">platformio.iniの設定</a>で、その場所を<code dir="auto">upload_command</code>に指定します。</p>
 
@@ -145,31 +166,58 @@ URL: https://docs.leafony.com/environment/stm32/platformio/
 
 <table><thead><tr><th>OS</th><th>実行ファイル</th></tr></thead><tbody><tr><td>Windows</td><td>インストール先の<code dir="auto">bin/STM32_Programmer_CLI.exe</code></td></tr><tr><td>macOS</td><td><code dir="auto">STM32CubeProgrammer.app</code>内の<code dir="auto">Contents/Resources/bin/STM32_Programmer_CLI</code></td></tr><tr><td>Linux</td><td>インストール先の<code dir="auto">bin/STM32_Programmer.sh</code></td></tr></tbody></table>
 <div class="sl-heading-wrapper level-h3"><h3 id="3-プロジェクトの保存先を決める">3. プロジェクトの保存先を決める</h3><a class="sl-anchor-link" href="#3-プロジェクトの保存先を決める"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “3. プロジェクトの保存先を決める”</span></a></div>
-<p>プロジェクトは、パスの扱いによるトラブルを避けるため、半角英数字で構成したローカルフォルダーに保存することを推奨します。Windowsでは、例えば<code dir="auto">C:/PlatformIO/Projects</code>を使います。ユーザーフォルダーやOneDriveの場所はパソコンによって異なるため、固定のパスをそのまま使わず、実際の保存先を確認してください。</p>
-<p>以降のコマンドは、VS Code左側の<strong>PlatformIO → Quick Access → Miscellaneous → PlatformIO Core CLI</strong>から開くターミナルで実行します。このターミナルでは<code dir="auto">pio</code>コマンドを使えます。</p>
-<p>PlatformIO Homeで新規作成するプロジェクトの既定の保存先も変更したい場合は、例えば次を実行し、VS Codeを再起動します。</p>
+<p>保存先には、半角英数字で構成したローカルフォルダーを推奨します。パスの扱いによるトラブルを避けるためです。Windowsでの例は<code dir="auto">C:/PlatformIO/Projects</code>です。</p>
+<p>ユーザーフォルダーやOneDriveの場所は、パソコンによって異なります。設定例のパスを使う前に、実際の保存先を確認してください。</p>
+<p>このページのコマンドは、PlatformIO Core CLIのターミナルで実行します。VS Code左側の<strong>PlatformIO → Quick Access → Miscellaneous → PlatformIO Core CLI</strong>から開いてください。</p>
+<p>PlatformIO Homeで使う既定の保存先も変更できます。次は<code dir="auto">C:/PlatformIO/Projects</code>への変更例です。コマンドの実行後、VS Codeを再起動してください。</p>
 <div class="expressive-code"><link rel="stylesheet" href="/_astro/ec.v4551.css"><script type="module" src="/_astro/ec.0vx5m.js"></script><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">settings</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">set</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">projects_dir</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">C:/PlatformIO/Projects</span><span style="--0:#D9F5DD;--1:#111111">"</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio settings set projects_dir &#x22;C:/PlatformIO/Projects&#x22;"><div></div></button></div></figure></div>
-<p>macOS・Linuxでは、引用符内を使用するフォルダーの絶対パスに置き換えてください。この設定は既存プロジェクトを移動しません。<a href="https://docs.platformio.org/en/latest/core/userguide/cmd_settings.html#projects-dir"><code dir="auto">projects_dir</code>の公式説明</a></p>
+<p>macOS・Linuxでは、引用符内を保存先フォルダーの絶対パスに置き換えてください。変更後の保存先は新規プロジェクトに適用され、既存プロジェクトは移動しません。詳細は<a href="https://docs.platformio.org/en/latest/core/userguide/cmd_settings.html#projects-dir"><code dir="auto">projects_dir</code>の公式説明</a>を参照してください。</p>
 <div class="sl-heading-wrapper level-h2"><h2 id="クイックスタート">クイックスタート</h2><a class="sl-anchor-link" href="#クイックスタート"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “クイックスタート”</span></a></div>
 <div class="sl-heading-wrapper level-h3"><h3 id="1-プロジェクトとボード定義を用意する">1. プロジェクトとボード定義を用意する</h3><a class="sl-anchor-link" href="#1-プロジェクトとボード定義を用意する"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “1. プロジェクトとボード定義を用意する”</span></a></div>
-<p>AP03用のピン配置とシリアル通信設定を使うため、<a href="https://github.com/Leafony/platformio-LEAFONY_AP03">Leafony配布のボード定義</a>を配置します。PlatformIOに登録されている<code dir="auto">Leafony Systems AP03</code>とは定義が異なるため、ここでは配布ファイルを使います。</p>
+<p>ボード定義には、<a href="https://github.com/Leafony/platformio-LEAFONY_AP03">Leafony配布のファイル</a>を使います。この定義には、AP03用のピン配置とシリアル通信設定が含まれています。PlatformIOに登録されている<code dir="auto">Leafony Systems AP03</code>とは内容が異なります。</p>
 <ol>
-<li>保存先に<code dir="auto">STM32_Hello_World_Pjt</code>という空のフォルダーを作り、VS Codeの<strong>ファイル → フォルダーを開く</strong>で開きます。</li>
-<li><a href="https://github.com/Leafony/platformio-LEAFONY_AP03">ボード定義のリポジトリ</a>で<strong>Code → Download ZIP</strong>を選び、ダウンロードしたZIPを展開します。</li>
-<li>プロジェクトの直下に<code dir="auto">boards</code>、<code dir="auto">variants</code>、<code dir="auto">src</code>フォルダーを作ります。<code dir="auto">variants</code>の中には<code dir="auto">STM32L4xx</code>フォルダーを作ります。</li>
-<li>展開したフォルダー直下の<code dir="auto">LEAFONY_AP03.json</code>を<code dir="auto">boards</code>に、<code dir="auto">LEAFONY_AP03</code>フォルダー全体を<code dir="auto">variants/STM32L4xx</code>にコピーします。ファイル名・フォルダー名の大文字と小文字も合わせてください。</li>
-<li>プロジェクトの直下に<code dir="auto">platformio.ini</code>、<code dir="auto">src</code>の中に<code dir="auto">main.cpp</code>を作ります。内容は次の手順で記述します。</li>
+<li>
+<p><strong>プロジェクトフォルダーの作成</strong></p>
+<p>保存先に<code dir="auto">STM32_Hello_World_Pjt</code>という空のフォルダーを作ります。VS Codeの<strong>ファイル → フォルダーを開く</strong>で、このフォルダーを開きます。</p>
+</li>
+<li>
+<p><strong>ボード定義のダウンロード</strong></p>
+<p><a href="https://github.com/Leafony/platformio-LEAFONY_AP03">ボード定義のリポジトリ</a>で<strong>Code → Download ZIP</strong>を選びます。ダウンロードしたZIPを展開します。</p>
+</li>
+<li>
+<p><strong>配置先フォルダーの作成</strong></p>
+<p>プロジェクトの直下に<code dir="auto">boards</code>、<code dir="auto">variants</code>、<code dir="auto">src</code>を作ります。<code dir="auto">variants</code>の中には<code dir="auto">STM32L4xx</code>を作ります。</p>
+</li>
+<li>
+<p><strong>ボード定義のコピー</strong></p>
+<p>展開したフォルダー直下の<code dir="auto">LEAFONY_AP03.json</code>を<code dir="auto">boards</code>にコピーします。同じ場所にある<code dir="auto">LEAFONY_AP03</code>フォルダー全体を、<code dir="auto">variants/STM32L4xx</code>にコピーします。ファイル名・フォルダー名は、大文字と小文字も合わせてください。</p>
+</li>
+<li>
+<p><strong>設定ファイルとソースファイルの作成</strong></p>
+<p>プロジェクトの直下に<code dir="auto">platformio.ini</code>、<code dir="auto">src</code>の中に<code dir="auto">main.cpp</code>を作ります。内容は、この後の手順で記述します。</p>
+</li>
 </ol>
 <p>配置後の構成は次のとおりです。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">STM32_Hello_World_Pjt/</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">├── platformio.ini</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">├── boards/</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│   └── LEAFONY_AP03.json</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">├── variants/</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│   └── STM32L4xx/</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│       └── LEAFONY_AP03/</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── PeripheralPins.c</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── PinNamesVar.h</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── generic_clock.c</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── ldscript.ld</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── variant_generic.cpp</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── variant_generic.h</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           ├── variant_LEAFONY_AP03.cpp</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">│           └── variant_LEAFONY_AP03.h</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">└── src/</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#d6deeb;--1:#403f53">    </span></span><span style="--0:#d6deeb;--1:#403f53">└── main.cpp</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="STM32_Hello_World_Pjt/├── platformio.ini├── boards/│   └── LEAFONY_AP03.json├── variants/│   └── STM32L4xx/│       └── LEAFONY_AP03/│           ├── PeripheralPins.c│           ├── PinNamesVar.h│           ├── generic_clock.c│           ├── ldscript.ld│           ├── variant_generic.cpp│           ├── variant_generic.h│           ├── variant_LEAFONY_AP03.cpp│           └── variant_LEAFONY_AP03.h└── src/    └── main.cpp"><div></div></button></div></figure></div>
-<p>ボード定義は<a href="https://docs.platformio.org/en/latest/projectconf/sections/platformio/options/directory/boards_dir.html">プロジェクト内の<code dir="auto">boards</code>フォルダー</a>から読み込みます。以前の手順のように<code dir="auto">.platformio/packages</code>や<code dir="auto">.platformio/platforms</code>のファイルを上書きする作業は不要です。別のプロジェクトを作る際も、<code dir="auto">boards</code>と<code dir="auto">variants</code>をコピーして使えます。</p>
+<p>PlatformIOは、ボード定義を<a href="https://docs.platformio.org/en/latest/projectconf/sections/platformio/options/directory/boards_dir.html">プロジェクト内の<code dir="auto">boards</code>フォルダー</a>から読み込みます。<code dir="auto">.platformio/packages</code>や<code dir="auto">.platformio/platforms</code>のファイルを上書きする必要はありません。</p>
+<p>別のプロジェクトでも同じ定義を使えます。<code dir="auto">boards</code>と<code dir="auto">variants</code>をコピーし、次の<code dir="auto">platformio.ini</code>の設定を適用してください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="2-接続するシリアルポートを調べる">2. 接続するシリアルポートを調べる</h3><a class="sl-anchor-link" href="#2-接続するシリアルポートを調べる"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “2. 接続するシリアルポートを調べる”</span></a></div>
 <ol>
-<li>USBケーブルを外した状態でSTM32 MCUリーフとUSBリーフを組み立て、パソコンとUSBケーブルで接続します。<a href="/environment/stm32/arduino_ide/#%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3%E3%81%A8%E6%8E%A5%E7%B6%9A">接続例</a>も参照してください。</li>
-<li>PlatformIO Core CLIで、次のコマンドを実行します。</li>
+<li>
+<p><strong>リーフの組み立て</strong></p>
+<p>USBケーブルを外した状態で、STM32 MCUリーフとUSBリーフを組み立てます。構成は<a href="/environment/stm32/arduino_ide/#%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3%E3%81%A8%E6%8E%A5%E7%B6%9A">接続例</a>を参照してください。</p>
+</li>
+<li>
+<p><strong>パソコンへの接続</strong></p>
+<p>USBリーフとパソコンをUSBケーブルで接続します。</p>
+</li>
+<li>
+<p><strong>シリアルポート一覧の表示</strong></p>
+<p>PlatformIO Core CLIで、次のコマンドを実行します。</p>
+</li>
 </ol>
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">device</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">list</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio device list"><div></div></button></div></figure></div>
-<p>表示されたポート名を控えます。複数表示される場合は、USBケーブルを抜き差ししたときに増減するポートを確認してください。</p>
+<p>表示されたポート名を、次の書き込み設定に使います。複数ある場合は、USBケーブルの抜き差しで増減するポートが接続先です。</p>
 
 
 
@@ -192,9 +240,10 @@ URL: https://docs.leafony.com/environment/stm32/platformio/
 
 
 <table><thead><tr><th>OS</th><th>ポート名の例</th></tr></thead><tbody><tr><td>Windows</td><td><code dir="auto">COM3</code></td></tr><tr><td>macOS</td><td><code dir="auto">/dev/cu.usbserial-XXXXXXXX</code></td></tr><tr><td>Linux</td><td><code dir="auto">/dev/ttyUSB0</code></td></tr></tbody></table>
-<p>ポートが表示されない場合は、ケーブルがデータ通信に対応しているかとUSBリーフの接続を確認します。USBシリアルドライバーについては<a href="/faq/#%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%9D%E3%83%BC%E3%83%88%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84">よくある質問</a>を参照してください。Linuxのアクセス権の設定は<a href="https://docs.platformio.org/en/latest/core/installation/udev-rules.html">PlatformIO公式の案内</a>を参照してください。</p>
+<p>ポートが表示されない場合は、ケーブルのデータ通信対応とUSBリーフの接続状態を確認してください。ドライバーの確認手順は、<a href="/faq/#%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%9D%E3%83%BC%E3%83%88%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84">よくある質問</a>にあります。</p>
+<p>Linuxでは、ポートへのアクセス権も必要です。設定方法は<a href="https://docs.platformio.org/en/latest/core/installation/udev-rules.html">PlatformIO公式の案内</a>を参照してください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="3-platformioiniを設定する">3. platformio.iniを設定する</h3><a class="sl-anchor-link" href="#3-platformioiniを設定する"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “3. platformio.iniを設定する”</span></a></div>
-<p><code dir="auto">platformio.ini</code>を次の内容にします。これは<strong>Windowsでポートが<code dir="auto">COM3</code>の場合</strong>の例です。<code dir="auto">upload_port</code>と書き込みツールのパスを自分の環境に合わせて変更してください。</p>
+<p>次は、<strong>Windowsでポートが<code dir="auto">COM3</code>の場合</strong>の設定例です。<code dir="auto">platformio.ini</code>に貼り付け、<code dir="auto">upload_port</code>と書き込みツールのパスを自分の環境に合わせて変更してください。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="ini"><code><div class="ec-line"><div class="code"><span style="--0:#D6DEEB;--1:#403F53">[env:leafony_ap03]</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">platform</span><span style="--0:#D6DEEB;--1:#403F53"> = ststm32</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">board</span><span style="--0:#D6DEEB;--1:#403F53"> = LEAFONY_AP03</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">framework</span><span style="--0:#D6DEEB;--1:#403F53"> = arduino</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">board_build.variants_dir</span><span style="--0:#D6DEEB;--1:#403F53"> = variants</span></div></div><div class="ec-line"><div class="code">
 </div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">upload_protocol</span><span style="--0:#D6DEEB;--1:#403F53"> = custom</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">upload_port</span><span style="--0:#D6DEEB;--1:#403F53"> = COM3</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">upload_command</span><span style="--0:#D6DEEB;--1:#403F53"> = </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53"> -c </span><span style="--0:#C792EA;--1:#8844AE">port</span><span style="--0:#D6DEEB;--1:#403F53">=$UPLOAD_PORT </span><span style="--0:#C792EA;--1:#8844AE">br</span><span style="--0:#D6DEEB;--1:#403F53">=115200 -w </span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#ECC48D;--1:#984E4D">$SOURCE</span><span style="--0:#D9F5DD;--1:#111111">"</span><span style="--0:#D6DEEB;--1:#403F53"> 0x08000000 -v</span></div></div><div class="ec-line"><div class="code">
 </div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">monitor_port</span><span style="--0:#D6DEEB;--1:#403F53"> = ${this.upload_port}</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">monitor_speed</span><span style="--0:#D6DEEB;--1:#403F53"> = 115200</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="[env:leafony_ap03]platform = ststm32board = LEAFONY_AP03framework = arduinoboard_build.variants_dir = variantsupload_protocol = customupload_port = COM3upload_command = &#x22;C:/Program Files/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe&#x22; -c port=$UPLOAD_PORT br=115200 -w &#x22;$SOURCE&#x22; 0x08000000 -vmonitor_port = ${this.upload_port}monitor_speed = 115200"><div></div></button></div></figure></div>
@@ -240,7 +289,20 @@ URL: https://docs.leafony.com/environment/stm32/platformio/
 
 
 
-<table><thead><tr><th>設定</th><th>意味</th></tr></thead><tbody><tr><td><code dir="auto">[env:leafony_ap03]</code></td><td>ビルド環境の名前。生成ファイルの保存先にも使われます。</td></tr><tr><td><code dir="auto">board = LEAFONY_AP03</code></td><td><code dir="auto">boards/LEAFONY_AP03.json</code>を選択します。</td></tr><tr><td><code dir="auto">board_build.variants_dir</code></td><td>プロジェクト内の<code dir="auto">variants</code>からピン配置などを読み込みます。</td></tr><tr><td><code dir="auto">upload_protocol = custom</code></td><td><code dir="auto">upload_command</code>で指定した書き込みツールを使います。</td></tr><tr><td><code dir="auto">$UPLOAD_PORT</code> / <code dir="auto">$SOURCE</code></td><td>PlatformIOがポート名／生成したファームウェアのパスに置き換えます。このまま記述します。</td></tr><tr><td><code dir="auto">0x08000000</code> / <code dir="auto">-v</code></td><td>フラッシュメモリーの書き込み開始アドレス／書き込み内容の検証を指定します。</td></tr><tr><td><code dir="auto">monitor_port</code> / <code dir="auto">monitor_speed</code></td><td>書き込みと同じポートを、プログラムと同じ115200 bpsで開きます。</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>設定</th><th>意味</th></tr></thead><tbody><tr><td><code dir="auto">[env:leafony_ap03]</code></td><td>ビルド環境名（生成ファイルの保存先にも使用）</td></tr><tr><td><code dir="auto">board = LEAFONY_AP03</code></td><td>ボード定義<code dir="auto">boards/LEAFONY_AP03.json</code>の選択</td></tr><tr><td><code dir="auto">board_build.variants_dir</code></td><td>ピン配置などの読み込み元フォルダー</td></tr><tr><td><code dir="auto">upload_protocol = custom</code></td><td><code dir="auto">upload_command</code>による書き込み方法の指定</td></tr><tr><td><code dir="auto">$UPLOAD_PORT</code></td><td>PlatformIOがポート名に置き換える変数</td></tr><tr><td><code dir="auto">$SOURCE</code></td><td>PlatformIOがファームウェアのパスに置き換える変数</td></tr><tr><td><code dir="auto">0x08000000</code></td><td>フラッシュメモリーの書き込み開始アドレス</td></tr><tr><td><code dir="auto">-v</code></td><td>書き込み内容を検証するオプション</td></tr><tr><td><code dir="auto">monitor_port</code></td><td>シリアルモニターの接続先（例では書き込みと同じポート）</td></tr><tr><td><code dir="auto">monitor_speed</code></td><td>シリアルモニターの通信速度（例では115200 bps）</td></tr></tbody></table>
+<p><code dir="auto">$UPLOAD_PORT</code>と<code dir="auto">$SOURCE</code>は、設定例のまま記述してください。PlatformIOが書き込み時に置き換えます。<code dir="auto">monitor_speed</code>は、プログラムの<code dir="auto">Serial.begin()</code>と同じ値にします。</p>
 <p>コマンドの仕様は<a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/upload/upload_command.html">PlatformIOの<code dir="auto">upload_command</code></a>と<a href="https://dev.st.com/stm32cube-docs/prog/2.23.0/en/docs/markup/CubeProg_Command_Lines.html">STM32CubeProgrammerのCLIマニュアル</a>を参照してください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="4-プログラムを作成する">4. プログラムを作成する</h3><a class="sl-anchor-link" href="#4-プログラムを作成する"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “4. プログラムを作成する”</span></a></div>
 <p><code dir="auto">src/main.cpp</code>に次のコードを記述し、保存します。</p>
@@ -251,34 +313,59 @@ URL: https://docs.leafony.com/environment/stm32/platformio/
 <p>VS Code左側の<strong>PlatformIO → PROJECT TASKS → leafony_ap03 → General → Build</strong>を実行します。プロジェクトが認識されない場合は、<code dir="auto">platformio.ini</code>のあるフォルダーを開き直してください。</p>
 <p>ターミナルを使う場合は、プロジェクトのフォルダーで次を実行します。</p>
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">run</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-e</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">leafony_ap03</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio run -e leafony_ap03"><div></div></button></div></figure></div>
-<p>初回はコンパイラーやArduinoフレームワークなどをダウンロードするため、数分かかることがあります。末尾に<code dir="auto">SUCCESS</code>と表示され、次のファイルが生成されればビルド完了です。</p>
+<p>初回のビルドには、数分かかることがあります。コンパイラーやArduinoフレームワークなどをダウンロードするためです。</p>
+<p>ビルド完了の目印は、ログ末尾の<code dir="auto">SUCCESS</code>と、次のファイルの生成です。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">.pio/build/leafony_ap03/firmware.bin</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code=".pio/build/leafony_ap03/firmware.bin"><div></div></button></div></figure></div>
 <p>複数のプロジェクトやビルド環境を開いている場合は、実行対象が<code dir="auto">STM32_Hello_World_Pjt</code>の<code dir="auto">leafony_ap03</code>であることを確認してください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="6-stm32-mcuに書き込む">6. STM32 MCUに書き込む</h3><a class="sl-anchor-link" href="#6-stm32-mcuに書き込む"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “6. STM32 MCUに書き込む”</span></a></div>
 <ol>
-<li>シリアルモニターやTeleplotなど、同じポートを使うアプリを閉じます。PlatformIOのシリアルモニターは、そのターミナルで<code dir="auto">Ctrl+C</code>を押すと終了できます。</li>
-<li>STM32 MCUリーフの<strong>プログラムスイッチをProgram側</strong>に切り替えます。LEDが点灯します。</li>
-<li><strong>リセットスイッチを押します。</strong> スイッチを切り替えた後にリセットすることで、書き込みモードに入ります。</li>
-<li><strong>PROJECT TASKS → leafony_ap03 → General → Upload</strong>を実行します。ターミナルの場合は、次のコマンドを使います。</li>
+<li>
+<p><strong>シリアルポートの解放</strong></p>
+<p>シリアルモニターやTeleplotなど、同じポートを使うアプリを閉じます。PlatformIOのシリアルモニターは、そのターミナルで<code dir="auto">Ctrl+C</code>を押すと終了します。</p>
+</li>
+<li>
+<p><strong>プログラムスイッチの切り替え</strong></p>
+<p>STM32 MCUリーフのスイッチを<strong>Program側</strong>に切り替え、LEDの点灯を確認します。</p>
+</li>
+<li>
+<p><strong>書き込みモードへの移行</strong></p>
+<p><strong>リセットスイッチを押します。</strong> Program側への切り替え後にリセットすると、書き込みモードに入ります。</p>
+</li>
+<li>
+<p><strong>プログラムの書き込み</strong></p>
+<p><strong>PROJECT TASKS → leafony_ap03 → General → Upload</strong>を実行します。</p>
+</li>
 </ol>
+<p>ターミナルから書き込む場合は、手順4で次のコマンドを実行します。</p>
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">run</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-e</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">leafony_ap03</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-t</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">upload</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio run -e leafony_ap03 -t upload"><div></div></button></div></figure></div>
 <p><img alt="STM32 MCUリーフのプログラムスイッチ、リセットスイッチ、LEDの位置" loading="lazy" decoding="async" width="546" height="218" src="/_astro/ap03_tips.PPgG8Nl9_22TgBB.webp" srcset=""></p>
-<p>ログでポートへの接続、書き込み、検証が成功したことを確認します。検証成功時のメッセージは、例えば次のように表示されます。表記はツールのバージョンによって異なります。</p>
+<p>書き込みの成否は、STM32CubeProgrammerのログで確認します。ポートへの接続、書き込み、検証のすべてが成功していることを確かめてください。</p>
+<p>検証成功時のメッセージの例を示します。表記はツールのバージョンによって異なります。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">Download verified successfully</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="Download verified successfully"><div></div></button></div></figure></div>
-<p><code dir="auto">SUCCESS</code>だけでなく、STM32CubeProgrammerのログにタイムアウトや検証エラーがないことも確認してください。失敗した場合は、ポートを使うアプリを閉じ、Program側でリセットしてから再度書き込みます。</p>
+<p><code dir="auto">SUCCESS</code>が表示されても、タイムアウトや検証エラーがある場合は書き込みをやり直します。ポートを使うアプリを閉じ、Program側でリセットしてから再度Uploadしてください。</p>
 <div class="sl-heading-wrapper level-h3"><h3 id="7-hello-worldの表示を確認する">7. Hello Worldの表示を確認する</h3><a class="sl-anchor-link" href="#7-hello-worldの表示を確認する"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “7. Hello Worldの表示を確認する”</span></a></div>
 <ol>
-<li>書き込み完了後、プログラムスイッチを<strong>Run側</strong>に戻します。LEDが消灯します。</li>
-<li><strong>リセットスイッチを押して</strong>プログラムを起動します。</li>
-<li><strong>PROJECT TASKS → leafony_ap03 → General → Monitor</strong>を実行します。ターミナルの場合は、次のコマンドを使います。</li>
+<li>
+<p><strong>プログラムスイッチの切り替え</strong></p>
+<p>書き込み完了後、スイッチを<strong>Run側</strong>に戻し、LEDの消灯を確認します。</p>
+</li>
+<li>
+<p><strong>プログラムの起動</strong></p>
+<p><strong>リセットスイッチを押します。</strong></p>
+</li>
+<li>
+<p><strong>シリアルモニターの起動</strong></p>
+<p><strong>PROJECT TASKS → leafony_ap03 → General → Monitor</strong>を実行します。</p>
+</li>
 </ol>
+<p>ターミナルからシリアルモニターを開く場合は、手順3で次のコマンドを実行します。</p>
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">device</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">monitor</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#82AAFF;--1:#3B61B0">-e</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">leafony_ap03</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio device monitor -e leafony_ap03"><div></div></button></div></figure></div>
 <p>次のように1秒ごとに表示されれば完了です。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">Hello World</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">Hello World</span></div></div><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">Hello World</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="Hello WorldHello WorldHello World"><div></div></button></div></figure></div>
 <div class="sl-heading-wrapper level-h2"><h2 id="既存のサンプルを使う">既存のサンプルを使う</h2><a class="sl-anchor-link" href="#既存のサンプルを使う"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “既存のサンプルを使う”</span></a></div>
 <p><a href="https://github.com/Leafony/platformio-sample-projects/tree/main/stm32">LeafonyのPlatformIOサンプル集</a>から、使いたいサンプルを入手します。VS Codeでは、リポジトリ全体ではなく、各サンプルの<code dir="auto">platformio.ini</code>があるフォルダーを開いてください。</p>
 <p>サンプルにも、クイックスタートと同じボード定義と書き込み設定が必要です。例えば<a href="https://github.com/Leafony/platformio-sample-projects/tree/main/stm32/STM32_Hello_World_Pjt">STM32_Hello_World_Pjt</a>を使う場合は、プロジェクト内に<code dir="auto">boards</code>と<code dir="auto">variants</code>を配置し、<code dir="auto">platformio.ini</code>をこのページの設定に合わせます。既存の<code dir="auto">lib_deps</code>や<code dir="auto">build_flags</code>にはサンプル固有の設定があるため、内容を確認して引き継いでください。</p>
-<p><code dir="auto">upload_command</code>が古い<code dir="auto">Arduino15/.../STM32Tools/1.4.0/...</code>を参照している場合は、現在インストールしたSTM32CubeProgrammerのパスに置き換えます。</p>
+<p><code dir="auto">upload_command</code>が古い<code dir="auto">Arduino15/.../STM32Tools/1.4.0/...</code>を参照している場合は、現在インストールしているSTM32CubeProgrammerを直接呼び出す設定に置き換えます。</p>
 <p>既存プロジェクトのST STM32やライブラリは、次のコマンドで更新できます。実行前に<a href="#%E5%8F%A4%E3%81%84%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E6%8C%87%E5%AE%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">ライブラリの対応条件</a>を確認し、<code dir="auto">platformio.ini</code>のバージョン指定を調整してください。その後、プロジェクトのフォルダーでコマンドを実行します。</p>
 <div class="expressive-code"><figure class="frame is-terminal not-content"><figcaption class="header"><span class="title"></span><span class="sr-only">Terminal window</span></figcaption><pre data-language="sh"><code><div class="ec-line"><div class="code"><span style="--0:#82AAFF;--1:#3B61B0">pio</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">pkg</span><span style="--0:#D6DEEB;--1:#403F53"> </span><span style="--0:#ECC48D;--1:#3B61B0">update</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="pio pkg update"><div></div></button></div></figure></div>
 <p>依存パッケージは、<code dir="auto">platformio.ini</code>で指定したバージョンの範囲内で更新されます。詳しくは<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html"><code dir="auto">pio pkg update</code>の公式説明</a>を参照してください。</p>
@@ -331,7 +418,7 @@ URL: https://docs.leafony.com/environment/stm32/platformio/
 
 <table><thead><tr><th>リーフ・機能</th><th>ライブラリ</th></tr></thead><tbody><tr><td>BLE</td><td><a href="https://github.com/Leafony/TBGLib">TBGLib</a></td></tr><tr><td>4-Sensors</td><td><a href="https://github.com/adafruit/Adafruit_Sensor">Adafruit Unified Sensor</a>、<a href="https://github.com/adafruit/Adafruit_BusIO">Adafruit BusIO</a>、<a href="https://github.com/ameltech/sme-hts221-library">HTS221</a>、<a href="https://registry.platformio.org/libraries/closedcube/ClosedCube%20OPT3001">ClosedCube OPT3001</a>、<a href="https://github.com/adafruit/Adafruit_LIS3DH">Adafruit LIS3DH</a></td></tr><tr><td>LCD</td><td><a href="https://github.com/tomozh/arduino_ST7032">ST7032</a></td></tr><tr><td>RTC &#x26; microSDのRTC</td><td><a href="https://github.com/adafruit/RTClib">RTClib</a></td></tr><tr><td>STM32内蔵RTC・低消費電力</td><td><a href="https://github.com/stm32duino/STM32RTC">STM32duino RTC</a>、<a href="https://github.com/stm32duino/STM32LowPower">STM32duino Low Power</a></td></tr><tr><td>LTE-M</td><td><a href="https://github.com/Leafony/LteLeafV4">LteLeafV4</a></td></tr><tr><td>Wi-Fi</td><td><a href="https://github.com/Leafony/WiFi101Leafony">WiFi101Leafony</a></td></tr><tr><td>LoRa・署名通信</td><td><a href="https://github.com/Leafony/arduino-LoRa">arduino-LoRa</a>、<a href="https://github.com/Leafony/arduino-tca9536">arduino-tca9536</a>、<a href="https://github.com/sparkfun/SparkFun_ATECCX08a_Arduino_Library">SparkFun ATECCX08a</a></td></tr></tbody></table>
 <div class="sl-heading-wrapper level-h3"><h3 id="古いサンプルのライブラリ指定について">古いサンプルのライブラリ指定について</h3><a class="sl-anchor-link" href="#古いサンプルのライブラリ指定について"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentcolor" d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 0 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 1 0-1.42-1.42Zm8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 0 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 1 0 1.42 1.42l3.88-3.89a4.49 4.49 0 0 0 0-6.33ZM8.83 15.17a1 1 0 0 0 1.1.22 1 1 0 0 0 .32-.22l4.92-4.92a1 1 0 0 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42Z"></path></svg></span><span class="sr-only" data-pagefind-ignore="">Section titled “古いサンプルのライブラリ指定について”</span></a></div>
-<p>STM32RTCとSTM32LowPowerは、使用するSTM32 Arduino Coreに対応したバージョンを選びます。<a href="https://github.com/platformio/platform-ststm32/releases/tag/v20.0.0">ST STM32 20.0.0</a>では、Coreが3.0.0に更新されました。</p>
+<p>ライブラリは、使用するArduinoフレームワークに対応したバージョンを選びます。<a href="https://github.com/platformio/platform-ststm32/releases/tag/v20.0.0">ST STM32 20.0.0</a>では、STM32 Arduino Coreが3.0.0に更新されました。</p>
 <p><a href="https://github.com/stm32duino/STM32RTC#requirement">STM32RTCの要件</a>と<a href="https://github.com/stm32duino/STM32LowPower#requirement">STM32LowPowerの要件</a>に従い、Core 3.xでは両ライブラリの2.xを使います。</p>
 <div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="ini"><code><div class="ec-line"><div class="code"><span style="--0:#919F9F;--1:#5F636F">; STM32 Arduino Core 3.xでRTC・低消費電力機能を使う場合</span></div></div><div class="ec-line"><div class="code"><span style="--0:#C792EA;--1:#8844AE">lib_deps</span><span style="--0:#D6DEEB;--1:#403F53"> =</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">stm32duino/STM32duino RTC@^2.0.0</span></div></div><div class="ec-line"><div class="code"><span class="indent"><span style="--0:#D6DEEB;--1:#403F53">    </span></span><span style="--0:#D6DEEB;--1:#403F53">stm32duino/STM32duino Low Power@^2.0.0</span></div></div></code></pre><div class="copy"><div aria-live="polite"></div><button title="Copy to clipboard" data-copied="Copied!" data-code="; STM32 Arduino Core 3.xでRTC・低消費電力機能を使う場合lib_deps =    stm32duino/STM32duino RTC@^2.0.0    stm32duino/STM32duino Low Power@^2.0.0"><div></div></button></div></figure></div>
 <p>Core 2.xを使う既存プロジェクトでは、両ライブラリの1.xを使います。古いサンプルに<code dir="auto">@1.2.0</code>などの指定がある場合も、各ライブラリのREADMEでCoreとの対応条件を確認してください。</p>
