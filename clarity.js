@@ -29,6 +29,7 @@
   let inserted = false;
   let stopped = false;
   let unloading = false;
+  let cookieBlocked = false;
   let script;
   const consent = () => ({ analytics_Storage: choice === 'granted' ? 'granted' : 'denied', ad_Storage: 'denied' });
   const safeUrl = (value, referrer = false) => {
@@ -41,14 +42,17 @@
     } catch { return false; }
   };
   function clearCookies() {
-    if (location.origin !== 'https://docs.leafony.com') return;
+    if (location.origin !== 'https://docs.leafony.com') return true;
+    let cleared = true;
     // The SDK writes Path=/ on .leafony.com, with current-host fallback.
     for (const name of ['_clck', '_clsk']) {
       for (const domain of ['', '; Domain=docs.leafony.com', '; Domain=leafony.com']) {
         try { document.cookie = `${name}=; Max-Age=0; Path=/${domain}; SameSite=Lax; Secure`; }
-        catch { /* A browser that blocks cookie access must not block the stop action. */ }
+        catch { cleared = false; }
       }
     }
+    try { return cleared && !document.cookie.split(';').some(value => /^(?:_clck|_clsk)=.+/.test(value.trim())); }
+    catch { return false; }
   }
   function stop() {
     stopped = true;
@@ -80,6 +84,8 @@
     if (!document.querySelector('link[rel="canonical"]')) return;
     if (stopped || unloading || storageFailed || choice === 'denied' || choice === 'unavailable' || restricted() ||
       !safeUrl(location.href) || (document.referrer && !safeUrl(document.referrer, true))) return;
+    // A readable old cookie grant overrides project track:false inside the SDK.
+    if (choice !== 'granted' && !clearCookies()) { cookieBlocked = true; stop(); update(); return; }
     // A later explicit cookie choice must update an already running cookieless SDK.
     if (active) { window.clarity('consentv2', consent()); return; }
     // Do not install a second tag or take ownership of another integration.
@@ -103,6 +109,8 @@
   function update() {
     status.textContent = storageFailed
       ? (english ? 'Your choice could not be saved or read. Clarity is stopped on this page.' : '設定を保存または読み取れないため、このページのClarityは停止中です。')
+      : cookieBlocked
+        ? (english ? 'Clarity is stopped on this page because existing analytics cookies could not be cleared.' : '既存の解析Cookieを削除できないため、このページのClarityは停止中です。')
       : restricted()
         ? (english ? 'Clarity is off because of your browser privacy preference.' : 'ブラウザーのプライバシー設定によりClarityは停止中です。')
         : choice === 'denied' || choice === 'unavailable'
