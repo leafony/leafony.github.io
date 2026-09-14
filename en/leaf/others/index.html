@@ -96,7 +96,7 @@ Page: Others
 
 URL: https://docs.leafony.com/en/leaf/others/</textarea> </div> </details> </div> </leafony-ai-help> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const s=async n=>{try{await navigator.clipboard.writeText(t.value),o.textContent=n}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{s(this.dataset.copied??"")}}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script> </div> </div> <div class="content-panel astro-7nkwcw3z"> <div class="sl-container astro-7nkwcw3z"> <div class="sl-markdown-content"> <p>Program leaves over USB, read the time, save data, or assemble and protect a leaf stack. Choose an item below for its specifications and technical documents.</p>
 <ul>
-<li><a href="/en/leaf/others/az01/">AZ01 USB</a> — Upload sketches to an AVR MCU, use a serial monitor, and supply power over USB.</li>
+<li><a href="/en/leaf/others/az01/">AZ01 USB</a> — Upload sketches to an AVR MCU, use a serial monitor, and supply power over USB. Its successor is <a href="/en/leaf/others/az01c/">AZ01C USB-C</a>; uploading to AP01 through AZ01C requires a manual reset.</li>
 <li><a href="/en/leaf/others/az02/">AZ02 RTC&#x26;microSD</a> — Read the date and time, and save or read data on a microSD card.</li>
 <li><a href="/en/leaf/others/az61/">AZ61 Connector</a> — Electrically connect signal and power lines between stacked leaves.</li>
 <li><a href="/en/leaf/others/az62/">AZ62 Connector Cover</a> — Protect the connector from dust and debris.</li>
