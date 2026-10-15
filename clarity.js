@@ -37,7 +37,7 @@
       const url = new URL(value, location.href);
       if (!['http:', 'https:'].includes(url.protocol) || url.search) return false;
       if (referrer) return !url.hash && !/%40|@/i.test(url.pathname);
-      if (url.origin !== 'https://docs.leafony.com' || /\/(contacts|privacy)(\/|$)/.test(decodeURIComponent(url.pathname))) return false;
+      if (url.origin !== 'https://docs.leafony.com' || /\/(contacts|privacy|questions\/ask)(\/|$)/.test(decodeURIComponent(url.pathname))) return false;
       return !url.hash || Boolean(document.getElementById(decodeURIComponent(url.hash.slice(1))));
     } catch { return false; }
   };
