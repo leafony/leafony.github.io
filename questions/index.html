@@ -179,7 +179,7 @@
 <li>すべての電源を外してから接続します。まずはMCU・電源・必要な接続リーフと、外部センサー1台の構成で試します。</li>
 <li>使用するMCUに対応したセンサーの最小読み取りサンプルを動かし、シリアル出力などで値を確認します。</li>
 <li>値を読めたら、ほかのリーフや処理を一つずつ追加します。I2Cセンサーが追加後に読めなくなった場合は、<a href="/questions/i2c-address-conflict/">I2Cアドレスの重複と接続の確認</a>を参照してください。</li>
-</ol></div><div class="answer-footer" data-pagefind-ignore><a href="#lq-0002" data-permalink><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true" focusable="false"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg>この回答へのリンク</a> <a href="/questions/external-sensors/">技術資料として開く<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow" aria-hidden="true" focusable="false"> <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path> </svg></a><span>確認日 <time datetime="2026-10-16">2026-10-16</time></span> </div></div></details> </article><article class="question-row" id="lq-0003" data-category="sensors" data-models="[&quot;AI01&quot;,&quot;AI02&quot;,&quot;AI03&quot;,&quot;AI05&quot;]" data-technologies="[]" data-search="lq-0003 どんなセンサーがありますか？ 温湿度・照度・加速度・気圧・赤外線・マイクなどがあります。標準搭載と追加実装を区別して紹介します。 温度・湿度・照度・加速度・気圧など、測りたいものに合わせてセンサーリーフを選べます。 
+</ol></div><div class="answer-footer" data-pagefind-ignore><a href="#lq-0002" data-permalink><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true" focusable="false"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg>この回答へのリンク</a> <a href="/questions/external-sensors/">技術資料として開く<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow" aria-hidden="true" focusable="false"> <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path> </svg></a><span>確認日 <time datetime="2026-10-16">2026-10-16</time></span> </div></div></details> </article><article class="question-row" id="lq-0003" data-category="sensors" data-models="[&quot;AI01&quot;,&quot;AI02&quot;,&quot;AI03&quot;,&quot;AI05&quot;]" data-technologies="[]" data-search="lq-0003 どんなセンサーがありますか？ AI01・AI05の温湿度・照度・加速度・気圧などを紹介します。販売終了のAI02・AI03と、追加実装のセンサーを区別して説明します。 温度・湿度・照度・加速度・気圧など、測りたいものに合わせてセンサーリーフを選べます。 
 
 
 
@@ -197,18 +197,30 @@
 
 
 
-
-
-
-
-
-
-
-
- リーフ 標準で扱えるもの AI01 4-Sensors 温度・湿度・照度・加速度 AI05 Env Sensors 温度・湿度・気圧（BME280）、加速度（LIS2DW12） AI02 SP&amp;PIR 赤外線センサーによる人の接近検知。スピーカーも搭載 AI03 MIC&amp;VR&amp;LED マイクによる音の入力。ボリュームとLEDも搭載 
+ リーフ 標準で扱えるもの AI01 4-Sensors 温度・湿度・照度・加速度 AI05 Env Sensors 温度・湿度・気圧（BME280）、加速度（LIS2DW12） 
  AI05には、SHT40・SGP40・BME680を追加実装するための場所もあります。これらは標準では未実装なので、ガスや空気質の測定を考えている場合は、追加実装を含めた構成で検討します。 
+ 販売終了のリーフ 
+ AI02・AI03は販売終了品です。  以下は、すでにお持ちの方向けの参考情報です。 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ リーフ 標準で扱えるもの AI02 SP&amp;PIR （ 販売終了 ） 赤外線センサーによる人の接近検知。スピーカーも搭載 AI03 MIC&amp;VR&amp;LED （ 販売終了 ） マイクによる音の入力。ボリュームとLEDも搭載 
  人の接近検知では設置場所や検知範囲、音の測定ではマイクの感度や処理方法も関係します。マイクのサンプルは音の変化を試す入り口として使えます。校正済みの騒音計として使いたい場合は、精度や校正の検討も必要です。 
- ほかの測定対象には、 外部センサーの接続 という方法もあります。測りたいもの・範囲・頻度・必要な精度が分かれば、候補を絞りやすくなります。 センサー選び AI01 AI02 AI03 AI05 センサ センサー 温度 湿度 照度 加速度 気圧 sensor temperature">  <details><summary><div class="question-heading"><div class="badges"><span>センサー選び</span><span class="model">AI01</span><span class="model">AI02</span><span class="model">AI03</span><span class="model">AI05</span></div> <h2>どんなセンサーがありますか？</h2><p class="row-description">温湿度・照度・加速度・気圧・赤外線・マイクなどがあります。標準搭載と追加実装を区別して紹介します。</p></div><span class="disclosure"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron" aria-hidden="true" focusable="false"> <path d="m9 18 6-6-6-6"></path> </svg></span> </summary><div class="answer"><div><p>温度・湿度・照度・加速度・気圧など、測りたいものに合わせてセンサーリーフを選べます。</p>
+ 新しく人の接近検知や音の入力を使いたい場合や、ほかの測定対象には、 外部センサーの接続 という方法もあります。測りたいもの・範囲・頻度・必要な精度が分かれば、候補を絞りやすくなります。 センサー選び AI01 AI02 AI03 AI05 センサ センサー 温度 湿度 照度 加速度 気圧 sensor temperature 販売終了 旧製品 discontinued">  <details><summary><div class="question-heading"><div class="badges"><span>センサー選び</span><span class="model">AI01</span><span class="model">AI02</span><span class="model">AI03</span><span class="model">AI05</span></div> <h2>どんなセンサーがありますか？</h2><p class="row-description">AI01・AI05の温湿度・照度・加速度・気圧などを紹介します。販売終了のAI02・AI03と、追加実装のセンサーを区別して説明します。</p></div><span class="disclosure"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron" aria-hidden="true" focusable="false"> <path d="m9 18 6-6-6-6"></path> </svg></span> </summary><div class="answer"><div><p>温度・湿度・照度・加速度・気圧など、測りたいものに合わせてセンサーリーフを選べます。</p>
 
 
 
@@ -226,18 +238,30 @@
 
 
 
-
-
-
-
-
-
-
-
-<table><thead><tr><th>リーフ</th><th>標準で扱えるもの</th></tr></thead><tbody><tr><td><a href="/leaf/io/ai01/">AI01 4-Sensors</a></td><td>温度・湿度・照度・加速度</td></tr><tr><td><a href="/leaf/io/ai05/">AI05 Env Sensors</a></td><td>温度・湿度・気圧（BME280）、加速度（LIS2DW12）</td></tr><tr><td><a href="/leaf/io/ai02/">AI02 SP&amp;PIR</a></td><td>赤外線センサーによる人の接近検知。スピーカーも搭載</td></tr><tr><td><a href="/leaf/io/ai03/">AI03 MIC&amp;VR&amp;LED</a></td><td>マイクによる音の入力。ボリュームとLEDも搭載</td></tr></tbody></table>
+<table><thead><tr><th>リーフ</th><th>標準で扱えるもの</th></tr></thead><tbody><tr><td><a href="/leaf/io/ai01/">AI01 4-Sensors</a></td><td>温度・湿度・照度・加速度</td></tr><tr><td><a href="/leaf/io/ai05/">AI05 Env Sensors</a></td><td>温度・湿度・気圧（BME280）、加速度（LIS2DW12）</td></tr></tbody></table>
 <p>AI05には、SHT40・SGP40・BME680を追加実装するための場所もあります。これらは標準では未実装なので、ガスや空気質の測定を考えている場合は、追加実装を含めた構成で検討します。</p>
+<h3 id="lq-0003-販売終了のリーフ">販売終了のリーフ</h3>
+<p><strong>AI02・AI03は販売終了品です。</strong> 以下は、すでにお持ちの方向けの参考情報です。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>リーフ</th><th>標準で扱えるもの</th></tr></thead><tbody><tr><td><a href="/leaf/io/ai02/">AI02 SP&amp;PIR</a>（<strong>販売終了</strong>）</td><td>赤外線センサーによる人の接近検知。スピーカーも搭載</td></tr><tr><td><a href="/leaf/io/ai03/">AI03 MIC&amp;VR&amp;LED</a>（<strong>販売終了</strong>）</td><td>マイクによる音の入力。ボリュームとLEDも搭載</td></tr></tbody></table>
 <p>人の接近検知では設置場所や検知範囲、音の測定ではマイクの感度や処理方法も関係します。マイクのサンプルは音の変化を試す入り口として使えます。校正済みの騒音計として使いたい場合は、精度や校正の検討も必要です。</p>
-<p>ほかの測定対象には、<a href="/questions/external-sensors/">外部センサーの接続</a>という方法もあります。測りたいもの・範囲・頻度・必要な精度が分かれば、候補を絞りやすくなります。</p></div><div class="answer-footer" data-pagefind-ignore><a href="#lq-0003" data-permalink><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true" focusable="false"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg>この回答へのリンク</a> <a href="/questions/sensor-options/">技術資料として開く<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow" aria-hidden="true" focusable="false"> <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path> </svg></a><span>確認日 <time datetime="2026-10-15">2026-10-15</time></span> </div></div></details> </article><article class="question-row" id="lq-0004" data-category="purchase" data-models="[]" data-technologies="[]" data-search="lq-0004 Leafonyはどこで買えますか？ Leafony Shopでキットやリーフを購入できます。在庫・価格・納期は各商品ページでご案内しています。 Leafony Shop で、キットやリーフを購入できます。 
+<p>新しく人の接近検知や音の入力を使いたい場合や、ほかの測定対象には、<a href="/questions/external-sensors/">外部センサーの接続</a>という方法もあります。測りたいもの・範囲・頻度・必要な精度が分かれば、候補を絞りやすくなります。</p></div><div class="answer-footer" data-pagefind-ignore><a href="#lq-0003" data-permalink><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true" focusable="false"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg>この回答へのリンク</a> <a href="/questions/sensor-options/">技術資料として開く<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow" aria-hidden="true" focusable="false"> <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path> </svg></a><span>確認日 <time datetime="2026-10-16">2026-10-16</time></span> </div></div></details> </article><article class="question-row" id="lq-0004" data-category="purchase" data-models="[]" data-technologies="[]" data-search="lq-0004 Leafonyはどこで買えますか？ Leafony Shopでキットやリーフを購入できます。在庫・価格・納期は各商品ページでご案内しています。 Leafony Shop で、キットやリーフを購入できます。 
  はじめて使う方は、 製品一覧 でキットの内容を見てから、ショップの商品ページへ進むと選びやすくなります。 
  価格・在庫・納期の最新情報は、各商品ページでご案内しています。資料が残っている製品の中には、生産終了や販売準備中のものもあります。 
  通常の購入は、商品ページで商品と数量を選び、カートから購入手続きへ進めます。組み合わせを選ぶ際は、 リーフの組み合わせ・電源の選び方 と サンプル一覧 で対象構成を確認できます。 
