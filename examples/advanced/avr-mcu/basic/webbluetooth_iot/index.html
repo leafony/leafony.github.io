@@ -132,10 +132,11 @@ Arduino IDE 1.8.7、Arduino AVR Boards 1.6.23で動作検証済み。<sup><a hre
 <ol>
 <li>Arduino IDEで<a href="https://github.com/Leafony/Sample-Sketches/tree/master/4-Sensors_BLE" target="_blank" rel="noopener noreferrer">4-Sensors_BLE.ino</a>を書き込む。Arduino IDE 1.8.7、Arduino AVR Boards 1.6.23で動作検証済み。<sup><a href="#user-content-fn-6" id="user-content-fnref-6-2" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup></li>
 <li>ダウンロードした<a href="https://github.com/Leafony/WebBluetooth_for_Leafony_app" target="_blank" rel="noopener noreferrer">Web Bluetooth アプリ</a>の<code>index.html</code>をGoogle Chromeで開く。<br>
-Webアプリの使い方の詳細は<a href="/getting-started/basic">Basic Kit クイックスタートガイド</a>を参考</li>
+Webアプリの使い方は<a href="/getting-started/basic/">出荷時のAVRデモのガイド</a>を参照してください。現在の画面では <strong>Leafonyに接続する</strong> を押し、端末側の接続画面で <strong>Leafony_AC02</strong> を選んでペア設定を行います。</li>
 </ol>
 <br>
-<p><img alt="basic_android" loading="lazy" decoding="async" width="839" height="497" src="/_astro/basic_android.GeYwvUYg_Zp5l9o.webp" srcset=""></p>
+<p><img alt="従来のWebアプリで測定値を表示した画面例" loading="lazy" decoding="async" width="839" height="497" src="/_astro/basic_android.GeYwvUYg_Zp5l9o.webp" srcset=""></p>
+<p>従来の画面例です。現在のアプリの接続ボタンは <strong>Leafonyに接続する</strong> です。</p>
 <h2 id="データの送信">データの送信</h2>
 <p>BLEでデータを送受信する方法を見てみましょう。</p>
 <h3 id="leafony側">Leafony側</h3>
@@ -185,7 +186,7 @@ BLEで受信したデータは<code>event.target.value</code>に含まれてい�
 <span class="line"><span style="color:#E1E4E8">    }</span></span></code></pre>
 <h2 id="データの受信">データの受信</h2>
 <h3 id="webアプリ側-1">Webアプリ側</h3>
-<p>Webアプリの画面で「LED+」「LED-」ボタンを押すと、LeafonyのLEDの点滅スピードを変えることができます。<br>
+<p>Webアプリの <strong>LEDの調整・データの保存</strong> を開き、<strong>点滅をゆっくりに</strong>・<strong>点滅を速くする</strong> を押すと、LeafonyのLEDの点滅スピードを変えられます。<br>
 ボタン押された時の処理は<code>app.js</code>の下記の部分に記述されています。</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">buttonLedPls.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8"> ( </span><span style="color:#9ECBFF">'click'</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">function</span><span style="color:#E1E4E8"> () {</span></span>
 <span class="line"></span>

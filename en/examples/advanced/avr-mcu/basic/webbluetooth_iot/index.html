@@ -125,10 +125,11 @@ In this sample application, one way to do this is to <strong>use a web browser</
 <ol>
 <li>Write <a href="https://github.com/Leafony/Sample-Sketches/tree/master/4-Sensors_BLE">4-Sensors_BLE.ino</a> in Arduino IDE.</li>
 <li>Open the downloaded <code>index.html</code> of <a href="https://github.com/Leafony/WebBluetooth_for_Leafony_app">Web Bluetooth App</a> with Google Chrome.<br>
-For details on how to use the web app, refer to the <a href="/en/getting-started/basic">Basic Kit Getting Started Guide</a>.</li>
+For details, see the <a href="/en/getting-started/basic/">preinstalled AVR demo guide</a>. In the current interface, select <strong>Leafonyに接続する</strong> (Connect to Leafony), choose <strong>Leafony_AC02</strong> in your device’s pairing dialog, and pair.</li>
 </ol>
 <br>
-<p><img alt="basic_android" loading="lazy" decoding="async" width="839" height="497" src="/_astro/basic_android.GeYwvUYg_Zp5l9o.webp" srcset=""></p>
+<p><img alt="Sensor readings in the previous web app interface" loading="lazy" decoding="async" width="839" height="497" src="/_astro/basic_android.GeYwvUYg_Zp5l9o.webp" srcset=""></p>
+<p>This is an example of the previous interface. The current connection button is <strong>Leafonyに接続する</strong> (Connect to Leafony).</p>
 <h2 id="sending-data">Sending data</h2>
 <p>Let’s see how to send and receive data with BLE.</p>
 <h3 id="leafony-side">Leafony side</h3>
@@ -177,7 +178,7 @@ These data are stored in a variable called <code>state</code> with an arbitrary 
 <span class="line"><span style="color:#E1E4E8">    }</span></span></code></pre>
 <h2 id="receiving-data">Receiving data</h2>
 <h3 id="web-app-side-1">Web app side</h3>
-<p>By pressing the “LED+” and “LED-” buttons on the web app screen, you can change the blinking speed of Leafony’s LEDs. <br>
+<p>Open <strong>LEDの調整・データの保存</strong> (LED settings and data export) and select <strong>点滅をゆっくりに</strong> (Blink slower) or <strong>点滅を速くする</strong> (Blink faster) to change Leafony’s LED blink speed. <br>
 The process for when the buttons are pressed is described in the following part of <code>app.js</code>.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">buttonLedPls.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8"> ( </span><span style="color:#9ECBFF">'click'</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">function</span><span style="color:#E1E4E8"> () {</span></span>
 <span class="line"></span>

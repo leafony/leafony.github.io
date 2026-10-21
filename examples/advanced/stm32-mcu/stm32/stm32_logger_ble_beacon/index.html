@@ -125,16 +125,16 @@ STM32リーフとBLEリーフを使った、センサデータのログ機能付
 <p>Google Chromeで<a href="https://docs.leafony.com/Sample-Sketches/STM32_Logger_Beacon/sample_web_app/lescan/" target="_blank" rel="noopener noreferrer">STM32 Sensors Logger Webアプリケーション</a>を開いてださい。</p>
 </li>
 <li>
-<p><code>Start Scanning</code>ボタンを押すと、Bluetooth利用許可を求めるポップアップウィンドウ表示されます。<code>許可</code>を押すとBeaconの電波の受信を開始します。<br>
-Leafonyから発されるBeaconの電波を受信すると、画面の温度/電池電圧/受信時刻表示が更新されます。</p>
+<p>Leafonyを振って接続待ちにし、画面の <strong>接続する</strong> を押して <strong>Leaf_A</strong>（初期名）を選びます。接続すると本体の時刻が設定されます。</p>
 </li>
 <li>
-<p><code>Connect</code>ボタンを押すとLeafonyに接続され、数秒ほど待つとFlashメモリに保存されていた過去の測定データを受信し、画面上のグラフが更新されます。</p>
+<p>接続中に <strong>間隔を確認する</strong> を押して測定間隔を確認し、<strong>切断して記録を始める</strong> を押します。電源を入れたまま、測定間隔以上の時間を待ちます。</p>
 </li>
 <li>
-<p>受信完了後は<code>Disconnect</code>ボタンを押しLeafonyと切断すると、Leafonyは再度Beaconモードに移行し、センサ情報の記録を再開します。</p>
+<p>Leafonyを振って再接続し、<strong>記録を読み取る（Get Data）</strong> を押します。記録を受信するとグラフが表示され、読み取り終了後はアプリが自動で切断します。</p>
 </li>
 </ol>
+<p>詳しい手順とブラウザの条件は、<a href="/getting-started/basic2/">STM32デモのガイド</a>を確認してください。ビーコン受信は任意です。試す場合は <strong>ビーコンをスキャンする</strong> を開き、<strong>スキャンする</strong> を押します。</p>
 <h2 id="動作解説">動作解説</h2>
 <h3 id="回路全体のブロック図">回路全体のブロック図</h3>
 <p>本サンプルコードで利用する回路は下図のとおりです。</p>
