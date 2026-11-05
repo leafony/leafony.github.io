@@ -190,21 +190,21 @@ URL: https://docs.leafony.com/leaf/communication/ac09/
 <table><thead><tr><th align="left">JP1の接続</th><th align="left">使用するアンテナ</th></tr></thead><tbody><tr><td align="left">1–2</td><td align="left">基板上のチップアンテナ（STAF 1019-085A）</td></tr><tr><td align="left">2–3</td><td align="left">CN3に接続する外部アンテナ</td></tr></tbody></table>
 <p>対応アンテナと認証条件は、確認でき次第案内します。モジュールの認証対象アンテナに関する資料は、<a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">太陽誘電の製品ページにある「Reference アンテナ一覧」</a>から確認できます（利用者登録が必要です）。</p>
 <h2 id="開発環境サンプル">開発環境・サンプル</h2>
-<p><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/tree/main/platformio/sample01">参考リポジトリのPlatformIOプロジェクト</a>には、AP03 STM32 MCUとArduinoフレームワークを使用する開発用コードが収録されています。</p>
-<p>この参考プロジェクトにはAC08向けの記述とLteLeafV4への依存が残っています。AC09の接続・受信側設定・切り分けを進める場合は、下記のGoogle スプレッドシート連携サンプルを参照してください。サンプルごとに対象構成と必要なソフトウェアを確認してください。</p>
+<p><a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio">AC09開発リポジトリのPlatformIOプロジェクト</a>には、AP03 STM32 MCUとArduinoフレームワークを使用する開発用コードが収録されています。リポジトリの閲覧条件は<a href="#%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88">ドキュメント</a>を確認してください。</p>
+<p>現行のプロジェクトは、HTTP通信を確認する<code>http_get</code>、温湿度をGoogle スプレッドシートへ記録する<code>google_sheets</code>、MQTTでThingSpeakへ送る<code>mqtt_thingspeak</code>です。温湿度を扱うプロジェクトはAI01を使用します。各プロジェクトのREADMEで対象構成と必要なソフトウェアを確認してください。</p>
 <p>ATコマンドの仕様は、<a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">太陽誘電の「AT command manual（Light Version）」</a>を参照してください（利用者登録が必要です）。</p>
 <h3 id="関連サンプル">関連サンプル</h3>
 <ul>
-<li><a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">AC09 Cat-M1 TYで温湿度データをGoogle スプレッドシートに保存</a>：4-Sensorsリーフで測定した温湿度データをCellular LPWA Cat-M1通信で10分間隔で送信し、Google スプレッドシートに記録するサンプルです。</li>
+<li><a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">AC09 Cat-M1 TYで温湿度データをGoogle スプレッドシートに保存</a>：4-Sensorsリーフで測定した温湿度データをGoogle スプレッドシートに記録します。Docsでは送信間隔を10分に設定します。GitHub開発版のひな形は30秒です。</li>
 </ul>
 <p><a href="/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kitの開発準備</a>では、AP03B＋AI05構成へ進むための差分を案内しています。AP03＋AI01用のファームウェアは、そのまま本キットへ流用できません。</p>
 <h2 id="ドキュメント">ドキュメント</h2>
 <p>設計・開発リポジトリは現在非公開です。以下のGitHub資料へのアクセスには、別途NDA（秘密保持契約）の締結が必要です。詳しくは<a href="https://shop.leafony.com/pages/contact-us">お問い合わせ</a>ください。</p>
 <ul>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty">AC09 設計・開発リポジトリ</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/tree/main/kicad/leafony_lte_m">KiCad設計データ（回路図・基板）</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/blob/main/docs/leafony-ac09-lte-m-ty-sch.pdf">回路図（リポジトリ同梱PDF）</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/blob/main/kicad/leafony_lte_m/panelized/Gerber/BOM_leafony_lte_m.xlsx">部品表（製造用BOM）</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty">AC09 設計・開発リポジトリ</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/kicad/leafony_lte_m">KiCad設計データ（回路図・基板）</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/blob/main/docs/leafony-ac09-lte-m-ty-sch.pdf">回路図（リポジトリ同梱PDF）</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/blob/main/kicad/leafony_lte_m/panelized/Gerber/BOM_leafony_lte_m.xlsx">部品表（製造用BOM）</a></li>
 <li><a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">太陽誘電 セルラーLPWA Cat-M1 製品情報</a></li>
 </ul>
 <h2 id="変更履歴">変更履歴</h2>

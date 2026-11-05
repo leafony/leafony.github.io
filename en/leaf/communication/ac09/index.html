@@ -190,21 +190,21 @@ Description / headings (excerpt): Specifications, pin assignment and development
 <table><thead><tr><th align="left">JP1 connection</th><th align="left">Antenna used</th></tr></thead><tbody><tr><td align="left">1–2</td><td align="left">Onboard chip antenna (STAF 1019-085A)</td></tr><tr><td align="left">2–3</td><td align="left">External antenna connected to CN3</td></tr></tbody></table>
 <p>Supported antennas and certification conditions will be announced once confirmed. Documents about antennas covered by the module’s certification are available under “Reference アンテナ一覧” on <a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">Taiyo Yuden’s product page (Japanese)</a>. User registration is required.</p>
 <h2 id="development-environment-and-samples">Development environment and samples</h2>
-<p>The <a href="https://github.com/leafony/leafony-ac09-lte-m-ty/tree/main/platformio/sample01">PlatformIO project in the reference repository</a> contains development code using the AP03 STM32 MCU and the Arduino framework.</p>
-<p>This reference project still contains AC08 references and a dependency on LteLeafV4. For AC09 connections, receiver setup and troubleshooting, see the Google Sheets example below. Check the target configuration and required software for each example.</p>
+<p>The <a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio">PlatformIO projects in the AC09 development repository</a> contain development code using the AP03 STM32 MCU and the Arduino framework. See <a href="#documents">Documents</a> for repository access requirements.</p>
+<p>The current projects are <code>http_get</code> for checking HTTP communication, <code>google_sheets</code> for recording temperature and humidity in Google Sheets, and <code>mqtt_thingspeak</code> for sending readings to ThingSpeak over MQTT. The temperature and humidity projects use AI01. Check each project’s README for its target configuration and required software.</p>
 <p>For AT command specifications, see the “AT command manual (Light Version)” on <a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">Taiyo Yuden’s product page (Japanese)</a>. User registration is required.</p>
 <h3 id="related-samples">Related samples</h3>
 <ul>
-<li><a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">Save temperature and humidity data to Google Sheets with AC09 Cat-M1 TY</a>: A sample for sending temperature and humidity data measured by the 4-Sensors leaf over Cellular LPWA Cat-M1 every 10 minutes and recording it in Google Sheets.</li>
+<li><a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">Save temperature and humidity data to Google Sheets with AC09 Cat-M1 TY</a>: Records 4-Sensors temperature and humidity readings in Google Sheets. The Docs guide sets the transmission interval to 10 minutes; the GitHub development template uses 30 seconds.</li>
 </ul>
 <p><a href="/en/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kit development preparation</a> explains the differences for AP03B + AI05. Firmware for AP03 + AI01 cannot be used unchanged with that kit.</p>
 <h2 id="documents">Documents</h2>
 <p>The design and development repository is currently private. Access to the following GitHub documents requires signing a separate non-disclosure agreement (NDA). Please <a href="https://shop.leafony.com/pages/contact-us">contact us (Japanese)</a> for details.</p>
 <ul>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty">AC09 design and development repository</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/tree/main/kicad/leafony_lte_m">KiCad design data (schematics and board)</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/blob/main/docs/leafony-ac09-lte-m-ty-sch.pdf">Schematic (PDF included in the repository)</a></li>
-<li><a href="https://github.com/leafony/leafony-ac09-lte-m-ty/blob/main/kicad/leafony_lte_m/panelized/Gerber/BOM_leafony_lte_m.xlsx">Bill of materials (manufacturing BOM)</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty">AC09 design and development repository</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/kicad/leafony_lte_m">KiCad design data (schematics and board)</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/blob/main/docs/leafony-ac09-lte-m-ty-sch.pdf">Schematic (PDF included in the repository)</a></li>
+<li><a href="https://github.com/leafony/ac09-cat-m1-ty/blob/main/kicad/leafony_lte_m/panelized/Gerber/BOM_leafony_lte_m.xlsx">Bill of materials (manufacturing BOM)</a></li>
 <li><a href="https://www.yuden.co.jp/jp/product/solutions/lpwa/">Taiyo Yuden cellular LPWA Cat-M1 product information (Japanese)</a></li>
 </ul>
 <h2 id="revision-history">Revision history</h2>
