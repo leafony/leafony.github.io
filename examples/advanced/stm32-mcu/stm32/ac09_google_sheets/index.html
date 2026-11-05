@@ -435,7 +435,8 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <p>このサンプルでは、応答を受け取れなかった場合に同じ測定値を自動で再POSTしません。応答だけが失われて、シートにはすでに記録されている可能性があるためです。手動で同じテストを実行すると、そのたびに新しい行が追加されます。</p>
 <h2 id="サンプルコード">サンプルコード</h2>
 <h3 id="ソースコードの入手">ソースコードの入手</h3>
-<p>STM32用プロジェクトは、AC09開発リポジトリの<code>platformio/google_sheets</code>です。VS Codeでは、このフォルダーを開きます。配布用URLは準備中です。</p>
+<p>STM32用プロジェクトは、AC09開発リポジトリの<a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio/google_sheets"><code>platformio/google_sheets</code></a>です。リポジトリは非公開で、アクセスには別途NDA（秘密保持契約）の締結が必要です。アクセス権をお持ちでない場合は、<a href="https://shop.leafony.com/pages/contact-us">Leafony Shopへお問い合わせ</a>のうえ、資料の提供条件と使用するソースの版を確認してください。</p>
+<p>アクセスできる方はリポジトリを取得し、VS Codeで<code>platformio/google_sheets</code>フォルダーを開きます。使用したコミットIDを控え、このページのAP03＋AI01構成、<code>platformio.ini</code>、設定ひな形の送信間隔と照合してください。本キットのAP03B＋AI05構成への対応状況は、<a href="/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kitの開発準備</a>を確認してください。</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>├── boards/                 # AP03のボード定義</span></span>

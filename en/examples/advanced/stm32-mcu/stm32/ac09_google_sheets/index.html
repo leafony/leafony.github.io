@@ -435,7 +435,8 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <p>This example does not automatically POST the same measurement again if it receives no response: the sheet may already contain the data even if the response was lost. Every manual repetition of the same test adds a new row.</p>
 <h2 id="sample-code">Sample code</h2>
 <h3 id="obtain-the-source">Obtain the source</h3>
-<p>The STM32 project is <code>platformio/google_sheets</code> in the AC09 development repository. Open that folder in VS Code. The distribution URL is being prepared.</p>
+<p>The STM32 project is <a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio/google_sheets"><code>platformio/google_sheets</code></a> in the AC09 development repository. The repository is private, and access requires a separate non-disclosure agreement (NDA). If you do not have access, <a href="https://shop.leafony.com/pages/contact-us">contact Leafony Shop (Japanese)</a> to check the conditions for obtaining the materials and which source revision to use.</p>
+<p>If you have access, obtain the repository and open <code>platformio/google_sheets</code> in VS Code. Record the commit ID, then compare it with this guide’s AP03 + AI01 configuration, <code>platformio.ini</code> and the transmission interval in the configuration template. See <a href="/en/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kit: prepare for development</a> for the status of support for the kit’s AP03B + AI05 configuration.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>├── boards/                 # AP03 board definition</span></span>
