@@ -75,15 +75,15 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 
 <table><thead><tr><th>OS</th><th>STM32CubeProgrammer command-line tool</th></tr></thead><tbody><tr><td>Windows</td><td><code>bin/STM32_Programmer_CLI.exe</code> under the installation folder</td></tr><tr><td>macOS</td><td><code>Contents/Resources/bin/STM32_Programmer_CLI</code> inside <code>STM32CubeProgrammer.app</code></td></tr><tr><td>Linux</td><td><code>bin/STM32_Programmer.sh</code> under the installation folder</td></tr></tbody></table>
 <p>Use a local project path with simple ASCII characters, such as <code>C:/PlatformIO/Projects</code> on Windows. Open the command terminal through <strong>PlatformIO → Quick Access → Miscellaneous → PlatformIO Core CLI</strong>. To change the default folder for new projects, run the following with your actual path and restart VS Code:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> settings</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> projects_dir</span><span style="color:#9ECBFF"> "C:/PlatformIO/Projects"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> settings</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> projects_dir</span><span style="color:#9ECBFF"> "C:/PlatformIO/Projects"</span></span></code></pre>
 <p>This does not move existing projects. See the <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_settings.html#projects-dir"><code>projects_dir</code> documentation</a>.</p>
 <p>Simple paths help avoid path-handling problems. User folders and OneDrive locations differ between computers, so check the actual destination before copying an example. On macOS and Linux, replace the quoted path with the absolute path to your chosen folder.</p>
 <h3 id="install-the-latest-st-stm32-platform">Install the latest ST STM32 platform</h3>
 <p>Install PlatformIO’s <strong>ST STM32 (<code>ststm32</code>)</strong> development platform. For AP03, use its built-in <a href="https://docs.platformio.org/en/latest/boards/ststm32/leafony_ap03.html">Leafony Systems AP03</a> board definition.</p>
 <p>Run this command in PlatformIO Core CLI. Omitting the version installs the latest stable release from PlatformIO Registry.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
 <p>If ST STM32 is already installed, update it to the latest release with:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
 <p>Packages required by the project, including the Arduino framework, are installed automatically during the first build. See <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html"><code>pio pkg install</code></a>, <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html"><code>pio pkg update</code></a>, and the <a href="https://github.com/platformio/platform-ststm32/releases">ST STM32 releases</a> for details.</p>
 <h2 id="quick-start">Quick start</h2>
 <p>Uploading replaces the program currently on the MCU. To run the kit demo again later, follow <a href="/en/faq/#restore-demo">Restore the demo</a>.</p>
@@ -92,13 +92,13 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <li>Create an empty folder named <code>STM32_Hello_World_Pjt</code> and open it with <strong>File → Open Folder</strong> in VS Code.</li>
 <li>Create <code>platformio.ini</code> and a <code>src</code> folder in the project root, then create <code>main.cpp</code> inside <code>src</code>. Their contents are provided in the steps below.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>STM32_Hello_World_Pjt/</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>STM32_Hello_World_Pjt/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>└── src/</span></span>
 <span class="line"><span>    └── main.cpp</span></span></code></pre>
 <h3 id="2-identify-the-serial-port">2. Identify the serial port</h3>
 <p>With USB disconnected, assemble the STM32 MCU and USB leaves as shown in the <a href="/en/environment/stm32/arduino_ide/#connect-to-pc">connection example</a>. Connect the USB leaf to your computer, then run:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> list</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> list</span></span></code></pre>
 <p>The connected port disappears and reappears when you unplug and reconnect the cable.</p>
 
 
@@ -125,7 +125,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>If no port appears, check the cable, leaf connections and USB driver. Refer to the <a href="/en/faq/">FAQ</a>. On Linux, also follow <a href="https://docs.platformio.org/en/latest/core/installation/udev-rules.html">PlatformIO’s serial port permissions instructions</a>.</p>
 <h3 id="3-configure-platformioini">3. Configure platformio.ini</h3>
 <p>The following example is for Windows on <code>COM3</code>. Replace the port and executable path with those on your computer.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#B392F0">[env:leafony_ap03]</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#B392F0">[env:leafony_ap03]</span></span>
 <span class="line"><span style="color:#F97583">platform</span><span style="color:#E1E4E8"> = ststm32</span></span>
 <span class="line"><span style="color:#F97583">board</span><span style="color:#E1E4E8"> = leafony_ap03</span></span>
 <span class="line"><span style="color:#F97583">framework</span><span style="color:#E1E4E8"> = arduino</span></span>
@@ -137,10 +137,10 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <span class="line"><span style="color:#F97583">monitor_port</span><span style="color:#E1E4E8"> = ${this.upload_port}</span></span>
 <span class="line"><span style="color:#F97583">monitor_speed</span><span style="color:#E1E4E8"> = 115200</span></span></code></pre>
 <p>On macOS, replace <code>upload_port</code> and <code>upload_command</code> with the following, using the actual port name:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/cu.usbserial-XXXXXXXX</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/cu.usbserial-XXXXXXXX</span></span>
 <span class="line"><span style="color:#F97583">upload_command</span><span style="color:#E1E4E8"> = </span><span style="color:#9ECBFF">"/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin/STM32_Programmer_CLI"</span><span style="color:#E1E4E8"> -c </span><span style="color:#F97583">port</span><span style="color:#E1E4E8">=$UPLOAD_PORT </span><span style="color:#F97583">br</span><span style="color:#E1E4E8">=115200 -w </span><span style="color:#9ECBFF">"$SOURCE"</span><span style="color:#E1E4E8"> 0x08000000 -v</span></span></code></pre>
 <p>On Linux, use the absolute installation path and actual serial port. This example uses the account name <code>user</code>:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/ttyUSB0</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/ttyUSB0</span></span>
 <span class="line"><span style="color:#F97583">upload_command</span><span style="color:#E1E4E8"> = </span><span style="color:#9ECBFF">"/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer.sh"</span><span style="color:#E1E4E8"> -c </span><span style="color:#F97583">port</span><span style="color:#E1E4E8">=$UPLOAD_PORT </span><span style="color:#F97583">br</span><span style="color:#E1E4E8">=115200 -w </span><span style="color:#9ECBFF">"$SOURCE"</span><span style="color:#E1E4E8"> 0x08000000 -v</span></span></code></pre>
 
 
@@ -195,7 +195,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>Leave <code>$UPLOAD_PORT</code> and <code>$SOURCE</code> unchanged. See the <a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/upload/upload_command.html">PlatformIO upload command reference</a> and <a href="https://dev.st.com/stm32cube-docs/prog/2.23.0/en/docs/markup/CubeProg_Command_Lines.html">STM32CubeProgrammer CLI manual</a>.</p>
 <h3 id="4-write-the-program">4. Write the program</h3>
 <p>Save the following as <code>src/main.cpp</code>:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -207,7 +207,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <h3 id="5-build">5. Build</h3>
 <p>Run <strong>PlatformIO → PROJECT TASKS → leafony_ap03 → General → Build</strong>, or run this command in the project folder:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 <p>The first build downloads the compiler and framework and can take several minutes. Check for <code>SUCCESS</code> at the end of the log and the generated file <code>.pio/build/leafony_ap03/firmware.bin</code>. If the project is not recognized, reopen the folder containing <code>platformio.ini</code>.</p>
 <p>If several projects or build environments are open, check that the selected target is <code>leafony_ap03</code> in <code>STM32_Hello_World_Pjt</code>.</p>
 <h3 id="6-upload-to-the-stm32-mcu">6. Upload to the STM32 MCU</h3>
@@ -217,7 +217,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <li><strong>Press Reset</strong> to enter programming mode.</li>
 <li>Run <strong>PROJECT TASKS → leafony_ap03 → General → Upload</strong>, or:</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
 <p><img src="/leaf/processor/ap03/ap03_tips.jpg" alt="STM32 MCU program switch, reset switch and LED" width="546" height="218" loading="lazy" decoding="async"></p>
 <p>Check the STM32CubeProgrammer log for successful connection, programming and verification. A verification success message may read <code>Download verified successfully</code>; wording depends on the tool version. If there is a timeout or verification error, close other port users, reset in Program mode and upload again, even if the overall log says <code>SUCCESS</code>.</p>
 <h3 id="7-check-hello-world">7. Check Hello World</h3>
@@ -226,9 +226,9 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <li><strong>Press Reset</strong> to start the program.</li>
 <li>Run <strong>PROJECT TASKS → leafony_ap03 → General → Monitor</strong>, or:</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 <p>The following output should appear once per second:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Hello World</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Hello World</span></span>
 <span class="line"><span>Hello World</span></span>
 <span class="line"><span>Hello World</span></span></code></pre>
 <h2 id="use-an-existing-sample">Use an existing sample</h2>
@@ -236,12 +236,12 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>Use the same platform, board and upload settings as in the quick start. For example, when using <a href="https://github.com/Leafony/platformio-sample-projects/tree/main/stm32/STM32_Hello_World_Pjt">STM32_Hello_World_Pjt</a>, set <code>platform = ststm32</code>, <code>board = leafony_ap03</code> and <code>framework = arduino</code> in <code>platformio.ini</code>, then configure the upload tool and port as described above. Review and preserve sample-specific <code>lib_deps</code> and <code>build_flags</code>.</p>
 <p>Replace old upload commands referencing <code>Arduino15/.../STM32Tools/1.4.0/...</code> with the path to your installed STM32CubeProgrammer.</p>
 <p>To update an existing project’s ST STM32 platform to the latest release, replace a version constraint such as <code>platform = ststm32@...</code> with <code>platform = ststm32</code>. Review <a href="#library-versions-in-older-samples">library compatibility</a> and adjust library version constraints as needed, then run the following in the project folder:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span></span></code></pre>
 <p>Dependencies are updated within the version constraints in <code>platformio.ini</code>; see the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html"><code>pio pkg update</code> reference</a>.</p>
 <h2 id="libraries">Libraries</h2>
 <p>Add libraries to <a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/library/lib_deps.html"><code>lib_deps</code></a> inside the <code>[env:...]</code> section you use. The Hello World example needs no additional libraries.</p>
 <p>If <code>lib_deps</code> already exists, append to its list. Add only the libraries needed for the leaves and functions you use.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
 <span class="line"><span style="color:#E1E4E8">    adafruit/Adafruit Unified Sensor</span></span>
 <span class="line"><span style="color:#E1E4E8">    adafruit/Adafruit BusIO</span></span>
 <span class="line"><span style="color:#E1E4E8">    https://github.com/Leafony/TBGLib</span></span></code></pre>
@@ -249,7 +249,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>See <a href="/en/environment/libraries/">Libraries and board definitions</a> for the source catalog. Check STM32 Core and library compatibility below.</p>
 <h3 id="library-versions-in-older-samples">Library versions in older samples</h3>
 <p><a href="https://github.com/platformio/platform-ststm32/releases/tag/v20.0.0">ST STM32 20.0.0</a> moved to STM32 Arduino Core 3.0.0. Follow the <a href="https://github.com/stm32duino/STM32RTC#requirement">STM32RTC requirements</a> and <a href="https://github.com/stm32duino/STM32LowPower#requirement">STM32LowPower requirements</a>: use the 2.x library lines with Core 3.x, and 1.x with Core 2.x.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#6A737D">; For STM32 Arduino Core 3.x</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#9DA5B4">; For STM32 Arduino Core 3.x</span></span>
 <span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
 <span class="line"><span style="color:#E1E4E8">    stm32duino/STM32duino RTC@^2.0.0</span></span>
 <span class="line"><span style="color:#E1E4E8">    stm32duino/STM32duino Low Power@^2.0.0</span></span></code></pre>
@@ -257,7 +257,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>Even if an older sample specifies a version such as <code>@1.2.0</code>, check each library’s README against the Arduino Core used by your project.</p>
 <h2 id="serial-plotter">Serial plotter</h2>
 <p>Install <a href="https://marketplace.visualstudio.com/items?itemName=alexnesnes.teleplot">Teleplot for VSCode</a>. Upload this example, return the switch to Run and reset:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -272,7 +272,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP03 STM32 MCU leaf 
 <p>Teleplot uses newline-terminated <code>>name:value</code> messages. <code>Serial.println()</code> supplies the newline. Close Teleplot’s port before uploading another program. See also the <a href="https://github.com/Leafony/platformio-sample-projects/tree/main/stm32/STM32_Teleplot_Example_1">STM32 Teleplot example</a>.</p>
 <h2 id="port-an-arduino-ide-sketch">Port an Arduino IDE sketch</h2>
 <p><code>src/main.cpp</code> follows normal C++ rules. Add <code>#include &#x3C;Arduino.h></code>, declare functions before use, and add required libraries to <code>lib_deps</code>.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> printMessage</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>

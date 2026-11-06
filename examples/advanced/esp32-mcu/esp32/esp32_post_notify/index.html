@@ -91,18 +91,18 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 その際，以下の箇所を適宜修正してください。</p>
 <ul>
 <li>3行目: <a href="./#line%E9%80%9A%E7%9F%A5%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E8%A8%AD%E5%AE%9A">LINE通知サービスの設定</a>の<strong>6</strong>の画面で発行されたトークンの記号列に置き換える
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> token </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "line_notify_token"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> token </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "line_notify_token"</span></span></code></pre>
 </li>
 <li>16-17行目: GoogleスプレッドシートのID
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> id </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'google_sheets_id'</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> id </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'google_sheets_id'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> sheetName </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'sheet_name'</span><span style="color:#E1E4E8">;</span></span></code></pre>
 </li>
 <li>44行目: LINEに送るテキストメッセージ
 例のように<code>+</code>でテキストと変数を連結できます。
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> lineMessage </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "ポストに投函ました</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">現在のバッテリーの電圧："</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> e.parameter.battery </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "[V]"</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> lineMessage </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "ポストに投函ました</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">現在のバッテリーの電圧："</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> e.parameter.battery </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "[V]"</span><span style="color:#E1E4E8">;</span></span></code></pre>
 </li>
 </ul>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// LINEへの送信処理</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#9DA5B4">// LINEへの送信処理</span></span>
 <span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> sendToLine</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">text</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#F97583">var</span><span style="color:#E1E4E8"> token </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "line_notify_token"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
@@ -121,15 +121,15 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> sheetName </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'sheet_name'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> result;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // e.parameter has received GET parameters, i.e. temperature, humidity, illumination</span></span>
+<span class="line"><span style="color:#9DA5B4">    // e.parameter has received GET parameters, i.e. temperature, humidity, illumination</span></span>
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (e.parameter </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> undefined</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'Parameter undefined'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> sheet </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> SpreadsheetApp.</span><span style="color:#B392F0">openById</span><span style="color:#E1E4E8">(id).</span><span style="color:#B392F0">getSheetByName</span><span style="color:#E1E4E8">(sheetName);</span></span>
-<span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRow </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;  </span><span style="color:#6A737D">// get row number to be inserted</span></span>
+<span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRow </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;  </span><span style="color:#9DA5B4">// get row number to be inserted</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> rowData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [];</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // get current time</span></span>
+<span class="line"><span style="color:#9DA5B4">        // get current time</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.UniqueID;</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.temperature;</span></span>
@@ -137,10 +137,10 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.illumination;</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.battery;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // 1 x rowData.length cells from (newRow, 1) cell are specified</span></span>
+<span class="line"><span style="color:#9DA5B4">        // 1 x rowData.length cells from (newRow, 1) cell are specified</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRange </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getRange</span><span style="color:#E1E4E8">(newRow, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, rowData.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // insert data to the target cells</span></span>
+<span class="line"><span style="color:#9DA5B4">        // insert data to the target cells</span></span>
 <span class="line"><span style="color:#E1E4E8">        newRange.</span><span style="color:#B392F0">setValues</span><span style="color:#E1E4E8">([rowData]);</span></span>
 <span class="line"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF">  'Ok'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
@@ -183,34 +183,34 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <ul>
 <li>
 <p>Wi-Fiを使ってネットに接続する場合は<code>USE_WiFi</code>を定義します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> USE_WiFi</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> USE_WiFi</span></span></code></pre>
 </li>
 <li>
 <p>接続先のWi-FiがWPA2 Personal（自宅のルーターなどで利用される認証方式。通常これ）を利用しているときは以下の変数にSSIDとパスワードを格納します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi-ssid"</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">       // WiFi SSID</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> PASSWORD </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi-pass"</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">   // WiFi Password</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi-ssid"</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">       // WiFi SSID</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> PASSWORD </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi-pass"</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">   // WiFi Password</span></span></code></pre>
 </li>
 <li>
 <p>特に、接続先のWi-Fiが大学や企業などにあり、EduroamなどのWPA2 Enterpriseを使用しているときのみ、以下を定義します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> USE_WiFi_ENTERPRISE</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> USE_WiFi_ENTERPRISE</span></span></code></pre>
 <p>Wi-Fi Enterprise用のIDやパスワードは以下に入力してください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span>
-<span class="line"><span style="color:#6A737D">// parameters for connecting eduroam enterprise</span></span>
-<span class="line"><span style="color:#6A737D">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> EAP_IDENTITY</span><span style="color:#9ECBFF"> "eap_id"</span><span style="color:#6A737D"> //if connecting from another corporation, use identity@organisation.domain in Eduroam</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> EAP_PASSWORD</span><span style="color:#9ECBFF"> "eap_pass"</span><span style="color:#6A737D"> //your Eduroam password</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID_ENT </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "eduroam"</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D"> // Eduroam SSID</span></span>
-<span class="line"><span style="color:#6A737D">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span>
+<span class="line"><span style="color:#9DA5B4">// parameters for connecting eduroam enterprise</span></span>
+<span class="line"><span style="color:#9DA5B4">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> EAP_IDENTITY</span><span style="color:#9ECBFF"> "eap_id"</span><span style="color:#9DA5B4"> //if connecting from another corporation, use identity@organisation.domain in Eduroam</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> EAP_PASSWORD</span><span style="color:#9ECBFF"> "eap_pass"</span><span style="color:#9DA5B4"> //your Eduroam password</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID_ENT </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "eduroam"</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4"> // Eduroam SSID</span></span>
+<span class="line"><span style="color:#9DA5B4">/////////////////////////////////////////////////////////////////////////////////////////////////////</span></span></code></pre>
 </li>
 </ul>
 <h3 id="接続先googleクラウドの設定">接続先Googleクラウドの設定</h3>
 <p><code>ESP32_Post_Notify.ino</code>で接続先Googleスクリプトの設定を行っています。
 <a href="./#google%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E8%A8%AD%E5%AE%9A">Googleクラウドサービスの設定</a>の<strong>3</strong>で設定したGoogle Apps Scriptの固有IDを以下の変数に格納します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> KEY </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "google_scripts_key"</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> KEY </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "google_scripts_key"</span><span style="color:#E1E4E8">;</span></span></code></pre>
 <h3 id="スリープ動作">スリープ動作</h3>
 <p>Wi-Fiに接続してデータを送った後は，EP32 MCUが<code>Deep Sleep</code>モードに入ることで待機電力を極力減らします。
 <code>Deep Sleep</code>モードに入る前にESP32 MCU内のWi-Fiモジュールの電源を切ることを忘れないでください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">WiFi.</span><span style="color:#B392F0">disconnect</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">)</span><span style="color:#6A737D"> // Wi-Fiをオフにするために，trueを明示してください</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">WiFi.</span><span style="color:#B392F0">disconnect</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">)</span><span style="color:#9DA5B4"> // Wi-Fiをオフにするために，trueを明示してください</span></span></code></pre>
 <h3 id="加速度センサlis3dhの設定">加速度センサ(LIS3DH)の設定</h3>
 <p>加速度センサ用の設定パラメータはレポジトリに上がっている<code>MyLIS3DH.cpp</code>で修正できます。
 実際に身の回りのポストに実装する場合にはパラメータを環境に合わせて設定する必要があります。
@@ -222,7 +222,7 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <p><img alt="" loading="lazy" decoding="async" width="742" height="459" src="/_astro/reg_ctrl_reg3.B_lLG_-0_Z258wG6.webp" srcset=""></p>
 <p>データシートから、<code>I1_AOI1</code>ビットを<code>1</code>に設定すると<code>INT1</code>の割り込みが有効になります。
 よって、以下のようにプログラムします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">writeRegister8</span><span style="color:#E1E4E8">(LIS3DH_REG_CTRL3, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">40</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">writeRegister8</span><span style="color:#E1E4E8">(LIS3DH_REG_CTRL3, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">40</span><span style="color:#E1E4E8">);</span></span></code></pre>
 <p>割り込み信号を生成するための条件（どのような振動の場合に割り込み信号を生成するのか、等）を設定できるのですが、今回主に設定するパラメータは以下の4つです。</p>
 <p><img alt="" loading="lazy" decoding="async" width="3640" height="1644" src="/_astro/accelerometer_setting_parameters.CgJNi4I1_Z2kCnUK.webp" srcset=""></p>
 <h4 id="閾値-threshold"><strong>閾値 (Threshold)</strong></h4>
@@ -233,16 +233,16 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <p><img alt="" loading="lazy" decoding="async" width="3929" height="1643" src="/_astro/think_threshold.bNjsfEEZ_Z14KayL.webp" srcset=""></p>
 <p>一方、加速度センサの<strong>LIS3DH</strong>はデフォルトでフルスケールが±2gの検出を行います。
 (これは<code>ESP32_PostNotify.ino</code>で設定されています。)</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">lis.</span><span style="color:#B392F0">setRange</span><span style="color:#E1E4E8">(LIS3DH_RANGE_2_G);</span><span style="color:#6A737D">   // 2, 4, 8 or 16 G!</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">lis.</span><span style="color:#B392F0">setRange</span><span style="color:#E1E4E8">(LIS3DH_RANGE_2_G);</span><span style="color:#9DA5B4">   // 2, 4, 8 or 16 G!</span></span></code></pre>
 <p>データシートによると、使用している加速度センサは軸の正（負）方向に対してそれぞれ128段階の分解能(フルスケールで8-bitの分解能)を持っています。
 0.17gが2gに対して、どのレベルなのかを128段階のレベルで表すと、</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>128 / 2g * 0.17g = 10.88</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>128 / 2g * 0.17g = 10.88</span></span></code></pre>
 <p>なので、閾値レベル<code>11</code>(16進数では<code>0x0B</code>)を設定します。
 この閾値の情報は<code>INT1THS</code>というレジスタに書き込みます。
 一応、レジスタの情報をデータシートから確認してみると、書き込める数値は0~127までだということが分かります。</p>
 <p><img alt="" loading="lazy" decoding="async" width="1374" height="483" src="/_astro/reg_int1_ths.D8rb59ee_hWcRW.webp" srcset=""></p>
 <p>プログラムでは以下のように記述します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">writeRegister8</span><span style="color:#E1E4E8">(LIS3DH_REG_INT1THS, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">0B</span><span style="color:#E1E4E8">);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#B392F0">writeRegister8</span><span style="color:#E1E4E8">(LIS3DH_REG_INT1THS, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">0B</span><span style="color:#E1E4E8">);</span></span></code></pre>
 <h4 id="検出軸-detection-axes"><strong>検出軸 (Detection Axes)</strong></h4>
 <p><a href="./#%E9%96%BE%E5%80%A4-threshold">閾値</a>の項目で考えた通り，今回は加速度の3軸のうち1つの軸のみを使って郵便物の投函を検出します。</p>
 <p><img alt="" loading="lazy" decoding="async" width="3929" height="1643" src="/_astro/think_detection_axes.Cg_CntjE_1N67v6.webp" srcset=""></p>
@@ -269,7 +269,7 @@ ESP32が立ち上がってから<code>Google Apps Script</code>にデータを�
 <li>低電力モードも使う</li>
 </ul>
 <p>よってデータシートから、レジスタはODR3からXenまで順に<code>00101100</code>と設定すればいいので以下のようにプログラムします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_CTRL1, 0x2C);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_CTRL1, 0x2C);</span></span></code></pre>
 <p><strong>INT1_CFG</strong>に関して、上のデータシートに、<code>AOI</code>と<code>6D</code>というよく分からない項目があります。
 データシートのTable 48.を見てみると、どうやら<code>AOI</code>と<code>6D</code>を使って割り込み信号を生成する方法を設定できるようです。
 ORとANDの条件は各軸それぞれに対して割り込みを発生させるときの条件として考えれば良さそうです。
@@ -289,7 +289,7 @@ ORとANDの条件は各軸それぞれに対して割り込みを発生させる
 <li>Z方向の指定した閾値を超えたときに一瞬だけ割り込み信号を生成する</li>
 </ul>
 <p>以下のようにプログラムすれば良いと分かりました。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_INT1CFG, 0x70);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_INT1CFG, 0x70);</span></span></code></pre>
 <h4 id="サンプリング周波数-sampling-rate--時間幅-duration"><strong>サンプリング周波数 (Sampling Rate)</strong> &#x26; <strong>時間幅 (Duration)</strong></h4>
 <p>サンプリング周波数と時間幅は関連しているので、一緒に説明します。はじめにそれぞれを簡単に説明します。</p>
 <ul>
@@ -302,15 +302,15 @@ ORとANDの条件は各軸それぞれに対して割り込みを発生させる
 <a href="./#%E6%A4%9C%E5%87%BA%E8%BB%B8-detection-axes">検出軸</a>の項で説明した通り、設定レジスタは<code>CTRL_REG1</code>です。
 <code>ODR0</code>-<code>ODR3</code>でサンプリング周波数を決定できます。
 再掲ですが、以下のようにプログラムします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_CTRL1, 0x2C);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_CTRL1, 0x2C);</span></span></code></pre>
 <p><img alt="" loading="lazy" decoding="async" width="3929" height="1643" src="/_astro/think_sampling_rate.Dnpiy09y_n5OI4.webp" srcset=""></p>
 <p>時間幅の設定レジスタは<code>INT1_DURATION</code>です。実際にセンサは連続時間を測っているわけではなく、サンプリング回数で時間間隔を計算しています。</p>
 <p><img alt="" loading="lazy" decoding="async" width="1599" height="618" src="/_astro/reg_int1_duration.D-a7vqXN_Z1BFn83.webp" srcset=""></p>
 <p>0.3秒以上閾値を超えるようであれば、割り込み信号を生成します。
 今回はサンプル周波数を<code>10Hz</code>で設定しており、設定値は以下のように計算します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>0.3 / 0.1 = 3</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>0.3 / 0.1 = 3</span></span></code></pre>
 <p>これは以下のようにプログラムします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_INT1DUR, 0x03);</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    writeRegister8(LIS3DH_REG_INT1DUR, 0x03);</span></span></code></pre>
 <h2 id="実行結果">実行結果</h2>
 <p>ESP32を傾けたときにスリープから立ち上がり、Wi-Fiに接続してからLINE Notifyに通知を送信します。
 LINE Notifyで受け取った画面は以下のようになります。</p>

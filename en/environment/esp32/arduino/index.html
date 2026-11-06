@@ -79,9 +79,9 @@ Description / headings (excerpt): Set up Arduino IDE for the AP02 ESP32 MCU leaf
 <li>Launch the Arduino.</li>
 <li>Paste the following sample code into your code editor.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//*****************************</span></span>
-<span class="line"><span style="color:#6A737D">// ボタン入力の状態をシリアルモニタに表示するサンプル</span></span>
-<span class="line"><span style="color:#6A737D">//*****************************</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//*****************************</span></span>
+<span class="line"><span style="color:#9DA5B4">// ボタン入力の状態をシリアルモニタに表示するサンプル</span></span>
+<span class="line"><span style="color:#9DA5B4">//*****************************</span></span>
 <span class="line"><span style="color:#F97583">int</span><span style="color:#E1E4E8"> pushButton </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
@@ -111,10 +111,10 @@ Description / headings (excerpt): Set up Arduino IDE for the AP02 ESP32 MCU leaf
 <h4 id="restrictions">Restrictions</h4>
 <p>※1：Output cannot be set<br>
 ※2：①For UART1, the pin number is set to RX=26 and TX=25. For UART0 and UART2, the pin number is not specified.<br></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">HardwareSerial </span><span style="color:#B392F0">Serial1</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> // UART1 (RX=9, TX=10)</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">HardwareSerial </span><span style="color:#B392F0">Serial1</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> // UART1 (RX=9, TX=10)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">  Serial1.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">9600</span><span style="color:#E1E4E8">, SERIAL_8N1, </span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> // ピンを変更 (RX=26, TX=25)</span></span>
+<span class="line"><span style="color:#E1E4E8">  Serial1.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">9600</span><span style="color:#E1E4E8">, SERIAL_8N1, </span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> // ピンを変更 (RX=26, TX=25)</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>　　②Cannot be used as analog input if WiFi.h is included<br></p>
 <p>※3: Pull-up prohibited because it is used for bootstrapping</p>

@@ -78,7 +78,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p><code>platformio.ini</code> (画面左）を開き、 Projectで定義したBoardとFrameworkが、正しく定義されていることを確認します。<br></p>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">[env:</span><span style="color:#FFAB70">esp32dev</span><span style="color:#E1E4E8">]</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">[env:</span><span style="color:#FFAB70">esp32dev</span><span style="color:#E1E4E8">]</span></span>
 <span class="line"><span style="color:#E1E4E8">platform = espressif32</span></span>
 <span class="line"><span style="color:#E1E4E8">board = esp32dev</span></span>
 <span class="line"><span style="color:#E1E4E8">framework = arduino</span></span></code></pre>
@@ -90,12 +90,12 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>シリアル通信のボーレートを<code>monitor_speed =</code>で定義します。以下の様に、platformio.iniに加えてください。<br></p>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">monitor_speed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">monitor_speed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
 <ol start="8">
 <li><code>src/main.cpp</code>(画面左）を開き、以下のコードを貼り付けてください。<br>
 PlatformIO IDEのコードは、Arduino IDEのスケッチの先頭に<code>#include &#x3C;Arduino.h></code>を加えます。<br></li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -149,11 +149,11 @@ PlatformIO IDEのコードは、Arduino IDEのスケッチの先頭に<code>#inc
 <p><code>>varName:1234\n</code>という形式のシリアルメッセージは、すべて<code>teleplot</code>に表示されます。詳しくは、<a href="https://marketplace.visualstudio.com/items?itemName=alexnesnes.teleplot">こちら</a>を参照してください。<br></p>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#6A737D"> // Plot a sinus</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#9DA5B4"> // Plot a sinus</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">">sin:"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">sin</span><span style="color:#E1E4E8">(i));</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Plot a cosinus</span></span>
+<span class="line"><span style="color:#9DA5B4">  // Plot a cosinus</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">">cos:"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">cos</span><span style="color:#E1E4E8">(i));</span></span></code></pre>
 <h2 id="esp32-beginner-examples">ESP32 Beginner Examples</h2>
@@ -195,8 +195,8 @@ Arduino IDEは、独自関数の定義を使用する関数の後に書いても
 </li>
 </ol>
 <p>例えば、以下は、独自関数の設定は、使用する関数の後に書いてあるのでビルドが<code>FAIL</code>になります。<br></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -205,21 +205,21 @@ Arduino IDEは、独自関数の定義を使用する関数の後に書いても
 <span class="line"><span style="color:#E1E4E8">  ;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>以下は、独自関数の定義は、使用する関数の前に書いてあるのでビルドが<code>SUCSESS</code>になります。<br></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">() {</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  ;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>以下は、プロトタイプ宣言するので、ビルドが<code>SUCSESS</code>になります。<br></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#6A737D">// Prototypes</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#9DA5B4">// Prototypes</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">void</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>

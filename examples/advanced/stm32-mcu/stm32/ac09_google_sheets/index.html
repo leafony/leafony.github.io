@@ -175,7 +175,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <p>このサンプルはPlatformIOとSTM32 Arduinoフレームワークを使用します。AP03用のボード定義とピン設定はプロジェクト内に含まれています。TLSと温湿度センサーのライブラリは初回ビルド時にPlatformIOが取得します。</p>
 <h2 id="leafonyの組み立て">Leafonyの組み立て</h2>
 <p>リーフは、上から次の順に重ねます。スペーサーリーフは、AC09 Cat-M1 TYリーフと4-Sensorsリーフの間に配置します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>上</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>上</span></span>
 <span class="line"><span>  AC09 Cat-M1 TY</span></span>
 <span class="line"><span>  AX04 Spacer</span></span>
 <span class="line"><span>  AI01 4-Sensors</span></span>
@@ -223,7 +223,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 </li>
 <li>
 <p>ブラウザーのURLからスプレッドシートIDを控えます。次のURLの<code>SPREADSHEET_ID</code>に当たる部分です。末尾の<code>gid</code>は含めません。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit</span></span></code></pre>
 </li>
 <li>
 <p>スプレッドシートの「拡張機能」→「Apps Script」を開きます。GASプロジェクトに「Leafony 温湿度受信」などの名前を付けます。</p>
@@ -234,10 +234,10 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <p>エディターにある<code>コード.gs</code>の内容を、以下のコードに置き換えて保存します。<code>doPost(e)</code>がJSON形式の本文を読み取り、トークンと温湿度を確認してから行を追記します。<code>doGet()</code>は書き込みを行いません。</p>
 <details>
 <summary><h4>GASコード</h4></summary>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SHEET_NAME</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'temperature'</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SHEET_NAME</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'temperature'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">'受信日時（UTC）'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'温度（℃）'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'湿度（%RH）'</span><span style="color:#E1E4E8">];</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// スクリプト プロパティを設定した後、エディターから一度実行します。</span></span>
+<span class="line"><span style="color:#9DA5B4">// スクリプト プロパティを設定した後、エディターから一度実行します。</span></span>
 <span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> config</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> readConfiguration</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">config) {</span></span>
@@ -255,7 +255,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">      sheet.</span><span style="color:#B392F0">appendRow</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">HEADERS</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#B392F0">hasExpectedHeader</span><span style="color:#E1E4E8">(sheet)) {</span></span>
-<span class="line"><span style="color:#6A737D">      // 温度のみの旧シートは、C 列以降に値や数式がない場合だけ移行します。</span></span>
+<span class="line"><span style="color:#9DA5B4">      // 温度のみの旧シートは、C 列以降に値や数式がない場合だけ移行します。</span></span>
 <span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> header</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getRange</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">getValues</span><span style="color:#E1E4E8">()[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (header[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> header[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
 <span class="line"><span style="color:#F97583">          &#x26;&#x26;</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastColumn</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">&#x3C;=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">) {</span></span>
@@ -276,7 +276,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> body </span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> 'string'</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> body.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#F97583">      return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'invalid_request'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#6A737D">    // length は受信本文のバイト数。文字数も確認して過大な本文を解析しません。</span></span>
+<span class="line"><span style="color:#9DA5B4">    // length は受信本文のバイト数。文字数も確認して過大な本文を解析しません。</span></span>
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (e.postData.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 1024</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> e.contentLength </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 1024</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> body.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 1024</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#F97583">      return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'body_too_large'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
@@ -326,7 +326,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <span class="line"><span style="color:#E1E4E8">      lock.</span><span style="color:#B392F0">releaseLock</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (_) {</span></span>
-<span class="line"><span style="color:#6A737D">    // 例外の詳細や設定値を HTTP 応答に含めません。</span></span>
+<span class="line"><span style="color:#9DA5B4">    // 例外の詳細や設定値を HTTP 応答に含めません。</span></span>
 <span class="line"><span style="color:#F97583">    return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'internal_error'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -379,7 +379,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 
 <table><thead><tr><th align="left">プロパティ</th><th align="left">設定する値</th></tr></thead><tbody><tr><td align="left"><code>SPREADSHEET_ID</code></td><td align="left">先ほど控えたスプレッドシートID</td></tr><tr><td align="left"><code>API_TOKEN</code></td><td align="left">このサンプル用に生成する、32〜128文字の英数字・ハイフン・アンダースコアだけで構成したトークン</td></tr></tbody></table>
 <p>トークンは、パソコンのターミナルで次のコマンドを実行すると、64文字のランダムな16進数として生成できます。表示された文字列を<code>API_TOKEN</code>に設定し、後でLeafonyの設定にも同じ値を使用します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">openssl</span><span style="color:#9ECBFF"> rand</span><span style="color:#79B8FF"> -hex</span><span style="color:#79B8FF"> 32</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">openssl</span><span style="color:#9ECBFF"> rand</span><span style="color:#79B8FF"> -hex</span><span style="color:#79B8FF"> 32</span></span></code></pre>
 <p>スクリプト プロパティはプロジェクトの編集者も参照できます。設定画面の操作は、<a href="https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually">Google公式のプロパティ管理手順</a>を参照してください。</p>
 <h3 id="保存先シートを初期化する">保存先シートを初期化する</h3>
 <ol>
@@ -399,7 +399,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <li>「デプロイ」を押し、権限の確認が表示された場合は、このスクリプトに必要なアクセスを許可します。</li>
 <li>表示される「ウェブアプリ」のURLをコピーします。末尾が<code>/exec</code>になっていることを確認してください。このURLがLeafonyの送信先です。</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://script.google.com/macros/s/DEPLOYMENT_ID/exec</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://script.google.com/macros/s/DEPLOYMENT_ID/exec</span></span></code></pre>
 <p>アクセス権の設定とURLの発行は<a href="https://developers.google.com/apps-script/guides/web#deploy_a_script_as_a_web_app">Google公式のWebアプリのデプロイ手順</a>に従います。<code>/dev</code>で終わるテスト用URLは編集権限のあるユーザー専用なので、Leafonyには<code>/exec</code>のURLを設定します。</p>
 <p>GASコードを変更した場合は、「デプロイ」→「デプロイを管理」から既存のデプロイを編集し、新しいバージョンを選んで再デプロイします。同じデプロイを更新すれば、送信先URLを維持できます。<a href="https://developers.google.com/apps-script/concepts/deployments#edit_a_versioned_deployment">デプロイの更新方法</a></p>
 <h3 id="パソコンから書き込みを確認する">パソコンから書き込みを確認する</h3>
@@ -410,7 +410,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <li><code>curl.exe --version</code>を実行し、バージョン情報が表示されることを確認します。コマンドが見つからない場合は、<a href="https://curl.se/windows/">Windows向けcurlの公式配布ページ</a>を参照してください。</li>
 <li>次のURLとトークンを自分の値に置き換え、コード全体をPowerShellへ貼り付けて実行します。</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#E1E4E8">$url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#E1E4E8">$url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span></span>
 <span class="line"><span style="color:#E1E4E8">$payload </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '{"token":"YOUR_API_TOKEN","temperature_c":25.5,"humidity_pct":50.0}'</span></span>
 <span class="line"><span style="color:#E1E4E8">$requestFile </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">System.IO.Path</span><span style="color:#E1E4E8">]::GetTempFileName()</span></span>
 <span class="line"></span>
@@ -423,13 +423,13 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <p>Windows PowerShellでは<code>curl</code>が別のコマンドの別名になっているため、必ず<code>curl.exe</code>と指定します。JSONの引用符をそのまま送るため、一時ファイルに保存してから送信し、送信後にファイルを削除しています。この例はWindows PowerShell 5.1とPowerShell 7で使えます。<a href="https://learn.microsoft.com/ja-jp/windows/curl/">Windowsでのcurlの使い方</a></p>
 <h4 id="macoslinux">macOS・Linux</h4>
 <p>ターミナルで、次のコマンドを実行します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -L</span><span style="color:#79B8FF"> \</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -L</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#9ECBFF">  'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> 'Content-Type: application/json'</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#79B8FF">  --data</span><span style="color:#9ECBFF"> '{"token":"YOUR_API_TOKEN","temperature_c":25.5,"humidity_pct":50.0}'</span></span></code></pre>
 <h4 id="送信結果の確認共通">送信結果の確認（共通）</h4>
 <p>成功すると、次のJSONが返ります。<code>temperature</code>シートに受信日時、温度<code>25.5</code>、湿度<code>50.0</code>の行が追加されたことも確認します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span><span style="color:#79B8FF">"ok"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span><span style="color:#79B8FF">"ok"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">}</span></span></code></pre>
 <p><code>--data</code>または<code>--data-binary</code>の指定により最初のリクエストはPOSTになります。GASのContentServiceは応答を別のURLにリダイレクトするため、<code>-L</code>で追従し、リダイレクト先から最終結果をGETで取得します。このコマンドに<code>-X POST</code>を追加する必要はありません。<a href="https://developers.google.com/apps-script/guides/content#redirects">ContentServiceのリダイレクトについて</a></p>
 <p>HTTPステータスやリダイレクトだけで成功と判断せず、最終的なJSONの<code>ok</code>が<code>true</code>になっていることを確認します。たとえば<code>{"ok":false,"error":"invalid_token"}</code>の場合は、送信したトークンとスクリプト プロパティが一致しているか確認してください。<code>sheet_not_initialized</code>の場合は、<code>setup()</code>の実行結果とシートの見出しを確認します。</p>
 <p>このサンプルでは、応答を受け取れなかった場合に同じ測定値を自動で再POSTしません。応答だけが失われて、シートにはすでに記録されている可能性があるためです。手動で同じテストを実行すると、そのたびに新しい行が追加されます。</p>
@@ -437,7 +437,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <h3 id="ソースコードの入手">ソースコードの入手</h3>
 <p>STM32用プロジェクトは、AC09開発リポジトリの<a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio/google_sheets"><code>platformio/google_sheets</code></a>です。リポジトリは非公開で、アクセスには別途NDA（秘密保持契約）の締結が必要です。アクセス権をお持ちでない場合は、<a href="https://shop.leafony.com/pages/contact-us">Leafony Shopへお問い合わせ</a>のうえ、資料の提供条件と使用するソースの版を確認してください。</p>
 <p>アクセスできる方はリポジトリを取得し、VS Codeで<code>platformio/google_sheets</code>フォルダーを開きます。使用したコミットIDを控え、このページのAP03＋AI01構成、<code>platformio.ini</code>、設定ひな形の送信間隔と照合してください。本キットのAP03B＋AI05構成への対応状況は、<a href="/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kitの開発準備</a>を確認してください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>├── boards/                 # AP03のボード定義</span></span>
 <span class="line"><span>├── variants/               # AP03のピン設定</span></span>
@@ -502,15 +502,15 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 </li>
 <li>
 <p>プロジェクトのフォルダーでビルドします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 </li>
 <li>
 <p>STM32リーフを<strong>Program側</strong>に切り替えてリセットし、書き込みます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
 </li>
 <li>
 <p><strong>Run側</strong>へ戻してリセットします。USB接続中にログを確認する場合は、シリアルモニターを開きます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -b</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -b</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
 </li>
 <li>
 <p>バッテリーで運用するときは電源を切り、AV06へバッテリーを接続します。USBケーブルを外し、STM32が<strong>Run側</strong>になっていることを確認してAV06の電源を入れます。シリアルモニターを開かなくても起動し、Cellular LPWA Cat-M1接続と時刻取得を進めます。</p>
@@ -519,9 +519,9 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <h3 id="tls用の時刻の自動取得">TLS用の時刻の自動取得</h3>
 <p>起動後、Cellular LPWA Cat-M1ネットワークへの接続が完了すると、モデムの時刻を<code>AT+CCLK?</code>で読み取ります。時刻が未設定・不正、または取得に失敗した場合は、応答処理の完了から30秒待って再確認します。時刻待ちには制限時間を設けていません。時刻が取得できるまではHTTPS接続や温湿度の送信を行わず、取得できた周期から自動で送信を開始します。</p>
 <p>USB接続中にログを確認すると、待機中は次のように表示されます。操作は不要です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Waiting for network UTC; retrying in 30 seconds</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Waiting for network UTC; retrying in 30 seconds</span></span></code></pre>
 <p>有効な日時が取得できると、次を表示して温湿度の送信へ進みます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UTC clock set from modem</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UTC clock set from modem</span></span></code></pre>
 <p>時刻取得だけが失敗している間はネットワーク接続を維持します。ATコマンドの応答がタイムアウトして通信状態が不明になった場合は、30秒待ってモデムの初期化とCellular LPWA Cat-M1接続から再試行します。Cellular LPWA Cat-M1の登録自体が拒否された場合は、通常の再接続処理に従います。</p>
 <p>取得した時刻はSTM32の稼働中に進みます。電源を入れ直した場合は、自動で時刻取得からやり直します。USB接続やシリアルからの<code>TIME</code>入力は必要ありません。</p>
 <p>この方法には、利用する回線とモデムの設定で正しい日時が<code>AT+CCLK?</code>から返ることが必要です。日時が更新されない環境では、待つだけでは送信を開始できません。AC09と使用するSIMでの時刻自動取得は実機確認前です。バッテリー運用前に電源投入から自動取得できることを確認してください。証明書検証を省略したり、固定日時で送信したりする処理はありません。</p>
@@ -529,7 +529,7 @@ plan-D（D-500MB）の「データ通信のみ」「ナノサイズ」を選び�
 <h2 id="動作確認">動作確認</h2>
 <h3 id="シリアルモニターの表示">シリアルモニターの表示</h3>
 <p>保存が確認できた周期には<code>Saved to Google Sheets</code>を表示します。以下は表示形式の例で、実機の取得ログではありません。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Temperature (C): 25.50</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Temperature (C): 25.50</span></span>
 <span class="line"><span>Humidity (%RH): 50.00</span></span>
 <span class="line"><span>Saved to Google Sheets</span></span></code></pre>
 <p>測定値だけが表示され、保存完了が出ない場合は、その後のエラーメッセージを確認します。</p>

@@ -40,7 +40,7 @@ Description / headings (excerpt): Estimate power, average current and battery ru
 <p>The top trace shows the input transition, the middle trace shows the output response, and the bottom trace shows the current pulse. Here, the current while the input remains unchanged is called leakage current, and the current associated with switching is called dynamic current. This example ignores leakage to focus on switching power.</p>
 <p><img alt="NOT gate input, output and switching current" loading="lazy" decoding="async" width="416" height="720" src="/_astro/image02.B_4jMaJC_Zp1PAn.webp" srcset=""></p>
 <p>The following example applies a clock of frequency <code>f</code> to a NOT gate. Wiring and the inputs of subsequent gates contribute parasitic load capacitance at its output. For switching in a digital circuit, a simplified model is:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>P = α * C * V^2 * f</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>P = α * C * V^2 * f</span></span></code></pre>
 <p>Here P is average switching power, C is load capacitance, V is supply voltage, f is clock frequency, and α is the number of charging events per clock cycle. This excludes leakage and short-circuit current. Under these assumptions, power is proportional to clock frequency. A faster CPU clock can increase processing speed as well as power consumption.</p>
 <p><img alt="NOT gate clock and output load capacitance" loading="lazy" decoding="async" width="852" height="737" src="/_astro/image03.DKxzRi-c_Z16Lx4O.webp" srcset=""></p>
 <h2 id="identify-the-loads">Identify the loads</h2>
@@ -113,7 +113,7 @@ Description / headings (excerpt): Estimate power, average current and battery ru
 <p>A constant 3.3 V, 100 mA load consumes 330 mW. Under the assumptions above, a 660 mWh battery gives <code>660 / 330 = 2 h</code>; a 2,400 mWh battery gives approximately <code>7.3 h</code>.</p>
 <h3 id="a-load-that-sleeps-between-measurements">A load that sleeps between measurements</h3>
 <p>Assume a circuit draws 100 mA for one minute each hour and 1 mA for the remaining 59 minutes, all at 3.3 V.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Average current = 100 mA × 1/60 + 1 mA × 59/60 = 2.65 mA</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Average current = 100 mA × 1/60 + 1 mA × 59/60 = 2.65 mA</span></span>
 <span class="line"><span>Average power = 3.3 V × 2.65 mA = 8.745 mW</span></span>
 <span class="line"><span>Energy used in one hour = 8.745 mWh</span></span>
 <span class="line"><span>Ideal runtime = 660 mWh / 8.745 mW ≈ 75.5 h ≈ 3.14 days</span></span></code></pre>

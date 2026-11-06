@@ -87,9 +87,9 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <ol>
 <li>Arduino IDEを起動し、下記のサンプルコードをコードエディタに貼り付けます。</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//*****************************</span></span>
-<span class="line"><span style="color:#6A737D">// ボタン入力の状態をシリアルモニタに表示するサンプル</span></span>
-<span class="line"><span style="color:#6A737D">//*****************************</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//*****************************</span></span>
+<span class="line"><span style="color:#9DA5B4">// ボタン入力の状態をシリアルモニタに表示するサンプル</span></span>
+<span class="line"><span style="color:#9DA5B4">//*****************************</span></span>
 <span class="line"><span style="color:#F97583">int</span><span style="color:#E1E4E8"> pushButton </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
@@ -118,10 +118,10 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <a href="/leaf/processor/ap02/ap02_pinassign_v1.png"><img src="/leaf/processor/ap02/ap02_pinassign_v1.png" alt="" width="3054" height="1641" loading="lazy" decoding="async"></a></p>
 <p>※1：出力の設定はできません。<br>
 ※2：WiFi.hをインクルードする場合は、アナログ入力として使用できません。UART1は、ピン番号をRX=26、TX=25に設定です。UART0、2に関しては、ピン番号の指定はありません。下記に、UART1の設定例を記します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">HardwareSerial </span><span style="color:#B392F0">Serial1</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> // UART1 (RX=9, TX=10)</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#E1E4E8">HardwareSerial </span><span style="color:#B392F0">Serial1</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> // UART1 (RX=9, TX=10)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">  Serial1.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">9600</span><span style="color:#E1E4E8">, SERIAL_8N1, </span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> // ピンを変更 (RX=26, TX=25)</span></span>
+<span class="line"><span style="color:#E1E4E8">  Serial1.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">9600</span><span style="color:#E1E4E8">, SERIAL_8N1, </span><span style="color:#79B8FF">26</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> // ピンを変更 (RX=26, TX=25)</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>※3:ブートストラップに使用しているため、プルアップ禁止です。</p>
 <h2 id="ライブラリのインストール">ライブラリのインストール</h2>

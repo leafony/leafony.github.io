@@ -60,7 +60,7 @@ Description / headings (excerpt): Define the measurement boundary and power path
 <p><strong>Current on the 3.3V line is not the same as battery current.</strong> It also excludes circuits below AX05B and any unmeasured power paths. Evaluating battery runtime requires a battery-side measurement or a calculation that accounts for power conversion.</p>
 <h2 id="2-check-power-paths-and-instrument-mode">2. Check Power Paths and Instrument Mode</h2>
 <p>The following current path applies when measuring V33 supplied by a power leaf through AX05B. Disconnect all power before changing wiring.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Battery → power leaf (below AX05B)</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Battery → power leaf (below AX05B)</span></span>
 <span class="line"><span>        → AX05B V33IN → current meter → AX05B V33OUT</span></span>
 <span class="line"><span>        → MCU, sensor, and communication leaves under test (above AX05B)</span></span></code></pre>
 <p>Nordic Power Profiler Kit II (PPK2) has an <strong>Ampere Meter</strong> mode for measuring an external supply and a <strong>Source Meter (SMU)</strong> mode in which the instrument supplies power. The power source and wiring differ between these modes. See the <a href="https://docs.nordicsemi.com/r/bundle/ug_ppk2/page/ug/ppk/ppk_power_supply.html">manufacturer’s power supply and mode documentation</a>.</p>
@@ -128,7 +128,7 @@ Description / headings (excerpt): Define the measurement boundary and power path
 </ol>
 <h2 id="5-compare-averages-over-the-same-interval">5. Compare Averages over the Same Interval</h2>
 <p>If current can be treated as constant within each state, calculate the time-weighted average below. If it varies, use the average of the full interval recorded by the instrument.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Average current = Σ(current in each state × time in that state) / total recorded time</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Average current = Σ(current in each state × time in that state) / total recorded time</span></span></code></pre>
 <p>If voltage changes, average voltage multiplied by current over time to obtain average power. Do not directly compare 3.3V-side and battery-side currents; use the same measurement location and supply conditions.</p>
 
 

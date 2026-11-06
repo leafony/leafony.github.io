@@ -111,7 +111,7 @@ URL: https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googleshee
 <ol>
 <li>アクセスする<code>WiFi</code>の情報を以下の定数に代入してください。</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>const char* SSID = "wifi_ssid";    // WiFi SSID</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>const char* SSID = "wifi_ssid";    // WiFi SSID</span></span>
 <span class="line"><span>const char* PASSWORD = "wifi_password";  // WiFi Password</span></span></code></pre>
 <ol start="2">
 <li>先ほど作成したウェブアプリの情報を以下の定数に代入してください。
@@ -120,7 +120,7 @@ URL: https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googleshee
 </ul>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>const char* KEY = "google_scripts_key";</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>const char* KEY = "google_scripts_key";</span></span></code></pre>
 <ol start="3">
 <li>センサデータの書き込みの時間間隔を調整したいときは以下の定数に代入してください。
 <ul>
@@ -128,27 +128,27 @@ URL: https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googleshee
 </ul>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>uint64_t DEEP_SLEEP_TIME_SEC = 60;</span></span></code></pre>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>uint64_t DEEP_SLEEP_TIME_SEC = 60;</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Wire.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;HTTPClient.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;HTS221.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;ClosedCube_OPT3001.h></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Unique ID</span></span>
+<span class="line"><span style="color:#9DA5B4">// Unique ID</span></span>
 <span class="line"><span style="color:#E1E4E8">String UniqueID </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "Leafony_AP02"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Connecting WiFi Settings</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi_ssid"</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">           // WiFi SSID</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> PASSWORD </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi_password"</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">   // WiFi Password</span></span>
-<span class="line"><span style="color:#6A737D">// Accessed Google Script Settings</span></span>
+<span class="line"><span style="color:#9DA5B4">// Connecting WiFi Settings</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> SSID </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi_ssid"</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">           // WiFi SSID</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> PASSWORD </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "wifi_password"</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">   // WiFi Password</span></span>
+<span class="line"><span style="color:#9DA5B4">// Accessed Google Script Settings</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> APP_SERVER </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "script.google.com"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> char*</span><span style="color:#E1E4E8"> KEY </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "google_scripts_key"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Device sleep time (sec) to reduce Joule heat</span></span>
+<span class="line"><span style="color:#9DA5B4">// Device sleep time (sec) to reduce Joule heat</span></span>
 <span class="line"><span style="color:#F97583">uint64_t</span><span style="color:#E1E4E8"> DEEP_SLEEP_TIME_SEC </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 60</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// 省略</span></span></code></pre>
+<span class="line"><span style="color:#9DA5B4">// 省略</span></span></code></pre>
 <h2 id="実行結果">実行結果</h2>
 <p><code>Arduino</code>を実行して、逐次センサデータが<code>Google Sheets</code>に書き込まれます。</p>
 <p><img alt="" loading="lazy" decoding="async" width="739" height="326" src="/_astro/results_1.BqMbcYiT_Z2gV0fM.webp" srcset=""></p>

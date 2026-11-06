@@ -90,16 +90,16 @@ URL: https://docs.leafony.com/examples/beginner/avr-mcu/basic/blink/
 <ol start="3">
 <li>マイコンにプログラムを書き込んでください。<br></li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // initialize digital pin LED_BUILTIN as an output.</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#9DA5B4">  // initialize digital pin LED_BUILTIN as an output.</span></span>
 <span class="line"><span style="color:#B392F0">  pinMode</span><span style="color:#E1E4E8">(LED_BUILTIN, OUTPUT);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> loop</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED_BUILTIN, HIGH);</span><span style="color:#6A737D">   // turn the LED on (HIGH is the voltage level)</span></span>
-<span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">                       // wait for a second</span></span>
-<span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED_BUILTIN, LOW);</span><span style="color:#6A737D">    // turn the LED off by making the voltage LOW</span></span>
-<span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">                       // wait for a second</span></span>
+<span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED_BUILTIN, HIGH);</span><span style="color:#9DA5B4">   // turn the LED on (HIGH is the voltage level)</span></span>
+<span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4">                       // wait for a second</span></span>
+<span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED_BUILTIN, LOW);</span><span style="color:#9DA5B4">    // turn the LED off by making the voltage LOW</span></span>
+<span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4">                       // wait for a second</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <h3 id="実行結果">実行結果</h3>
 <ol>

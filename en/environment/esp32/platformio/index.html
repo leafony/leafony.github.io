@@ -70,7 +70,7 @@ Description / headings (excerpt): Set up PlatformIO for the AP02 ESP32 MCU leaf 
 </li>
 <li>Open <code>platformio.ini</code> and check the board and framework settings:</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">[env:</span><span style="color:#FFAB70">esp32dev</span><span style="color:#E1E4E8">]</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">[env:</span><span style="color:#FFAB70">esp32dev</span><span style="color:#E1E4E8">]</span></span>
 <span class="line"><span style="color:#E1E4E8">platform = espressif32</span></span>
 <span class="line"><span style="color:#E1E4E8">board = esp32dev</span></span>
 <span class="line"><span style="color:#E1E4E8">framework = arduino</span></span></code></pre>
@@ -78,11 +78,11 @@ Description / headings (excerpt): Set up PlatformIO for the AP02 ESP32 MCU leaf 
 <li>The ESP32 MCU upload workflow detects the serial port automatically, so a COM port number does not need to be specified.</li>
 <li>Add the serial monitor baud rate to <code>platformio.ini</code>:</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">monitor_speed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#E1E4E8">monitor_speed </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
 <ol start="8">
 <li>Open <code>src/main.cpp</code> and paste the following code. PlatformIO requires <code>#include &#x3C;Arduino.h></code> at the beginning of an Arduino sketch.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -116,11 +116,11 @@ Description / headings (excerpt): Set up PlatformIO for the AP02 ESP32 MCU leaf 
 <li>Select <strong>teleplot</strong> at the bottom of the window, choose the COM port, and select <strong>Open</strong> to display the graph.</li>
 <li>Teleplot plots serial messages in the form <code>>varName:1234\n</code>. See the <a href="https://marketplace.visualstudio.com/items?itemName=alexnesnes.teleplot">Teleplot documentation</a> for details.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#6A737D"> // Plot a sinus</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#9DA5B4"> // Plot a sinus</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">">sin:"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">sin</span><span style="color:#E1E4E8">(i));</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Plot a cosinus</span></span>
+<span class="line"><span style="color:#9DA5B4">  // Plot a cosinus</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">">cos:"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">cos</span><span style="color:#E1E4E8">(i));</span></span></code></pre>
 <h2 id="esp32-beginner-examples">ESP32 Beginner Examples</h2>
@@ -156,8 +156,8 @@ Description / headings (excerpt): Set up PlatformIO for the AP02 ESP32 MCU leaf 
 <li>Define custom functions before they are called, or add a prototype declaration. Arduino IDE prepares declarations automatically, while PlatformIO follows normal C++ rules.</li>
 </ol>
 <p>The following example fails to build because the function is defined after its first use:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -166,21 +166,21 @@ Description / headings (excerpt): Set up PlatformIO for the AP02 ESP32 MCU leaf 
 <span class="line"><span style="color:#E1E4E8">  ;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>This example builds because the function is defined before its use:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">() {</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  ;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>This example also builds because it includes a prototype:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#6A737D">// Prototypes</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#9DA5B4">// Prototypes</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> func</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">void</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // put your setup code here, to run once:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // put your setup code here, to run once:</span></span>
 <span class="line"><span style="color:#B392F0">  func</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>

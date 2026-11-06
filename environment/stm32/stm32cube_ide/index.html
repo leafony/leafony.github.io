@@ -73,25 +73,25 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <h3 id="コードの記述">コードの記述</h3>
 <p>コードを再生成したときに識別できるよう、対応する<code>USER CODE</code>ブロックに追記します。行番号はツールの版や生成設定によって変わります。</p>
 <p>標準入出力のヘッダを読み込みます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">/* USER CODE BEGIN Includes */</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">/* USER CODE BEGIN Includes */</span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;stdio.h></span></span>
-<span class="line"><span style="color:#6A737D">/* USER CODE END Includes */</span></span></code></pre>
+<span class="line"><span style="color:#9DA5B4">/* USER CODE END Includes */</span></span></code></pre>
 <p><code>printf</code>を呼ぶ前に、出力のバッファリングを無効にします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">/* USER CODE BEGIN 1 */</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">/* USER CODE BEGIN 1 */</span></span>
 <span class="line"><span style="color:#B392F0">setbuf</span><span style="color:#E1E4E8">(stdout, </span><span style="color:#79B8FF">NULL</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#6A737D">/* USER CODE END 1 */</span></span></code></pre>
+<span class="line"><span style="color:#9DA5B4">/* USER CODE END 1 */</span></span></code></pre>
 <p>生成されたメインループの中で、1秒ごとに出力します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">/* USER CODE BEGIN 3 */</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">/* USER CODE BEGIN 3 */</span></span>
 <span class="line"><span style="color:#B392F0">printf</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hello World</span><span style="color:#79B8FF">\r\n</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#B392F0">HAL_Delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span></code></pre>
 <p><code>printf</code>の出力をUSART2へ送る<code>_write</code>を追加します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">/* USER CODE BEGIN 4 */</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">/* USER CODE BEGIN 4 */</span></span>
 <span class="line"><span style="color:#F97583">int</span><span style="color:#B392F0"> _write</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> file</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">char</span><span style="color:#F97583"> *</span><span style="color:#FFAB70">ptr</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> len</span><span style="color:#E1E4E8">)</span></span>
 <span class="line"><span style="color:#E1E4E8">{</span></span>
 <span class="line"><span style="color:#B392F0">  HAL_UART_Transmit</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#E1E4E8">huart2, (</span><span style="color:#F97583">uint8_t</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8">)ptr, len, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> len;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/* USER CODE END 4 */</span></span></code></pre>
+<span class="line"><span style="color:#9DA5B4">/* USER CODE END 4 */</span></span></code></pre>
 <p><strong>Project → Build All</strong>でビルドします。エラーがあれば修正し、使用中のビルド出力フォルダ（通常は<code>Debug</code>）に生成された<code>Hello_World.elf</code>を確認してください。ファイル名とパスは実際のプロジェクトに合わせます。</p>
 <h3 id="stm32cubeprogによるプログラムの書込み">STM32CubeProgによるプログラムの書込み</h3>
 <p>書き込むとMCUに入っているプログラムが置き換わります。購入時のデモを後で試す場合は<a href="/faq/#restore-demo">デモの書き戻し方</a>を確認してください。</p>

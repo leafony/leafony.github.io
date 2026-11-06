@@ -103,18 +103,18 @@ URL: https://docs.leafony.com/examples/beginner/esp32-mcu/exten/speaker/
 <p><img __ASTRO_IMAGE_="{&#x22;src&#x22;:&#x22;./speaker/esp32_speaker&#x26;ir.png&#x22;,&#x22;alt&#x22;:&#x22;assemble1&#x22;,&#x22;index&#x22;:0}"></p>
 <h2 id="ソースコード">ソースコード</h2>
 <p>Arduino IDEで下記のプログラムを書きましょう。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_CHANNEL_0</span><span style="color:#79B8FF">     0</span><span style="color:#6A737D">      // use first channel of 16 channels (started from zero)</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_TIMER_13_BIT</span><span style="color:#79B8FF">  13</span><span style="color:#6A737D">     // use 13 bit precission for LEDC timer</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_BASE_FREQ</span><span style="color:#79B8FF">     5000</span><span style="color:#6A737D">   // use 5000 Hz as a LEDC base frequency</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_CHANNEL_0</span><span style="color:#79B8FF">     0</span><span style="color:#9DA5B4">      // use first channel of 16 channels (started from zero)</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_TIMER_13_BIT</span><span style="color:#79B8FF">  13</span><span style="color:#9DA5B4">     // use 13 bit precission for LEDC timer</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LEDC_BASE_FREQ</span><span style="color:#79B8FF">     5000</span><span style="color:#9DA5B4">   // use 5000 Hz as a LEDC base frequency</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// buzzer output = 13pin</span></span>
-<span class="line"><span style="color:#6A737D">//------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">//------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// buzzer output = 13pin</span></span>
+<span class="line"><span style="color:#9DA5B4">//------------------------------</span></span>
 <span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> BUZZER_OUT</span><span style="color:#79B8FF"> 13</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> NOTE_NONE </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> NOTE_MAX;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// notes in the melody:</span></span>
+<span class="line"><span style="color:#9DA5B4">// notes in the melody:</span></span>
 <span class="line"><span style="color:#F97583">int</span><span style="color:#E1E4E8"> melody</span><span style="color:#F97583">[]</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">  NOTE_C, NOTE_C, NOTE_G, NOTE_G, NOTE_A, NOTE_A, NOTE_G, NOTE_F, NOTE_F, NOTE_E, NOTE_E,NOTE_D,NOTE_D,NOTE_C</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span>
@@ -123,40 +123,40 @@ URL: https://docs.leafony.com/examples/beginner/esp32-mcu/exten/speaker/
 <span class="line"><span style="color:#79B8FF">  5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// note durations: 4 = quarter note, 8 = eighth note, etc.:</span></span>
+<span class="line"><span style="color:#9DA5B4">// note durations: 4 = quarter note, 8 = eighth note, etc.:</span></span>
 <span class="line"><span style="color:#F97583">int</span><span style="color:#E1E4E8"> noteDurations</span><span style="color:#F97583">[]</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// setup</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// setup</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#B392F0">  ledcSetup</span><span style="color:#E1E4E8">(LEDC_CHANNEL_0, LEDC_BASE_FREQ, LEDC_TIMER_13_BIT);</span></span>
 <span class="line"><span style="color:#B392F0">  ledcAttachPin</span><span style="color:#E1E4E8">(BUZZER_OUT, LEDC_CHANNEL_0);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // iterate over the notes of the melody:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // iterate over the notes of the melody:</span></span>
 <span class="line"><span style="color:#F97583">  for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">int</span><span style="color:#E1E4E8"> thisNote </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; thisNote </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 14</span><span style="color:#E1E4E8">; thisNote</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#6A737D">    // to calculate the note duration, take one second divided by the note type.</span></span>
-<span class="line"><span style="color:#6A737D">    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.</span></span>
+<span class="line"><span style="color:#9DA5B4">    // to calculate the note duration, take one second divided by the note type.</span></span>
+<span class="line"><span style="color:#9DA5B4">    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.</span></span>
 <span class="line"><span style="color:#B392F0">    ledcWriteNote</span><span style="color:#E1E4E8">(LEDC_CHANNEL_0, (</span><span style="color:#79B8FF">note_t</span><span style="color:#E1E4E8">)</span><span style="color:#FFAB70">melody</span><span style="color:#E1E4E8">[thisNote], </span><span style="color:#FFAB70">noteOctaves</span><span style="color:#E1E4E8">[thisNote]);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // to distinguish the notes, set a minimum time between them.</span></span>
-<span class="line"><span style="color:#6A737D">    // the note's duration + 30% seems to work well:</span></span>
+<span class="line"><span style="color:#9DA5B4">    // to distinguish the notes, set a minimum time between them.</span></span>
+<span class="line"><span style="color:#9DA5B4">    // the note's duration + 30% seems to work well:</span></span>
 <span class="line"><span style="color:#F97583">    int</span><span style="color:#E1E4E8"> pauseBetweenNotes </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1000</span><span style="color:#F97583"> /</span><span style="color:#FFAB70"> noteDurations</span><span style="color:#E1E4E8">[thisNote] </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 1.30</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#B392F0">    delay</span><span style="color:#E1E4E8">(pauseBetweenNotes);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // stop the tone playing:</span></span>
+<span class="line"><span style="color:#9DA5B4">    // stop the tone playing:</span></span>
 <span class="line"><span style="color:#B392F0">    ledcWriteTone</span><span style="color:#E1E4E8">(LEDC_CHANNEL_0, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#B392F0">    delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// Main loop</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// Main loop</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> loop</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // no need to repeat the melody.</span></span>
+<span class="line"><span style="color:#9DA5B4">  // no need to repeat the melody.</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p><a href="https://github.com/Leafony/Sample-Sketches/tree/master/ESP32_toneMelody_Twinkle/ESP32_toneMelody_Twinkle.ino" target="_blank" rel="noopener noreferrer">ESP32_toneMelody_Twinkle.ino</a></p>
 <h2 id="実行結果">実行結果</h2>

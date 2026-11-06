@@ -85,52 +85,52 @@ URL: https://docs.leafony.com/examples/beginner/avr-mcu/basic/temp_humid_sensors
 <p>Arduino IDEで下記のプログラムを書きましょう。</p>
 <p>このスケッチを動かすためには、ライブラリのインストールが必要です。
 まだインストールしていない場合は<a href="/environment/avr/arduino/#%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">開発環境設定ページ</a>を参考にライブラリをインストールしてください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">//  Thermo-Hygrometer</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
-<span class="line"><span style="color:#6A737D">//    Released under the MIT license</span></span>
-<span class="line"><span style="color:#6A737D">//    https://opensource.org/licenses/MIT</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//      Rev.00 2021/04/01  First release</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//  Thermo-Hygrometer</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
+<span class="line"><span style="color:#9DA5B4">//    Released under the MIT license</span></span>
+<span class="line"><span style="color:#9DA5B4">//    https://opensource.org/licenses/MIT</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//      Rev.00 2021/04/01  First release</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Wire.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;HTS221.h></span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//---------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// Data for two-point correction</span></span>
-<span class="line"><span style="color:#6A737D">//---------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// Temperature correction data 0</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TL0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 25.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // 4-Sensors Temperature measurement value</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TM0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 25.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // Thermometer and other measurements value</span></span>
-<span class="line"><span style="color:#6A737D">// Temperature correction data 1</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TL1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 40.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // 4-Sensors Temperature measurement value</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TM1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 40.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // Thermometer and other measurements value</span></span>
+<span class="line"><span style="color:#9DA5B4">//---------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// Data for two-point correction</span></span>
+<span class="line"><span style="color:#9DA5B4">//---------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// Temperature correction data 0</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TL0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 25.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // 4-Sensors Temperature measurement value</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TM0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 25.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // Thermometer and other measurements value</span></span>
+<span class="line"><span style="color:#9DA5B4">// Temperature correction data 1</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TL1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 40.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // 4-Sensors Temperature measurement value</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> TM1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 40.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // Thermometer and other measurements value</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Humidity correction data 0</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HL0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 60.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // 4-Sensors Humidity measurement value</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HM0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 60.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // Hygrometer and other measurements value</span></span>
-<span class="line"><span style="color:#6A737D">// Humidity correction data 1</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HL1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // 4-Sensors Humidity measurement value</span></span>
-<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HM1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80.0</span><span style="color:#E1E4E8">;</span><span style="color:#6A737D">     // Hygrometer and other measurements value</span></span>
+<span class="line"><span style="color:#9DA5B4">// Humidity correction data 0</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HL0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 60.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // 4-Sensors Humidity measurement value</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HM0 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 60.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // Hygrometer and other measurements value</span></span>
+<span class="line"><span style="color:#9DA5B4">// Humidity correction data 1</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HL1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // 4-Sensors Humidity measurement value</span></span>
+<span class="line"><span style="color:#F97583">float</span><span style="color:#E1E4E8"> HM1 </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 80.0</span><span style="color:#E1E4E8">;</span><span style="color:#9DA5B4">     // Hygrometer and other measurements value</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // initialize serial communication at 115200 second per second:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // initialize serial communication at 115200 second per second:</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">();</span><span style="color:#6A737D">             // I2C 100kHz</span></span>
-<span class="line"><span style="color:#6A737D">  // initialize i2c communication with HTS221:</span></span>
+<span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">();</span><span style="color:#9DA5B4">             // I2C 100kHz</span></span>
+<span class="line"><span style="color:#9DA5B4">  // initialize i2c communication with HTS221:</span></span>
 <span class="line"><span style="color:#E1E4E8">  smeHumidity.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> loop</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // read temperature and humidity:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // read temperature and humidity:</span></span>
 <span class="line"><span style="color:#F97583">  float</span><span style="color:#E1E4E8"> dataTemp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">float</span><span style="color:#E1E4E8">)smeHumidity.</span><span style="color:#B392F0">readTemperature</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#F97583">  float</span><span style="color:#E1E4E8"> dataHumid </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">float</span><span style="color:#E1E4E8">)smeHumidity.</span><span style="color:#B392F0">readHumidity</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // calibration:</span></span>
-<span class="line"><span style="color:#E1E4E8">  dataTemp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TM0 </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (TM1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TM0) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (dataTemp </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TL0) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (TL1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TL0);</span><span style="color:#6A737D">      // Temperature correction</span></span>
-<span class="line"><span style="color:#E1E4E8">  dataHumid </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> HM0 </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (HM1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HM0) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (dataHumid </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HL0) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (HL1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HL0);</span><span style="color:#6A737D">    // Humidity correction</span></span>
+<span class="line"><span style="color:#9DA5B4">  // calibration:</span></span>
+<span class="line"><span style="color:#E1E4E8">  dataTemp </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> TM0 </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (TM1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TM0) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (dataTemp </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TL0) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (TL1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> TL0);</span><span style="color:#9DA5B4">      // Temperature correction</span></span>
+<span class="line"><span style="color:#E1E4E8">  dataHumid </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> HM0 </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> (HM1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HM0) </span><span style="color:#F97583">*</span><span style="color:#E1E4E8"> (dataHumid </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HL0) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (HL1 </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> HL0);</span><span style="color:#9DA5B4">    // Humidity correction</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">String</span><span style="color:#E1E4E8">(dataTemp) </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "[℃], "</span><span style="color:#F97583"> +</span><span style="color:#B392F0"> String</span><span style="color:#E1E4E8">(dataHumid) </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> "[</span><span style="color:#FDAEB7;font-style:italic">%</span><span style="color:#9ECBFF">]"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>

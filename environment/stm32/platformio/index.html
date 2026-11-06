@@ -106,14 +106,14 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>ユーザーフォルダーやOneDriveの場所は、パソコンによって異なります。設定例のパスを使う前に、実際の保存先を確認してください。</p>
 <p>このページのコマンドは、PlatformIO Core CLIのターミナルで実行します。VS Code左側の<strong>PlatformIO → Quick Access → Miscellaneous → PlatformIO Core CLI</strong>から開いてください。</p>
 <p>PlatformIO Homeで使う既定の保存先も変更できます。次は<code>C:/PlatformIO/Projects</code>への変更例です。コマンドの実行後、VS Codeを再起動してください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> settings</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> projects_dir</span><span style="color:#9ECBFF"> "C:/PlatformIO/Projects"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> settings</span><span style="color:#9ECBFF"> set</span><span style="color:#9ECBFF"> projects_dir</span><span style="color:#9ECBFF"> "C:/PlatformIO/Projects"</span></span></code></pre>
 <p>macOS・Linuxでは、引用符内を保存先フォルダーの絶対パスに置き換えてください。変更後の保存先は新規プロジェクトに適用され、既存プロジェクトは移動しません。詳細は<a href="https://docs.platformio.org/en/latest/core/userguide/cmd_settings.html#projects-dir"><code>projects_dir</code>の公式説明</a>を参照してください。</p>
 <h3 id="4-最新のst-stm32をインストールする">4. 最新のST STM32をインストールする</h3>
 <p>PlatformIOの開発プラットフォーム**ST STM32（<code>ststm32</code>）**をインストールします。AP03には、標準で含まれる<a href="https://docs.platformio.org/en/latest/boards/ststm32/leafony_ap03.html">Leafony Systems AP03</a>のボード定義を使います。</p>
 <p>PlatformIO Core CLIで、次のコマンドを実行します。バージョンを指定せず、PlatformIO Registryで配布されている最新の安定版をインストールします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
 <p>すでにST STM32をインストールしている場合は、次のコマンドで最新版へ更新してください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --global</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> "platformio/ststm32"</span></span></code></pre>
 <p>Arduinoフレームワークなど、プロジェクトに必要なパッケージは初回ビルド時に自動で用意されます。詳細は<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html"><code>pio pkg install</code></a>、<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html"><code>pio pkg update</code></a>、<a href="https://github.com/platformio/platform-ststm32/releases">ST STM32のリリース情報</a>を参照してください。</p>
 <h2 id="クイックスタート">クイックスタート</h2>
 <p>書き込むと、MCUに入っているプログラムが置き換わります。後で購入時のデモを試す場合は、<a href="/faq/#restore-demo">デモの書き戻し方</a>を確認してください。</p>
@@ -129,7 +129,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 </li>
 </ol>
 <p>配置後の構成は次のとおりです。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>STM32_Hello_World_Pjt/</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>STM32_Hello_World_Pjt/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>└── src/</span></span>
 <span class="line"><span>    └── main.cpp</span></span></code></pre>
@@ -148,7 +148,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>PlatformIO Core CLIで、次のコマンドを実行します。</p>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> list</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> list</span></span></code></pre>
 <p>表示されたポート名を、次の書き込み設定に使います。複数ある場合は、USBケーブルの抜き差しで増減するポートが接続先です。</p>
 
 
@@ -176,7 +176,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>Linuxでは、ポートへのアクセス権も必要です。設定方法は<a href="https://docs.platformio.org/en/latest/core/installation/udev-rules.html">PlatformIO公式の案内</a>を参照してください。</p>
 <h3 id="3-platformioiniを設定する">3. platformio.iniを設定する</h3>
 <p>次は、<strong>Windowsでポートが<code>COM3</code>の場合</strong>の設定例です。<code>platformio.ini</code>に貼り付け、<code>upload_port</code>と書き込みツールのパスを自分の環境に合わせて変更してください。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#B392F0">[env:leafony_ap03]</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#B392F0">[env:leafony_ap03]</span></span>
 <span class="line"><span style="color:#F97583">platform</span><span style="color:#E1E4E8"> = ststm32</span></span>
 <span class="line"><span style="color:#F97583">board</span><span style="color:#E1E4E8"> = leafony_ap03</span></span>
 <span class="line"><span style="color:#F97583">framework</span><span style="color:#E1E4E8"> = arduino</span></span>
@@ -188,10 +188,10 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <span class="line"><span style="color:#F97583">monitor_port</span><span style="color:#E1E4E8"> = ${this.upload_port}</span></span>
 <span class="line"><span style="color:#F97583">monitor_speed</span><span style="color:#E1E4E8"> = 115200</span></span></code></pre>
 <p>macOSでは、上の<code>upload_port</code>と<code>upload_command</code>の2行を次のように置き換えます。ポート名の<code>XXXXXXXX</code>は実際の値に変更します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/cu.usbserial-XXXXXXXX</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/cu.usbserial-XXXXXXXX</span></span>
 <span class="line"><span style="color:#F97583">upload_command</span><span style="color:#E1E4E8"> = </span><span style="color:#9ECBFF">"/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin/STM32_Programmer_CLI"</span><span style="color:#E1E4E8"> -c </span><span style="color:#F97583">port</span><span style="color:#E1E4E8">=$UPLOAD_PORT </span><span style="color:#F97583">br</span><span style="color:#E1E4E8">=115200 -w </span><span style="color:#9ECBFF">"$SOURCE"</span><span style="color:#E1E4E8"> 0x08000000 -v</span></span></code></pre>
 <p>Linuxでは、インストール先の絶対パスと実際のポート名を指定します。次はユーザー名が<code>user</code>の場合の例です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/ttyUSB0</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">upload_port</span><span style="color:#E1E4E8"> = /dev/ttyUSB0</span></span>
 <span class="line"><span style="color:#F97583">upload_command</span><span style="color:#E1E4E8"> = </span><span style="color:#9ECBFF">"/home/user/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer.sh"</span><span style="color:#E1E4E8"> -c </span><span style="color:#F97583">port</span><span style="color:#E1E4E8">=$UPLOAD_PORT </span><span style="color:#F97583">br</span><span style="color:#E1E4E8">=115200 -w </span><span style="color:#9ECBFF">"$SOURCE"</span><span style="color:#E1E4E8"> 0x08000000 -v</span></span></code></pre>
 <p>設定の意味は次のとおりです。</p>
 
@@ -252,7 +252,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>コマンドの仕様は<a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/upload/upload_command.html">PlatformIOの<code>upload_command</code></a>と<a href="https://dev.st.com/stm32cube-docs/prog/2.23.0/en/docs/markup/CubeProg_Command_Lines.html">STM32CubeProgrammerのCLIマニュアル</a>を参照してください。</p>
 <h3 id="4-プログラムを作成する">4. プログラムを作成する</h3>
 <p><code>src/main.cpp</code>に次のコードを記述し、保存します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -265,10 +265,10 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <h3 id="5-ビルドする">5. ビルドする</h3>
 <p>VS Code左側の<strong>PlatformIO → PROJECT TASKS → leafony_ap03 → General → Build</strong>を実行します。プロジェクトが認識されない場合は、<code>platformio.ini</code>のあるフォルダーを開き直してください。</p>
 <p>ターミナルを使う場合は、プロジェクトのフォルダーで次を実行します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 <p>初回のビルドには、数分かかることがあります。コンパイラーやArduinoフレームワークなどをダウンロードするためです。</p>
 <p>ビルド完了の目印は、ログ末尾の<code>SUCCESS</code>と、次のファイルの生成です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>.pio/build/leafony_ap03/firmware.bin</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>.pio/build/leafony_ap03/firmware.bin</span></span></code></pre>
 <p>複数のプロジェクトやビルド環境を開いている場合は、実行対象が<code>STM32_Hello_World_Pjt</code>の<code>leafony_ap03</code>であることを確認してください。</p>
 <h3 id="6-stm32-mcuに書き込む">6. STM32 MCUに書き込む</h3>
 <ol>
@@ -290,11 +290,11 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 </li>
 </ol>
 <p>ターミナルから書き込む場合は、手順4で次のコマンドを実行します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
 <p><img alt="STM32 MCUリーフのプログラムスイッチ、リセットスイッチ、LEDの位置" loading="lazy" decoding="async" width="546" height="218" src="/_astro/ap03_tips.PPgG8Nl9_22TgBB.webp" srcset=""></p>
 <p>書き込みの成否は、STM32CubeProgrammerのログで確認します。ポートへの接続、書き込み、検証のすべてが成功していることを確かめてください。</p>
 <p>検証成功時のメッセージの例を示します。表記はツールのバージョンによって異なります。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Download verified successfully</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Download verified successfully</span></span></code></pre>
 <p><code>SUCCESS</code>が表示されても、タイムアウトや検証エラーがある場合は書き込みをやり直します。ポートを使うアプリを閉じ、Program側でリセットしてから再度Uploadしてください。</p>
 <h3 id="7-hello-worldの表示を確認する">7. Hello Worldの表示を確認する</h3>
 <ol>
@@ -312,9 +312,9 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 </li>
 </ol>
 <p>ターミナルからシリアルモニターを開く場合は、手順3で次のコマンドを実行します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 <p>次のように1秒ごとに表示されれば完了です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Hello World</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Hello World</span></span>
 <span class="line"><span>Hello World</span></span>
 <span class="line"><span>Hello World</span></span></code></pre>
 <h2 id="既存のサンプルを使う">既存のサンプルを使う</h2>
@@ -322,12 +322,12 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <p>サンプルにも、クイックスタートと同じプラットフォーム・ボード・書き込み設定を使います。例えば<a href="https://github.com/Leafony/platformio-sample-projects/tree/main/stm32/STM32_Hello_World_Pjt">STM32_Hello_World_Pjt</a>では、<code>platformio.ini</code>を<code>platform = ststm32</code>、<code>board = leafony_ap03</code>、<code>framework = arduino</code>とし、書き込みツールとポートをこのページの設定に合わせます。既存の<code>lib_deps</code>や<code>build_flags</code>にはサンプル固有の設定があるため、内容を確認して引き継いでください。</p>
 <p><code>upload_command</code>が古い<code>Arduino15/.../STM32Tools/1.4.0/...</code>を参照している場合は、現在インストールしているSTM32CubeProgrammerを直接呼び出す設定に置き換えます。</p>
 <p>既存プロジェクトのST STM32やライブラリは、次のコマンドで更新できます。ST STM32を最新版にするには、<code>platform = ststm32@...</code>などのバージョン指定を<code>platform = ststm32</code>に変更します。実行前に<a href="#%E5%8F%A4%E3%81%84%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E6%8C%87%E5%AE%9A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">ライブラリの対応条件</a>を確認し、ライブラリのバージョン指定も調整してください。その後、プロジェクトのフォルダーでコマンドを実行します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> pkg</span><span style="color:#9ECBFF"> update</span></span></code></pre>
 <p>依存パッケージは、<code>platformio.ini</code>で指定したバージョンの範囲内で更新されます。詳しくは<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html"><code>pio pkg update</code>の公式説明</a>を参照してください。</p>
 <h2 id="ライブラリ">ライブラリ</h2>
 <p>追加のライブラリは、<code>platformio.ini</code>の<a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/library/lib_deps.html"><code>lib_deps</code></a>に記述します。<strong>使用する<code>[env:...]</code>セクション内</strong>に、必要なライブラリを指定してください。すでに<code>lib_deps</code>がある場合は、その一覧に追記します。</p>
 <p>次は指定方法の例です。Hello Worldの例には追加ライブラリは不要です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
 <span class="line"><span style="color:#E1E4E8">    adafruit/Adafruit Unified Sensor</span></span>
 <span class="line"><span style="color:#E1E4E8">    adafruit/Adafruit BusIO</span></span>
 <span class="line"><span style="color:#E1E4E8">    https://github.com/Leafony/TBGLib</span></span></code></pre>
@@ -336,7 +336,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <h3 id="古いサンプルのライブラリ指定について">古いサンプルのライブラリ指定について</h3>
 <p>ライブラリは、使用するArduinoフレームワークに対応したバージョンを選びます。<a href="https://github.com/platformio/platform-ststm32/releases/tag/v20.0.0">ST STM32 20.0.0</a>では、STM32 Arduino Coreが3.0.0に更新されました。</p>
 <p><a href="https://github.com/stm32duino/STM32RTC#requirement">STM32RTCの要件</a>と<a href="https://github.com/stm32duino/STM32LowPower#requirement">STM32LowPowerの要件</a>に従い、Core 3.xでは両ライブラリの2.xを使います。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#6A737D">; STM32 Arduino Core 3.xでRTC・低消費電力機能を使う場合</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#9DA5B4">; STM32 Arduino Core 3.xでRTC・低消費電力機能を使う場合</span></span>
 <span class="line"><span style="color:#F97583">lib_deps</span><span style="color:#E1E4E8"> =</span></span>
 <span class="line"><span style="color:#E1E4E8">    stm32duino/STM32duino RTC@^2.0.0</span></span>
 <span class="line"><span style="color:#E1E4E8">    stm32duino/STM32duino Low Power@^2.0.0</span></span></code></pre>
@@ -353,7 +353,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <li>
 <p><strong>グラフ表示用プログラムの書き込みと起動</strong></p>
 <p><code>src/main.cpp</code>を次のコードに変更し、ビルド・書き込みを行います。書き込み後はプログラムスイッチをRun側に戻し、リセットします。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
@@ -385,7 +385,7 @@ Basic Kitのデモ: https://docs.leafony.com/getting-started/basic/
 <li>スケッチに必要なライブラリの<code>lib_deps</code>への追加</li>
 </ul>
 <p>例えば、関数を<code>setup()</code>の後に定義したい場合は、次のように宣言します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="cpp"><code><span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> printMessage</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>

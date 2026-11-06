@@ -64,31 +64,31 @@ URL: https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googleshee
 </ul>
 </li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> doGet</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) {</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> doGet</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> id </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'spreadsheetId'</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">//Insert spreadsheetId</span></span>
-<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> sheetName </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'sheetName'</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">//Insert sheetName</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> id </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'spreadsheetId'</span><span style="color:#E1E4E8">; </span><span style="color:#9DA5B4">//Insert spreadsheetId</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> sheetName </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'sheetName'</span><span style="color:#E1E4E8">; </span><span style="color:#9DA5B4">//Insert sheetName</span></span>
 <span class="line"><span style="color:#F97583">    var</span><span style="color:#E1E4E8"> result;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // e.parameter has received GET parameters, i.e. temperature, humidity, illumination</span></span>
+<span class="line"><span style="color:#9DA5B4">    // e.parameter has received GET parameters, i.e. temperature, humidity, illumination</span></span>
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (e.parameter </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> undefined</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'Parameter undefined'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> sheet </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> SpreadsheetApp.</span><span style="color:#B392F0">openById</span><span style="color:#E1E4E8">(id).</span><span style="color:#B392F0">getSheetByName</span><span style="color:#E1E4E8">(sheetName);</span></span>
-<span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRow </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;  </span><span style="color:#6A737D">// get row number to be inserted</span></span>
+<span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRow </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;  </span><span style="color:#9DA5B4">// get row number to be inserted</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> rowData </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [];</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // get current time</span></span>
+<span class="line"><span style="color:#9DA5B4">        // get current time</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.UniqueID;</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.temperature;</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.humidity;</span></span>
 <span class="line"><span style="color:#E1E4E8">        rowData[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> e.parameter.illumination;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // 1 x rowData.length cells from (newRow, 1) cell are specified</span></span>
+<span class="line"><span style="color:#9DA5B4">        // 1 x rowData.length cells from (newRow, 1) cell are specified</span></span>
 <span class="line"><span style="color:#F97583">        var</span><span style="color:#E1E4E8"> newRange </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getRange</span><span style="color:#E1E4E8">(newRow, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, rowData.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">        // insert data to the target cells</span></span>
+<span class="line"><span style="color:#9DA5B4">        // insert data to the target cells</span></span>
 <span class="line"><span style="color:#E1E4E8">        newRange.</span><span style="color:#B392F0">setValues</span><span style="color:#E1E4E8">([rowData]);</span></span>
 <span class="line"><span style="color:#E1E4E8">        result </span><span style="color:#F97583">=</span><span style="color:#9ECBFF">  'Ok'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>

@@ -82,7 +82,7 @@ If you haven’t installed it yet, refer to <a href="/en/environment/esp32/ardui
 <p>Add 87 lines for low power consumption setting.</p>
 </li>
 </ul>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">// Date and time functions using a PCF8523 RTC connected via I2C and Wire lib</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">// Date and time functions using a PCF8523 RTC connected via I2C and Wire lib</span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> "RTClib.h"</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">RTC_PCF8523 rtc;</span></span>
@@ -93,7 +93,7 @@ If you haven’t installed it yet, refer to <a href="/en/environment/esp32/ardui
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">#ifndef</span><span style="color:#B392F0"> ESP8266</span></span>
-<span class="line"><span style="color:#F97583">  while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">Serial);</span><span style="color:#6A737D"> // wait for serial port to connect. Needed for native USB</span></span>
+<span class="line"><span style="color:#F97583">  while</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">Serial);</span><span style="color:#9DA5B4"> // wait for serial port to connect. Needed for native USB</span></span>
 <span class="line"><span style="color:#F97583">#endif</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8"> rtc.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">()) {</span></span>
@@ -104,31 +104,31 @@ If you haven’t installed it yet, refer to <a href="/en/environment/esp32/ardui
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8"> rtc.</span><span style="color:#B392F0">initialized</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> rtc.</span><span style="color:#B392F0">lostPower</span><span style="color:#E1E4E8">()) {</span></span>
 <span class="line"><span style="color:#E1E4E8">    Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"RTC is NOT initialized, let's set the time!"</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#6A737D">    // When time needs to be set on a new device, or after a power loss, the</span></span>
-<span class="line"><span style="color:#6A737D">    // following line sets the RTC to the date &#x26; time this sketch was compiled</span></span>
+<span class="line"><span style="color:#9DA5B4">    // When time needs to be set on a new device, or after a power loss, the</span></span>
+<span class="line"><span style="color:#9DA5B4">    // following line sets the RTC to the date &#x26; time this sketch was compiled</span></span>
 <span class="line"><span style="color:#E1E4E8">    rtc.</span><span style="color:#B392F0">adjust</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">DateTime</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">F</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">__DATE__</span><span style="color:#E1E4E8">), </span><span style="color:#B392F0">F</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">__TIME__</span><span style="color:#E1E4E8">)));</span></span>
-<span class="line"><span style="color:#6A737D">    // This line sets the RTC with an explicit date &#x26; time, for example to set</span></span>
-<span class="line"><span style="color:#6A737D">    // January 21, 2014 at 3am you would call:</span></span>
-<span class="line"><span style="color:#6A737D">    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));</span></span>
-<span class="line"><span style="color:#6A737D">    //</span></span>
-<span class="line"><span style="color:#6A737D">    // Note: allow 2 seconds after inserting battery or applying external power</span></span>
-<span class="line"><span style="color:#6A737D">    // without battery before calling adjust(). This gives the PCF8523's</span></span>
-<span class="line"><span style="color:#6A737D">    // crystal oscillator time to stabilize. If you call adjust() very quickly</span></span>
-<span class="line"><span style="color:#6A737D">    // after the RTC is powered, lostPower() may still return true.</span></span>
+<span class="line"><span style="color:#9DA5B4">    // This line sets the RTC with an explicit date &#x26; time, for example to set</span></span>
+<span class="line"><span style="color:#9DA5B4">    // January 21, 2014 at 3am you would call:</span></span>
+<span class="line"><span style="color:#9DA5B4">    // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));</span></span>
+<span class="line"><span style="color:#9DA5B4">    //</span></span>
+<span class="line"><span style="color:#9DA5B4">    // Note: allow 2 seconds after inserting battery or applying external power</span></span>
+<span class="line"><span style="color:#9DA5B4">    // without battery before calling adjust(). This gives the PCF8523's</span></span>
+<span class="line"><span style="color:#9DA5B4">    // crystal oscillator time to stabilize. If you call adjust() very quickly</span></span>
+<span class="line"><span style="color:#9DA5B4">    // after the RTC is powered, lostPower() may still return true.</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // When time needs to be re-set on a previously configured device, the</span></span>
-<span class="line"><span style="color:#6A737D">  // following line sets the RTC to the date &#x26; time this sketch was compiled</span></span>
-<span class="line"><span style="color:#6A737D">  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));</span></span>
-<span class="line"><span style="color:#6A737D">  // This line sets the RTC with an explicit date &#x26; time, for example to set</span></span>
-<span class="line"><span style="color:#6A737D">  // January 21, 2014 at 3am you would call:</span></span>
-<span class="line"><span style="color:#6A737D">  // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));</span></span>
+<span class="line"><span style="color:#9DA5B4">  // When time needs to be re-set on a previously configured device, the</span></span>
+<span class="line"><span style="color:#9DA5B4">  // following line sets the RTC to the date &#x26; time this sketch was compiled</span></span>
+<span class="line"><span style="color:#9DA5B4">  // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));</span></span>
+<span class="line"><span style="color:#9DA5B4">  // This line sets the RTC with an explicit date &#x26; time, for example to set</span></span>
+<span class="line"><span style="color:#9DA5B4">  // January 21, 2014 at 3am you would call:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // rtc.adjust(DateTime(2014, 1, 21, 3, 0, 0));</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // When the RTC was stopped and stays connected to the battery, it has</span></span>
-<span class="line"><span style="color:#6A737D">  // to be restarted by clearing the STOP bit. Let's do this to ensure</span></span>
-<span class="line"><span style="color:#6A737D">  // the RTC is running.</span></span>
+<span class="line"><span style="color:#9DA5B4">  // When the RTC was stopped and stays connected to the battery, it has</span></span>
+<span class="line"><span style="color:#9DA5B4">  // to be restarted by clearing the STOP bit. Let's do this to ensure</span></span>
+<span class="line"><span style="color:#9DA5B4">  // the RTC is running.</span></span>
 <span class="line"><span style="color:#E1E4E8">  rtc.</span><span style="color:#B392F0">start</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">  rtc.</span><span style="color:#B392F0">writeSqwPinMode</span><span style="color:#E1E4E8">(PCF8523_OFF);</span><span style="color:#6A737D">                       // Low consumption of electricity</span></span>
+<span class="line"><span style="color:#E1E4E8">  rtc.</span><span style="color:#B392F0">writeSqwPinMode</span><span style="color:#E1E4E8">(PCF8523_OFF);</span><span style="color:#9DA5B4">                       // Low consumption of electricity</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
@@ -156,7 +156,7 @@ If you haven’t installed it yet, refer to <a href="/en/environment/esp32/ardui
 <span class="line"><span style="color:#E1E4E8">    Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(now.</span><span style="color:#B392F0">unixtime</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 86400</span><span style="color:#F97583">L</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">    Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"d"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // calculate a date which is 7 days, 12 hours and 30 seconds into the future</span></span>
+<span class="line"><span style="color:#9DA5B4">    // calculate a date which is 7 days, 12 hours and 30 seconds into the future</span></span>
 <span class="line"><span style="color:#E1E4E8">    DateTime </span><span style="color:#B392F0">future</span><span style="color:#E1E4E8"> (now </span><span style="color:#F97583">+</span><span style="color:#B392F0"> TimeSpan</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">12</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">,</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">));</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">    Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">" now + 7d + 12h + 30m + 6s: "</span><span style="color:#E1E4E8">);</span></span>

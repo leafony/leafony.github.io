@@ -175,7 +175,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <p>This example uses PlatformIO and the STM32 Arduino framework. The project includes the AP03 board definition and pin configuration. PlatformIO obtains the TLS and temperature/humidity sensor libraries during the first build.</p>
 <h2 id="assemble-leafony">Assemble Leafony</h2>
 <p>Stack the leaves in the following order from top to bottom. Place the Spacer leaf between AC09 Cat-M1 TY and 4-Sensors.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Top</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Top</span></span>
 <span class="line"><span>  AC09 Cat-M1 TY</span></span>
 <span class="line"><span>  AX04 Spacer</span></span>
 <span class="line"><span>  AI01 4-Sensors</span></span>
@@ -223,7 +223,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 </li>
 <li>
 <p>Copy the spreadsheet ID from the browser URL. It is the <code>SPREADSHEET_ID</code> portion below; do not include the trailing <code>gid</code>.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit</span></span></code></pre>
 </li>
 <li>
 <p>Open Extensions → Apps Script in the spreadsheet. Name the GAS project, for example, “Leafony temperature and humidity receiver.”</p>
@@ -234,10 +234,10 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <p>Replace the contents of the editor’s script file (<code>コード.gs</code> in the Japanese UI) with the code below and save it. <code>doPost(e)</code> reads the JSON body, checks the token and measurements, then appends a row. <code>doGet()</code> does not write data.</p>
 <details>
 <summary><h4>GAS code</h4></summary>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SHEET_NAME</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'temperature'</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> SHEET_NAME</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'temperature'</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">'受信日時（UTC）'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'温度（℃）'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'湿度（%RH）'</span><span style="color:#E1E4E8">];</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// スクリプト プロパティを設定した後、エディターから一度実行します。</span></span>
+<span class="line"><span style="color:#9DA5B4">// スクリプト プロパティを設定した後、エディターから一度実行します。</span></span>
 <span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> config</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> readConfiguration</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">config) {</span></span>
@@ -255,7 +255,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (sheet.</span><span style="color:#B392F0">getLastRow</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">      sheet.</span><span style="color:#B392F0">appendRow</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">HEADERS</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#B392F0">hasExpectedHeader</span><span style="color:#E1E4E8">(sheet)) {</span></span>
-<span class="line"><span style="color:#6A737D">      // 温度のみの旧シートは、C 列以降に値や数式がない場合だけ移行します。</span></span>
+<span class="line"><span style="color:#9DA5B4">      // 温度のみの旧シートは、C 列以降に値や数式がない場合だけ移行します。</span></span>
 <span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> header</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getRange</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">getValues</span><span style="color:#E1E4E8">()[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (header[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> header[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> HEADERS</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
 <span class="line"><span style="color:#F97583">          &#x26;&#x26;</span><span style="color:#E1E4E8"> sheet.</span><span style="color:#B392F0">getLastColumn</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">&#x3C;=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">) {</span></span>
@@ -276,7 +276,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> body </span><span style="color:#F97583">!==</span><span style="color:#9ECBFF"> 'string'</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> body.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#F97583">      return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'invalid_request'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#6A737D">    // length は受信本文のバイト数。文字数も確認して過大な本文を解析しません。</span></span>
+<span class="line"><span style="color:#9DA5B4">    // length は受信本文のバイト数。文字数も確認して過大な本文を解析しません。</span></span>
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (e.postData.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 1024</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> e.contentLength </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 1024</span><span style="color:#F97583"> ||</span><span style="color:#E1E4E8"> body.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 1024</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#F97583">      return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'body_too_large'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
@@ -326,7 +326,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <span class="line"><span style="color:#E1E4E8">      lock.</span><span style="color:#B392F0">releaseLock</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (_) {</span></span>
-<span class="line"><span style="color:#6A737D">    // 例外の詳細や設定値を HTTP 応答に含めません。</span></span>
+<span class="line"><span style="color:#9DA5B4">    // 例外の詳細や設定値を HTTP 応答に含めません。</span></span>
 <span class="line"><span style="color:#F97583">    return</span><span style="color:#B392F0"> jsonResponse</span><span style="color:#E1E4E8">({ ok: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">, error: </span><span style="color:#9ECBFF">'internal_error'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
@@ -379,7 +379,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 
 <table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><tr><td><code>SPREADSHEET_ID</code></td><td>The spreadsheet ID copied earlier</td></tr><tr><td><code>API_TOKEN</code></td><td>A token generated for this example, 32–128 characters long, containing only letters, digits, hyphens, and underscores</td></tr></tbody></table>
 <p>Run this command in a computer terminal to generate a random 64-character hexadecimal token. Set the displayed string as <code>API_TOKEN</code> and later use the same value in Leafony’s configuration.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">openssl</span><span style="color:#9ECBFF"> rand</span><span style="color:#79B8FF"> -hex</span><span style="color:#79B8FF"> 32</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">openssl</span><span style="color:#9ECBFF"> rand</span><span style="color:#79B8FF"> -hex</span><span style="color:#79B8FF"> 32</span></span></code></pre>
 <p>Project editors can also read script properties. See <a href="https://developers.google.com/apps-script/guides/properties#manage_script_properties_manually">Google’s property-management instructions</a> for the settings screen.</p>
 <h3 id="initialize-the-destination-sheet">Initialize the destination sheet</h3>
 <ol>
@@ -399,7 +399,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <li>Click Deploy and grant the access required by this script if prompted.</li>
 <li>Copy the displayed Web app URL. Check that it ends in <code>/exec</code>. This is Leafony’s destination URL.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://script.google.com/macros/s/DEPLOYMENT_ID/exec</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>https://script.google.com/macros/s/DEPLOYMENT_ID/exec</span></span></code></pre>
 <p>Follow <a href="https://developers.google.com/apps-script/guides/web#deploy_a_script_as_a_web_app">Google’s web app deployment instructions</a> to set access and obtain the URL. Test URLs ending in <code>/dev</code> are limited to users with edit access, so configure Leafony with the <code>/exec</code> URL.</p>
 <p>After changing GAS code, open Deploy → Manage deployments, edit the existing deployment, select a new version, and deploy again. Updating the same deployment preserves the destination URL. See <a href="https://developers.google.com/apps-script/concepts/deployments#edit_a_versioned_deployment">how to update a deployment</a>.</p>
 <h3 id="test-writing-from-a-computer">Test writing from a computer</h3>
@@ -410,7 +410,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <li>Run <code>curl.exe --version</code> and check that version information appears. If the command is not found, see the <a href="https://curl.se/windows/">official curl downloads for Windows</a>.</li>
 <li>Replace the URL and token below with your values, then paste and run the entire block in PowerShell.</li>
 </ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#E1E4E8">$url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#E1E4E8">$url </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span></span>
 <span class="line"><span style="color:#E1E4E8">$payload </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> '{"token":"YOUR_API_TOKEN","temperature_c":25.5,"humidity_pct":50.0}'</span></span>
 <span class="line"><span style="color:#E1E4E8">$requestFile </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#F97583">System.IO.Path</span><span style="color:#E1E4E8">]::GetTempFileName()</span></span>
 <span class="line"></span>
@@ -423,13 +423,13 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <p>In Windows PowerShell, <code>curl</code> is an alias for a different command, so use <code>curl.exe</code> explicitly. The example saves the JSON to a temporary file to preserve its quotation marks, sends the file, then deletes it. It works with Windows PowerShell 5.1 and PowerShell 7. See <a href="https://learn.microsoft.com/en-us/windows/curl/">using curl on Windows</a>.</p>
 <h4 id="macos-and-linux">macOS and Linux</h4>
 <p>Run the following command in a terminal:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -L</span><span style="color:#79B8FF"> \</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -L</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#9ECBFF">  'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec'</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> 'Content-Type: application/json'</span><span style="color:#79B8FF"> \</span></span>
 <span class="line"><span style="color:#79B8FF">  --data</span><span style="color:#9ECBFF"> '{"token":"YOUR_API_TOKEN","temperature_c":25.5,"humidity_pct":50.0}'</span></span></code></pre>
 <h4 id="check-the-response-all-platforms">Check the response (all platforms)</h4>
 <p>On success, the following JSON is returned. Also check that a row containing the reception time, temperature <code>25.5</code>, and humidity <code>50.0</code> has been added to the <code>temperature</code> sheet.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span><span style="color:#79B8FF">"ok"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span><span style="color:#79B8FF">"ok"</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">}</span></span></code></pre>
 <p><code>--data</code> or <code>--data-binary</code> makes the initial request a POST. GAS ContentService redirects the response to a different URL; <code>-L</code> follows it and retrieves the final result with GET. You do not need to add <code>-X POST</code>. See <a href="https://developers.google.com/apps-script/guides/content#redirects">ContentService redirects</a>.</p>
 <p>Do not judge success from the HTTP status or redirect alone. Check that <code>ok</code> is <code>true</code> in the final JSON. For example, if you receive <code>{"ok":false,"error":"invalid_token"}</code>, check that the submitted token matches the script property. For <code>sheet_not_initialized</code>, check the result of <code>setup()</code> and the sheet headings.</p>
 <p>This example does not automatically POST the same measurement again if it receives no response: the sheet may already contain the data even if the response was lost. Every manual repetition of the same test adds a new row.</p>
@@ -437,7 +437,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <h3 id="obtain-the-source">Obtain the source</h3>
 <p>The STM32 project is <a href="https://github.com/leafony/ac09-cat-m1-ty/tree/main/platformio/google_sheets"><code>platformio/google_sheets</code></a> in the AC09 development repository. The repository is private, and access requires a separate non-disclosure agreement (NDA). If you do not have access, <a href="https://shop.leafony.com/pages/contact-us">contact Leafony Shop (Japanese)</a> to check the conditions for obtaining the materials and which source revision to use.</p>
 <p>If you have access, obtain the repository and open <code>platformio/google_sheets</code> in VS Code. Record the commit ID, then compare it with this guide’s AP03 + AI01 configuration, <code>platformio.ini</code> and the transmission interval in the configuration template. See <a href="/en/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kit: prepare for development</a> for the status of support for the kit’s AP03B + AI05 configuration.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>platformio/google_sheets/</span></span>
 <span class="line"><span>├── platformio.ini</span></span>
 <span class="line"><span>├── boards/                 # AP03 board definition</span></span>
 <span class="line"><span>├── variants/               # AP03 pin configuration</span></span>
@@ -502,15 +502,15 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 </li>
 <li>
 <p>Build in the project folder:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span></span></code></pre>
 </li>
 <li>
 <p>Set the STM32 leaf to <strong>Program</strong>, reset it, and upload:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> upload</span></span></code></pre>
 </li>
 <li>
 <p>Return the switch to <strong>Run</strong> and reset. To check logs over USB, open the serial monitor:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -b</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">pio</span><span style="color:#9ECBFF"> device</span><span style="color:#9ECBFF"> monitor</span><span style="color:#79B8FF"> -e</span><span style="color:#9ECBFF"> leafony_ap03</span><span style="color:#79B8FF"> -b</span><span style="color:#79B8FF"> 115200</span></span></code></pre>
 </li>
 <li>
 <p>For battery operation, turn off the power and connect the battery to AV06. Disconnect USB, check that the STM32 switch is at <strong>Run</strong>, and turn on AV06. The firmware starts and proceeds with Cellular LPWA Cat-M1 connection and time acquisition without opening a serial monitor.</p>
@@ -519,9 +519,9 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <h3 id="automatic-time-acquisition-for-tls">Automatic time acquisition for TLS</h3>
 <p>After startup and connection to the Cellular LPWA Cat-M1 network, the firmware reads the modem time with <code>AT+CCLK?</code>. If the time is unset or invalid, or acquisition fails, it waits 30 seconds after response processing finishes and checks again. There is no time limit for this wait. Until the time is obtained, it does not connect over HTTPS or send temperature and humidity. Transmission starts automatically in the cycle that obtains a valid time.</p>
 <p>When checking logs over USB, the following appears while waiting. No action is required.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Waiting for network UTC; retrying in 30 seconds</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Waiting for network UTC; retrying in 30 seconds</span></span></code></pre>
 <p>Once a valid date and time are obtained, the following appears and transmission begins:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UTC clock set from modem</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UTC clock set from modem</span></span></code></pre>
 <p>The network connection stays active while only time acquisition is failing. If an AT command response times out and communication status becomes unknown, the firmware waits 30 seconds, then retries from modem initialization and Cellular LPWA Cat-M1 connection. If network registration itself is rejected, it follows the normal reconnection procedure.</p>
 <p>The acquired clock advances while the STM32 is running. After a power cycle, time acquisition starts again automatically. A USB connection or serial <code>TIME</code> input is not required.</p>
 <p>This method requires the network and modem configuration to return the correct date and time through <code>AT+CCLK?</code>. Waiting alone will not start transmission in an environment that does not update the time. Automatic time acquisition with AC09 and the selected SIM has not yet been tested on hardware. Before battery operation, check that the time is acquired automatically after power-on. The example does not bypass certificate verification or transmit using a fixed date.</p>
@@ -529,7 +529,7 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <h2 id="check-operation">Check operation</h2>
 <h3 id="serial-monitor-output">Serial monitor output</h3>
 <p>The firmware prints <code>Saved to Google Sheets</code> in a cycle where saving is confirmed. The following illustrates the output format; it is not a log captured from hardware.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Temperature (C): 25.50</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Temperature (C): 25.50</span></span>
 <span class="line"><span>Humidity (%RH): 50.00</span></span>
 <span class="line"><span>Saved to Google Sheets</span></span></code></pre>
 <p>If measurements appear without the saving confirmation, check the subsequent error messages.</p>

@@ -50,46 +50,46 @@ URL: https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_simple_ble
 <p><code>adv_data[]</code>配列がAdvertising dataです。この配列はコメントに記載されているように、<code>AD Structure 1</code>～<code>AD Structure 3</code>というデータの塊を繋げたデータとなっています。これらのデータの内容については後述します。</p>
 <p><code>ble112.ble_cmd_le_gap_set_adv_data()</code>で<code>adv_data</code>をBLEリーフに登録し、BLEリーフ側から登録完了の信号が来るのを待つために、<code>ble112.checkActivity()</code>を実行しています。</p>
 <p><code>ble112.ble_cmd_le_gap_start_advertising()</code>を実行することで、BLEがAdvertisingを開始して、先程設定したAdvertising dataをブロードキャストし始めます。<code>LE_GA_SCANNABLE_NON_CONNECTALBE</code>を設定したことで、BLE Client側はAdvertising dataをスキャンすることはできますが、このデバイスと接続を確立することは禁止しています。これは、接続要求が来た場合に発生するイベントの処理を減らして電力を削減するための設定です。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> StartAdvData</span><span style="color:#E1E4E8">()</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> StartAdvData</span><span style="color:#E1E4E8">()</span></span>
 <span class="line"><span style="color:#E1E4E8">{</span></span>
-<span class="line"><span style="color:#6A737D">  // Advertising data; 25byte MAX</span></span>
+<span class="line"><span style="color:#9DA5B4">  // Advertising data; 25byte MAX</span></span>
 <span class="line"><span style="color:#F97583">  uint8_t</span><span style="color:#E1E4E8"> adv_data</span><span style="color:#F97583">[]</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#6A737D">    // AD Structure 1: Flag</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //0: field length</span></span>
-<span class="line"><span style="color:#E1E4E8">    BGLIB_GAP_AD_TYPE_FLAGS,</span><span style="color:#6A737D">  //1: field type (0x01)</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //2: data</span></span>
-<span class="line"><span style="color:#6A737D">    // AD Structure 2: Complete local name</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //3: field length</span></span>
-<span class="line"><span style="color:#E1E4E8">    BGLIB_GAP_AD_TYPE_LOCALNAME_COMPLETE,</span><span style="color:#6A737D">  //4: field type (0x09)</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //5:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'e'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //6:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //7:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'f'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //8:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'_'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //9:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'A'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //10:</span></span>
-<span class="line"><span style="color:#6A737D">    // AD Structure 3: Manufacture specific</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">   //11: field length</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">ff</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D"> //12: field type (0xff)</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'H'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //13:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'E'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //14:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //15:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //16:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'O'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //17:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">' '</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //18:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'B'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //19:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'E'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //20:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'A'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //21:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'C'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //22:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'O'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //23:</span></span>
-<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'N'</span><span style="color:#E1E4E8">),</span><span style="color:#6A737D">  //24:</span></span>
+<span class="line"><span style="color:#9DA5B4">    // AD Structure 1: Flag</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //0: field length</span></span>
+<span class="line"><span style="color:#E1E4E8">    BGLIB_GAP_AD_TYPE_FLAGS,</span><span style="color:#9DA5B4">  //1: field type (0x01)</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //2: data</span></span>
+<span class="line"><span style="color:#9DA5B4">    // AD Structure 2: Complete local name</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //3: field length</span></span>
+<span class="line"><span style="color:#E1E4E8">    BGLIB_GAP_AD_TYPE_LOCALNAME_COMPLETE,</span><span style="color:#9DA5B4">  //4: field type (0x09)</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //5:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'e'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //6:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'a'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //7:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'f'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //8:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'_'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //9:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'A'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //10:</span></span>
+<span class="line"><span style="color:#9DA5B4">    // AD Structure 3: Manufacture specific</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">   //11: field length</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">ff</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4"> //12: field type (0xff)</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'H'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //13:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'E'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //14:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //15:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'L'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //16:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'O'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //17:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">' '</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //18:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'B'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //19:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'E'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //20:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'A'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //21:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'C'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //22:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'O'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //23:</span></span>
+<span class="line"><span style="color:#E1E4E8">    (</span><span style="color:#9ECBFF">'N'</span><span style="color:#E1E4E8">),</span><span style="color:#9DA5B4">  //24:</span></span>
 <span class="line"><span style="color:#E1E4E8">  };</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Register advertising packet</span></span>
+<span class="line"><span style="color:#9DA5B4">  // Register advertising packet</span></span>
 <span class="line"><span style="color:#F97583">  uint8_t</span><span style="color:#E1E4E8"> stLen </span><span style="color:#F97583">=</span><span style="color:#F97583"> sizeof</span><span style="color:#E1E4E8">(adv_data);</span></span>
 <span class="line"><span style="color:#E1E4E8">  ble112.</span><span style="color:#B392F0">ble_cmd_le_gap_set_adv_data</span><span style="color:#E1E4E8">(SCAN_RSP_ADVERTISING_PACKETS, stLen, adv_data);</span></span>
 <span class="line"><span style="color:#F97583">  while</span><span style="color:#E1E4E8"> (ble112.</span><span style="color:#B392F0">checkActivity</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">));</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // index = 0  LE_GAP_SCANNABLE_NON_CONNECTABLE / LE_GAP_UNDIRECTED_CONNECTABLE</span></span>
+<span class="line"><span style="color:#9DA5B4">  // index = 0  LE_GAP_SCANNABLE_NON_CONNECTABLE / LE_GAP_UNDIRECTED_CONNECTABLE</span></span>
 <span class="line"><span style="color:#E1E4E8">  ble112.</span><span style="color:#B392F0">ble_cmd_le_gap_start_advertising</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, LE_GAP_USER_DATA, LE_GAP_SCANNABLE_NON_CONNECTABLE);</span></span>
 <span class="line"><span style="color:#F97583">  while</span><span style="color:#E1E4E8"> (ble112.</span><span style="color:#B392F0">checkActivity</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">));</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>

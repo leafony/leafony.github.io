@@ -228,7 +228,7 @@ Busの3.3Vレールへ供給します。</p>
 <h2 id="回路設計">回路設計</h2>
 <h3 id="電源アーキテクチャ">電源アーキテクチャ</h3>
 <p>USB VBUSからTPS6282533でローカル電源レール <code>P3V3_BUCK</code> を生成し、MAX40200AUK+Tを介してLeafony Bus側の <code>+3.3V rail</code> へ供給します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>USB VBUS 5V</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>USB VBUS 5V</span></span>
 <span class="line"><span>  |</span></span>
 <span class="line"><span>  +-- FB1 ---------------------> FT234XD.VCC</span></span>
 <span class="line"><span>  |                                |</span></span>

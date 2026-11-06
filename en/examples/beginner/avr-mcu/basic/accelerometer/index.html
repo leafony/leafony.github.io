@@ -84,15 +84,15 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <h2 id="source-code">Source code</h2>
 <p>Write the following program in the Arduino IDE.</p>
 <p>This sketch requires additional libraries. If they are not installed, follow the <a href="/en/environment/avr/arduino/#installing-libraries">AVR Arduino IDE library instructions</a>.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">//  Accelerometer</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
-<span class="line"><span style="color:#6A737D">//    Released under the MIT license</span></span>
-<span class="line"><span style="color:#6A737D">//    https://opensource.org/licenses/MIT</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//      Rev.00 2021/04/01  First release</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//  Accelerometer</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
+<span class="line"><span style="color:#9DA5B4">//    Released under the MIT license</span></span>
+<span class="line"><span style="color:#9DA5B4">//    https://opensource.org/licenses/MIT</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//      Rev.00 2021/04/01  First release</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Adafruit_LIS3DH.h></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LIS3DH_ADDRESS</span><span style="color:#F97583"> 0x</span><span style="color:#79B8FF">19</span></span>
@@ -100,14 +100,14 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#E1E4E8">Adafruit_LIS3DH accel </span><span style="color:#F97583">=</span><span style="color:#B392F0"> Adafruit_LIS3DH</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  // initialize serial communication at 115200 second per second:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // initialize serial communication at 115200 second per second:</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#6A737D">  // initialize i2c communication with LIS3DH:</span></span>
+<span class="line"><span style="color:#9DA5B4">  // initialize i2c communication with LIS3DH:</span></span>
 <span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">(LIS3DH_ADDRESS);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setClick</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">                      // Disable Interrupt</span></span>
-<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setRange</span><span style="color:#E1E4E8">(LIS3DH_RANGE_2_G);</span><span style="color:#6A737D">          // Full scale +/- 2G</span></span>
-<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setDataRate</span><span style="color:#E1E4E8">(LIS3DH_DATARATE_10_HZ);</span><span style="color:#6A737D">  // Data rate = 10Hz</span></span>
+<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setClick</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4">                      // Disable Interrupt</span></span>
+<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setRange</span><span style="color:#E1E4E8">(LIS3DH_RANGE_2_G);</span><span style="color:#9DA5B4">          // Full scale +/- 2G</span></span>
+<span class="line"><span style="color:#E1E4E8">  accel.</span><span style="color:#B392F0">setDataRate</span><span style="color:#E1E4E8">(LIS3DH_DATARATE_10_HZ);</span><span style="color:#9DA5B4">  // Data rate = 10Hz</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>

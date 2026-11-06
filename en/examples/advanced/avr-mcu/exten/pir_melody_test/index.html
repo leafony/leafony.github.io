@@ -84,26 +84,26 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <p><img alt="assemble1" loading="lazy" decoding="async" width="356" height="500" src="/_astro/ir_assemble.DFivfRaz_Z24XJJQ.webp" srcset=""></p>
 <h2 id="source-code">Source code</h2>
 <p>Write the following program in the Arduino IDE.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// Leafony Platform sample sketch</span></span>
-<span class="line"><span style="color:#6A737D">//     Platform     : PIR&#x26;SP</span></span>
-<span class="line"><span style="color:#6A737D">//     Processor    : ATmega328P (3.3V /8MHz)</span></span>
-<span class="line"><span style="color:#6A737D">//     Application  : PIR with SP Beep</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//     Leaf configuration</span></span>
-<span class="line"><span style="color:#6A737D">//       (1) AI02 SP&#x26;PIR</span></span>
-<span class="line"><span style="color:#6A737D">//       (2) AP01 AVR MCU</span></span>
-<span class="line"><span style="color:#6A737D">//       (3) AZ01 USB</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//		(c) 2020  Trillion-Node Study Group</span></span>
-<span class="line"><span style="color:#6A737D">//		Released under the MIT license</span></span>
-<span class="line"><span style="color:#6A737D">//		https://opensource.org/licenses/MIT</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//      Rev.00 2019/08/01  First release</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// difinition</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// Leafony Platform sample sketch</span></span>
+<span class="line"><span style="color:#9DA5B4">//     Platform     : PIR&#x26;SP</span></span>
+<span class="line"><span style="color:#9DA5B4">//     Processor    : ATmega328P (3.3V /8MHz)</span></span>
+<span class="line"><span style="color:#9DA5B4">//     Application  : PIR with SP Beep</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//     Leaf configuration</span></span>
+<span class="line"><span style="color:#9DA5B4">//       (1) AI02 SP&#x26;PIR</span></span>
+<span class="line"><span style="color:#9DA5B4">//       (2) AP01 AVR MCU</span></span>
+<span class="line"><span style="color:#9DA5B4">//       (3) AZ01 USB</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//		(c) 2020  Trillion-Node Study Group</span></span>
+<span class="line"><span style="color:#9DA5B4">//		Released under the MIT license</span></span>
+<span class="line"><span style="color:#9DA5B4">//		https://opensource.org/licenses/MIT</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//      Rev.00 2019/08/01  First release</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// difinition</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;stdio.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Arduino.h></span></span>
 <span class="line"><span style="color:#F97583">#include</span><span style="color:#9ECBFF"> &#x3C;Wire.h></span></span>
@@ -117,9 +117,9 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#F97583">unsigned</span><span style="color:#F97583"> char</span><span style="color:#FFAB70"> i2c_receiveBuf</span><span style="color:#E1E4E8">[I2C_RECEIVE_BUF_LENGTH];</span></span>
 <span class="line"><span style="color:#F97583">unsigned</span><span style="color:#F97583"> char</span><span style="color:#E1E4E8"> i2c_receiveLenght;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// buzzer output = 5pin</span></span>
-<span class="line"><span style="color:#6A737D">//------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">//------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// buzzer output = 5pin</span></span>
+<span class="line"><span style="color:#9DA5B4">//------------------------------</span></span>
 <span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> BUZZER_OUT</span><span style="color:#79B8FF"> 5</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">byte readReg;</span></span>
@@ -129,27 +129,27 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">volatile</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> state </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// setup</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// setup</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> setup</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#6A737D">  //pinMode(2, INPUT);</span></span>
-<span class="line"><span style="color:#B392F0">  attachInterrupt</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,catchHuman , FALLING );</span><span style="color:#6A737D">           //人接近検知割り込み</span></span>
+<span class="line"><span style="color:#9DA5B4">  //pinMode(2, INPUT);</span></span>
+<span class="line"><span style="color:#B392F0">  attachInterrupt</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">,catchHuman , FALLING );</span><span style="color:#9DA5B4">           //人接近検知割り込み</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">begin</span><span style="color:#E1E4E8">( </span><span style="color:#79B8FF">115200</span><span style="color:#E1E4E8"> );</span></span>
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  //人感センサ設定</span></span>
-<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">FF</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> //CNTL1  Resrt</span></span>
-<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">2A</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">F2</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> //CNTL11 人感アルゴリズム有効/割り込み出力有効</span></span>
-<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">0F</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> //CNTL6  センサゲイン205%(最大)</span></span>
-<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">2B</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">FF</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D"> //CNTL12 Mode=1 start Meas(連続測定モード)</span></span>
+<span class="line"><span style="color:#9DA5B4">  //人感センサ設定</span></span>
+<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">FF</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> //CNTL1  Resrt</span></span>
+<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">2A</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">F2</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> //CNTL11 人感アルゴリズム有効/割り込み出力有効</span></span>
+<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">25</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">0F</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> //CNTL6  センサゲイン205%(最大)</span></span>
+<span class="line"><span style="color:#B392F0">  i2c_write_byte</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">2B</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">FF</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4"> //CNTL12 Mode=1 start Meas(連続測定モード)</span></span>
 <span class="line"><span style="color:#B392F0">   delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">// Main loop</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">// Main loop</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> loop</span><span style="color:#E1E4E8">() {</span></span>
 <span class="line"><span style="color:#B392F0">  clearI2CReadbuf</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#B392F0">  i2c_read</span><span style="color:#E1E4E8">(I2C_PIR_ADDR, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">04</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">, i2c_receiveBuf);</span></span>
@@ -158,54 +158,54 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#B392F0">  sprintf</span><span style="color:#E1E4E8">(buf, </span><span style="color:#9ECBFF">"Human detection = </span><span style="color:#79B8FF">%d</span><span style="color:#9ECBFF">"</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">i2c_receiveBuf</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x26;</span><span style="color:#F97583"> 0x</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">>></span><span style="color:#79B8FF"> 4</span><span style="color:#E1E4E8">  );</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(buf);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  //IRセンサ測定データ</span></span>
+<span class="line"><span style="color:#9DA5B4">  //IRセンサ測定データ</span></span>
 <span class="line"><span style="color:#E1E4E8">  irData </span><span style="color:#F97583">=</span><span style="color:#B392F0"> clacIR</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"IR   = "</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(irData,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">" pA"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  //センサ温度</span></span>
+<span class="line"><span style="color:#9DA5B4">  //センサ温度</span></span>
 <span class="line"><span style="color:#E1E4E8">  tempData </span><span style="color:#F97583">=</span><span style="color:#B392F0"> clacTemp</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"TSENS = "</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">print</span><span style="color:#E1E4E8">(tempData,</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">" deg"</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"==================================="</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (state </span><span style="color:#F97583">==</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">){</span></span>
-<span class="line"><span style="color:#6A737D">    //------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">    // notes in the melody:</span></span>
-<span class="line"><span style="color:#6A737D">    //------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    //------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    // notes in the melody:</span></span>
+<span class="line"><span style="color:#9DA5B4">    //------------------------------</span></span>
 <span class="line"><span style="color:#F97583">    int</span><span style="color:#E1E4E8"> melody</span><span style="color:#F97583">[]</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">      NOTE_C5, NOTE_C5, NOTE_G5, NOTE_G5, NOTE_A5, NOTE_A5, NOTE_G5, NOTE_F5, NOTE_F5, NOTE_E5, NOTE_E5,NOTE_D5,NOTE_D5,NOTE_C5</span></span>
 <span class="line"><span style="color:#E1E4E8">    };</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">    //------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">    // note durations: 4 = quarter note, 8 = eighth note, etc.:</span></span>
-<span class="line"><span style="color:#6A737D">    //------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    //------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    // note durations: 4 = quarter note, 8 = eighth note, etc.:</span></span>
+<span class="line"><span style="color:#9DA5B4">    //------------------------------</span></span>
 <span class="line"><span style="color:#F97583">    int</span><span style="color:#E1E4E8"> noteDurations</span><span style="color:#F97583">[]</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">      4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span></span>
 <span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#6A737D">    //----------------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">    // iterate over the notes of the melody:</span></span>
-<span class="line"><span style="color:#6A737D">    //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">    // iterate over the notes of the melody:</span></span>
+<span class="line"><span style="color:#9DA5B4">    //----------------------------------------</span></span>
 <span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">int</span><span style="color:#E1E4E8"> thisNote </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; thisNote </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 14</span><span style="color:#E1E4E8">; thisNote</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#6A737D">      //----------------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">      // to calculate the note duration, take one second</span></span>
-<span class="line"><span style="color:#6A737D">      // divided by the note type.</span></span>
-<span class="line"><span style="color:#6A737D">      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.</span></span>
-<span class="line"><span style="color:#6A737D">      //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      // to calculate the note duration, take one second</span></span>
+<span class="line"><span style="color:#9DA5B4">      // divided by the note type.</span></span>
+<span class="line"><span style="color:#9DA5B4">      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.</span></span>
+<span class="line"><span style="color:#9DA5B4">      //----------------------------------------</span></span>
 <span class="line"><span style="color:#F97583">      int</span><span style="color:#E1E4E8"> noteDuration </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1000</span><span style="color:#F97583"> /</span><span style="color:#FFAB70"> noteDurations</span><span style="color:#E1E4E8">[thisNote];</span></span>
 <span class="line"><span style="color:#B392F0">      tone</span><span style="color:#E1E4E8">(BUZZER_OUT, </span><span style="color:#FFAB70">melody</span><span style="color:#E1E4E8">[thisNote], noteDuration);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">      //----------------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">      // to distinguish the notes, set a minimum time between them.</span></span>
-<span class="line"><span style="color:#6A737D">      // the note's duration + 30% seems to work well:</span></span>
-<span class="line"><span style="color:#6A737D">      //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      //----------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      // to distinguish the notes, set a minimum time between them.</span></span>
+<span class="line"><span style="color:#9DA5B4">      // the note's duration + 30% seems to work well:</span></span>
+<span class="line"><span style="color:#9DA5B4">      //----------------------------------------</span></span>
 <span class="line"><span style="color:#F97583">      float</span><span style="color:#E1E4E8"> pauseBetweenNotes </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> noteDuration </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 1.30</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#B392F0">      delay</span><span style="color:#E1E4E8">(pauseBetweenNotes);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">      //-----------------------</span></span>
-<span class="line"><span style="color:#6A737D">      // stop the tone playing:</span></span>
-<span class="line"><span style="color:#6A737D">      //-----------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      //-----------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">      // stop the tone playing:</span></span>
+<span class="line"><span style="color:#9DA5B4">      //-----------------------</span></span>
 <span class="line"><span style="color:#B392F0">      noTone</span><span style="color:#E1E4E8">(BUZZER_OUT);</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">    state </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
@@ -213,13 +213,13 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> catchHuman</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#E1E4E8">  state </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"!! Interrupt !!"</span><span style="color:#E1E4E8">);</span><span style="color:#6A737D">      //人の接近を検知</span></span>
+<span class="line"><span style="color:#E1E4E8">  Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"!! Interrupt !!"</span><span style="color:#E1E4E8">);</span><span style="color:#9DA5B4">      //人の接近を検知</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">double</span><span style="color:#B392F0"> clacTemp</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#F97583">  double</span><span style="color:#E1E4E8"> ret;</span></span>
 <span class="line"><span style="color:#F97583">  unsigned</span><span style="color:#F97583"> short</span><span style="color:#E1E4E8"> val </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">unsigned</span><span style="color:#F97583"> short</span><span style="color:#E1E4E8">)((</span><span style="color:#FFAB70">i2c_receiveBuf</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x3C;&#x3C;</span><span style="color:#79B8FF"> 8</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">|</span><span style="color:#FFAB70">  i2c_receiveBuf</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">]);</span></span>
@@ -233,7 +233,7 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> ret </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 25</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"><span style="color:#F97583">double</span><span style="color:#B392F0"> clacIR</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#F97583">  double</span><span style="color:#E1E4E8"> ret;</span></span>
 <span class="line"><span style="color:#F97583">  unsigned</span><span style="color:#F97583"> short</span><span style="color:#E1E4E8"> val </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">unsigned</span><span style="color:#F97583"> short</span><span style="color:#E1E4E8">)((</span><span style="color:#FFAB70">i2c_receiveBuf</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">&#x3C;&#x3C;</span><span style="color:#79B8FF"> 8</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">|</span><span style="color:#FFAB70">  i2c_receiveBuf</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]);</span></span>
@@ -246,18 +246,18 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> ret;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/**********************************************</span></span>
-<span class="line"><span style="color:#6A737D">* I2C スレーブデバイスに1バイト書き込む</span></span>
-<span class="line"><span style="color:#6A737D">**********************************************/</span></span>
+<span class="line"><span style="color:#9DA5B4">/**********************************************</span></span>
+<span class="line"><span style="color:#9DA5B4">* I2C スレーブデバイスに1バイト書き込む</span></span>
+<span class="line"><span style="color:#9DA5B4">**********************************************/</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> i2c_write_byte</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> device_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> reg_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> write_data</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">beginTransmission</span><span style="color:#E1E4E8">(device_address);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">write</span><span style="color:#E1E4E8">(reg_address);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">write</span><span style="color:#E1E4E8">(write_data);</span></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">endTransmission</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/**********************************************</span></span>
-<span class="line"><span style="color:#6A737D">* I2C スレーブデバイスから1バイト読み込む</span></span>
-<span class="line"><span style="color:#6A737D">**********************************************/</span></span>
+<span class="line"><span style="color:#9DA5B4">/**********************************************</span></span>
+<span class="line"><span style="color:#9DA5B4">* I2C スレーブデバイスから1バイト読み込む</span></span>
+<span class="line"><span style="color:#9DA5B4">**********************************************/</span></span>
 <span class="line"><span style="color:#F97583">unsigned</span><span style="color:#F97583"> char</span><span style="color:#B392F0"> i2c_read_byte</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> device_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> reg_address</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">  int</span><span style="color:#E1E4E8"> read_data </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
@@ -271,9 +271,9 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> read_data;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/**********************************************</span></span>
-<span class="line"><span style="color:#6A737D">* I2C スレーブデバイスに複数バイト書き込む</span></span>
-<span class="line"><span style="color:#6A737D">**********************************************/</span></span>
+<span class="line"><span style="color:#9DA5B4">/**********************************************</span></span>
+<span class="line"><span style="color:#9DA5B4">* I2C スレーブデバイスに複数バイト書き込む</span></span>
+<span class="line"><span style="color:#9DA5B4">**********************************************/</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> i2c_write</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> device_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> reg_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> lengrh</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">unsigned</span><span style="color:#F97583"> char*</span><span style="color:#FFAB70"> write_byte</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">beginTransmission</span><span style="color:#E1E4E8">(device_address);</span></span>
@@ -283,9 +283,9 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">endTransmission</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/**********************************************</span></span>
-<span class="line"><span style="color:#6A737D">* I2C スレーブデバイスから複数バイト読み込む</span></span>
-<span class="line"><span style="color:#6A737D">**********************************************/</span></span>
+<span class="line"><span style="color:#9DA5B4">/**********************************************</span></span>
+<span class="line"><span style="color:#9DA5B4">* I2C スレーブデバイスから複数バイト読み込む</span></span>
+<span class="line"><span style="color:#9DA5B4">**********************************************/</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> i2c_read</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">int</span><span style="color:#FFAB70"> device_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> reg_address</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">int</span><span style="color:#FFAB70"> lengrh</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">unsigned</span><span style="color:#F97583"> char*</span><span style="color:#FFAB70"> read_byte</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  Wire.</span><span style="color:#B392F0">beginTransmission</span><span style="color:#E1E4E8">(device_address);</span></span>
@@ -297,9 +297,9 @@ Description / headings (excerpt): Overview / Leaf to use / Assembly / Source cod
 <span class="line"><span style="color:#FFAB70">    read_byte</span><span style="color:#E1E4E8">[i] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Wire.</span><span style="color:#B392F0">read</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#6A737D">/**********************************************</span></span>
-<span class="line"><span style="color:#6A737D">* I2C 受信バッファクリア</span></span>
-<span class="line"><span style="color:#6A737D">**********************************************/</span></span>
+<span class="line"><span style="color:#9DA5B4">/**********************************************</span></span>
+<span class="line"><span style="color:#9DA5B4">* I2C 受信バッファクリア</span></span>
+<span class="line"><span style="color:#9DA5B4">**********************************************/</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> clearI2CReadbuf</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#B392F0">  memcpy</span><span style="color:#E1E4E8">(i2c_receiveBuf, </span><span style="color:#F97583">0x</span><span style="color:#79B8FF">00</span><span style="color:#E1E4E8">, I2C_RECEIVE_BUF_LENGTH);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>

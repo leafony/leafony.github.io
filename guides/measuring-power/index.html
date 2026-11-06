@@ -60,7 +60,7 @@ URL: https://docs.leafony.com/guides/measuring-power/
 <p><strong>3.3Vラインの電流は、電池から流れる電流と同じではありません。</strong> AX05Bより下側の回路や、測定していない電源経路の電流も含みません。電池寿命を評価するときは、電池側での測定または電源変換の影響を考慮した計算が必要です。</p>
 <h2 id="2-電源経路と測定器のモードを確認する">2. 電源経路と測定器のモードを確認する</h2>
 <p>以下は、電源リーフから供給されるV33をAX05Bで測る場合の電流経路です。配線の変更はすべての電源を外してから行います。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>電池 → 電源リーフ（AX05Bより下）</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>電池 → 電源リーフ（AX05Bより下）</span></span>
 <span class="line"><span>       → AX05B V33IN → 電流測定器 → AX05B V33OUT</span></span>
 <span class="line"><span>       → 測定対象のMCU・センサ・通信リーフ（AX05Bより上）</span></span></code></pre>
 <p>Nordic Power Profiler Kit II（PPK2）には、外部電源の電流を測る <strong>Ampere Meter</strong> と、測定器自体が電源になる <strong>Source Meter（SMU）</strong> があります。モードによって給電元と配線が異なります。<a href="https://docs.nordicsemi.com/r/bundle/ug_ppk2/page/ug/ppk/ppk_power_supply.html">メーカーの電源・モード説明</a>を参照してください。</p>
@@ -128,7 +128,7 @@ URL: https://docs.leafony.com/guides/measuring-power/
 </ol>
 <h2 id="5-同じ区間で平均を比較する">5. 同じ区間で平均を比較する</h2>
 <p>状態ごとの電流を一定とみなせる場合は、次の式で時間平均を求められます。電流が変動する場合は、測定器が記録した全区間の平均を使います。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>平均電流 = Σ（各状態の電流 × その状態の時間）/ 記録区間の合計時間</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>平均電流 = Σ（各状態の電流 × その状態の時間）/ 記録区間の合計時間</span></span></code></pre>
 <p>電圧が変化する場合は、電圧と電流の積を時間平均して平均電力を求めます。3.3V側と電池側の電流を直接比較せず、同じ測定位置と給電条件を使ってください。</p>
 
 

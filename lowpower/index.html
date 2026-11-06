@@ -42,7 +42,7 @@ Leafonyのように極めて小さなバッテリ駆動回路を開発する場�
 この章では、Leafonyをできる限り省電力に動作させるべく、電力の考え方と省電力化のための手引きについて紹介します。</p>
 <h2 id="電力の計算">電力の計算</h2>
 <p>　電力（単位：ワット）は</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>W=V×I</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>W=V×I</span></span></code></pre>
 <p>で計算できます。回路全体で消費される電力を計算したい場合は、電池から流れ出る電流を計算してあげれば、電池電圧×電源電流で回路全体の電力が求まります。
 さらに図1のように回路に接続された部品にはそれぞれ異なる電流（ここでは平均電流）が流れています。
 電流はそれぞれの部品によっても、また、その動作状況によっても変化します。
@@ -69,7 +69,7 @@ ICのような部品は、内部の回路の状態によって、ICに流れ込�
 出力には寄生容量と呼ばれるコンデンサが付随しています。
 このコンデンサは回路の配線や、この先に接続される論理ゲートの入力ピンに発生する寄生容量などによって決まるため、ここでは具体的にどのような値があるかを知る必要はありません。
 この場合のNOTゲートで消費される電力は次の式で表されます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>P = α * C * V^2 * f</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>P = α * C * V^2 * f</span></span></code></pre>
 <p>　ここでのPはスイッチングによる平均消費電力、Cは負荷容量、Vは電源電圧、fはクロック周波数、αは1クロックあたりの充電回数を表す活動率です。静的なリーク電流や短絡電流は、この簡略式には含めていません。
 ここから分かることは、電力は入力するクロックの周波数に比例していて、デジタル回路の周波数が高くなれば高くなるほど電力は増大します。
 CPUのような回路はクロックの周波数が高いほど計算スピードが増加しますが、一方で電力も増大してしまうということです。</p>
@@ -122,15 +122,15 @@ CPUのような回路はクロックの周波数が高いほど計算スピー�
 <h2 id="電池持続時間">電池持続時間</h2>
 <p>　電池の容量は<code>Ah(アンペアアワー)</code>という単位で決まります。
 <code>Ah</code>は電荷の量を示していて、<code>1Ah</code>は<strong>1時間ずっと1Aの電流を流すために必要な電荷の量</strong>を示します。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 Ah = 1 A * 1 h</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 Ah = 1 A * 1 h</span></span></code></pre>
 <p><code>Ah</code>は単にどれくらいの間一定の電流を流せるかということを示しており、ここに電池の電圧は登場しません。
 しかしながら、電池には1.5Vや3Vといった出力電圧が決まっており、電圧は電池によっても異なる場合があります。
 同じ<code>1Ah</code>でも1.5Vの電池と3Vの電池では動かせる電力が変わってきます。</p>
 <p>電力を表す単位として<code>W(ワット)</code>という単位が一般的に用いられます。
 <code>1W</code>は<strong>1Vの電圧がかかった回路に1Aの電流が流れた時の電力</strong>を表しています。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 W = 1 V * 1 A</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 W = 1 V * 1 A</span></span></code></pre>
 <p>さらに、<strong>1時間ずっと1Wの電力を出力できる量</strong>として<code>Wh(ワットアワー)</code>という単位があります。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 Wh = 1 W * 1 h</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1 Wh = 1 W * 1 h</span></span></code></pre>
 <p><code>Wh</code>を用いれば一定時間に出力できる電力量を比較することができるため、電圧が異なる電池同士でもエネルギーの比較がしやすくなります。 <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
 <p>　さて、次に実際に電池の容量がどれくらいあるのかを見ていきましょう。
 電池の大きさによっても容量は異なります。
@@ -143,22 +143,22 @@ CPUのような回路はクロックの周波数が高いほど計算スピー�
 <p>Leafonyで使われるコイン電池(CR2032)は、この例の単三電池の約28%の電力量であることがわかります。</p>
 <aside class="doc-aside doc-aside--caution"><p class="doc-aside-title">以下は理論計算です</p><p>電源変換効率100%、電池の全容量が使用可能、電流・電圧は一定と仮定します。昇圧回路の損失、自己放電、温度、電池の内部抵抗、終止電圧は含みません。特にCR2032で100mAの負荷を動かせることを示す例ではありません。供給可能な電流と電圧低下は、電池と電源リーフの仕様で別途確認してください。</p></aside>
 <p>また、<code>Wh</code>の定義より、3.3Vの電源電圧で100mAの電流で動作する回路を動かした場合、コイン電池は</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>660 mWh / (3.3 V * 100 mA) = 2 h</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>660 mWh / (3.3 V * 100 mA) = 2 h</span></span></code></pre>
 <p>単三電池は</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>2,400 mWh / (3.3 V * 100 mA) ≒ 7.3 h</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>2,400 mWh / (3.3 V * 100 mA) ≒ 7.3 h</span></span></code></pre>
 <p>という理想条件での動作時間が得られます。</p>
 <p>Leafonyの動作電圧とリーフごとの電流はデータシートからおおよそ計算ができるため、電池でどれくらいの時間連続動作が可能なのかを見積もることができます。</p>
 <h3 id="電流が変化する回路の場合">電流が変化する回路の場合</h3>
 <p>　では、回路の消費電流が次のような場合はどうでしょうか？</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1時間のうち1分間だけ回路が動き、そのとき100mAで動作する。</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>1時間のうち1分間だけ回路が動き、そのとき100mAで動作する。</span></span>
 <span class="line"><span>残りの59分間は回路がスリープモードに入り、そのとき回路には1mA流れている。</span></span></code></pre>
 <p>この場合は、まず動作時間で重み付けした平均電流を求めます。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>I_avg = 100 mA * (1 / 60) + 1 mA * (59 / 60) = 2.65 mA</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>I_avg = 100 mA * (1 / 60) + 1 mA * (59 / 60) = 2.65 mA</span></span></code></pre>
 <p>3.3Vで動作するときの平均電力は、</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>P_avg = 3.3 V * 2.65 mA = 8.745 mW</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>P_avg = 3.3 V * 2.65 mA = 8.745 mW</span></span></code></pre>
 <p>です。1時間に消費する電力量は <code>8.745 mW × 1 h = 8.745 mWh</code> です。</p>
 <p>したがって、コイン電池(CR2032)を使う場合は、</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>660 mWh / 8.745 mW ≒ 75.5 h</span></span></code></pre>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>660 mWh / 8.745 mW ≒ 75.5 h</span></span></code></pre>
 <p>となり、約75.5時間（約3.14日）動作する理論計算になります。上記の理想条件による見積もりであり、Leafonyの実測動作時間ではありません。</p>
 <h2 id="省電力化のアイデア">省電力化のアイデア</h2>
 <p>　ここでは、これまでにLeafonyのサンプルデザインで使ってきた省電力化のためのアイデアをご紹介します。</p>

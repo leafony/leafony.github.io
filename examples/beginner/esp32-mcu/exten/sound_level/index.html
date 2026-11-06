@@ -104,34 +104,34 @@ URL: https://docs.leafony.com/examples/beginner/esp32-mcu/exten/sound_level/
 <p><img alt="assemble2" loading="lazy" decoding="async" width="704" height="806" src="/_astro/esp32_sound_level.R4vLs3zQ_ZgXjGk.webp" srcset=""></p>
 <h2 id="ソースコード">ソースコード</h2>
 <p>Arduino IDEで下記のプログラムを書きましょう。</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
-<span class="line"><span style="color:#6A737D">//  ESP32 Sound level meter</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
-<span class="line"><span style="color:#6A737D">//    Released under the MIT license</span></span>
-<span class="line"><span style="color:#6A737D">//    https://opensource.org/licenses/MIT</span></span>
-<span class="line"><span style="color:#6A737D">//</span></span>
-<span class="line"><span style="color:#6A737D">//      Rev.00 2021/04/01  First release</span></span>
-<span class="line"><span style="color:#6A737D">//=====================================================================</span></span>
+<pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
+<span class="line"><span style="color:#9DA5B4">//  ESP32 Sound level meter</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//    (c) 2021 LEAFONY SYSTEMS Co., Ltd</span></span>
+<span class="line"><span style="color:#9DA5B4">//    Released under the MIT license</span></span>
+<span class="line"><span style="color:#9DA5B4">//    https://opensource.org/licenses/MIT</span></span>
+<span class="line"><span style="color:#9DA5B4">//</span></span>
+<span class="line"><span style="color:#9DA5B4">//      Rev.00 2021/04/01  First release</span></span>
+<span class="line"><span style="color:#9DA5B4">//=====================================================================</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">// LED4-6:VR level display</span></span>
-<span class="line"><span style="color:#6A737D">// LED1-3:MIC sound pressure level display</span></span>
+<span class="line"><span style="color:#9DA5B4">// LED4-6:VR level display</span></span>
+<span class="line"><span style="color:#9DA5B4">// LED1-3:MIC sound pressure level display</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED1</span><span style="color:#79B8FF">              14</span><span style="color:#6A737D">            // D6  IO14</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED2</span><span style="color:#79B8FF">              15</span><span style="color:#6A737D">            // D7  IO15</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED3</span><span style="color:#79B8FF">              17</span><span style="color:#6A737D">            // D8  IO17</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED4</span><span style="color:#79B8FF">              16</span><span style="color:#6A737D">            // D9  IO16</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED5</span><span style="color:#79B8FF">              5</span><span style="color:#6A737D">             // D10 IO5</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED6</span><span style="color:#79B8FF">              23</span><span style="color:#6A737D">            // D11 IO23</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> MIC</span><span style="color:#79B8FF">               26</span><span style="color:#6A737D">            // A2  IO26</span></span>
-<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> VR</span><span style="color:#79B8FF">                39</span><span style="color:#6A737D">            // A3  IO39</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED1</span><span style="color:#79B8FF">              14</span><span style="color:#9DA5B4">            // D6  IO14</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED2</span><span style="color:#79B8FF">              15</span><span style="color:#9DA5B4">            // D7  IO15</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED3</span><span style="color:#79B8FF">              17</span><span style="color:#9DA5B4">            // D8  IO17</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED4</span><span style="color:#79B8FF">              16</span><span style="color:#9DA5B4">            // D9  IO16</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED5</span><span style="color:#79B8FF">              5</span><span style="color:#9DA5B4">             // D10 IO5</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> LED6</span><span style="color:#79B8FF">              23</span><span style="color:#9DA5B4">            // D11 IO23</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> MIC</span><span style="color:#79B8FF">               26</span><span style="color:#9DA5B4">            // A2  IO26</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> VR</span><span style="color:#79B8FF">                39</span><span style="color:#9DA5B4">            // A3  IO39</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> dataVR;</span></span>
 <span class="line"><span style="color:#F97583">unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> dataMic;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//-----------------------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// Get VR and MIC data</span></span>
-<span class="line"><span style="color:#6A737D">//-----------------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">//-----------------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// Get VR and MIC data</span></span>
+<span class="line"><span style="color:#9DA5B4">//-----------------------------------------------</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> getSensorData</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#E1E4E8">    dataVR </span><span style="color:#F97583">=</span><span style="color:#B392F0"> analogRead</span><span style="color:#E1E4E8">(VR);</span></span>
 <span class="line"><span style="color:#E1E4E8">    dataMic </span><span style="color:#F97583">=</span><span style="color:#B392F0"> analogRead</span><span style="color:#E1E4E8">(MIC);</span></span>
@@ -143,9 +143,9 @@ URL: https://docs.leafony.com/examples/beginner/esp32-mcu/exten/sound_level/
 <span class="line"><span style="color:#E1E4E8">    Serial.</span><span style="color:#B392F0">println</span><span style="color:#E1E4E8">(dataVR,DEC);</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">//-----------------------------------------------</span></span>
-<span class="line"><span style="color:#6A737D">// Turn the LEDs on and off according to the VR and MIC values.</span></span>
-<span class="line"><span style="color:#6A737D">//-----------------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">//-----------------------------------------------</span></span>
+<span class="line"><span style="color:#9DA5B4">// Turn the LEDs on and off according to the VR and MIC values.</span></span>
+<span class="line"><span style="color:#9DA5B4">//-----------------------------------------------</span></span>
 <span class="line"><span style="color:#F97583">void</span><span style="color:#B392F0"> dispSensorData</span><span style="color:#E1E4E8">(){</span></span>
 <span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (dataVR </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 1500</span><span style="color:#E1E4E8">){</span></span>
 <span class="line"><span style="color:#B392F0">      digitalWrite</span><span style="color:#E1E4E8">(LED4,LOW);</span></span>
@@ -211,7 +211,7 @@ URL: https://docs.leafony.com/examples/beginner/esp32-mcu/exten/sound_level/
 <span class="line"><span style="color:#B392F0">  pinMode</span><span style="color:#E1E4E8">(MIC, INPUT);</span></span>
 <span class="line"><span style="color:#B392F0">  pinMode</span><span style="color:#E1E4E8">(VR, INPUT);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Startup test(LED)</span></span>
+<span class="line"><span style="color:#9DA5B4">  // Startup test(LED)</span></span>
 <span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED1,HIGH);</span></span>
 <span class="line"><span style="color:#B392F0">  delay</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">200</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#B392F0">  digitalWrite</span><span style="color:#E1E4E8">(LED2,HIGH);</span></span>
