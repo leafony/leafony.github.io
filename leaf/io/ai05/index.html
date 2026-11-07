@@ -305,10 +305,10 @@ URL: https://docs.leafony.com/leaf/io/ai05/
 
 
 <table><thead><tr><th>サンプル</th><th>動作</th><th>確認できる出力</th></tr></thead><tbody><tr><td><a href="https://github.com/leafony/ai05-env-sensors/tree/main/platformio/read_sensors">read_sensors</a></td><td>起動時にセンサを検出・初期化し、1秒ごとに読み取り</td><td>BME280の温度・湿度・気圧、LIS2DW12のX/Y/Z加速度</td></tr><tr><td><a href="https://github.com/leafony/ai05-env-sensors/tree/main/platformio/accel_wakeup">accel_wakeup</a></td><td>LIS2DW12の動き検出割り込みを受信</td><td>起動からの経過時刻、イベント数、検出軸、X/Y/Z加速度</td></tr><tr><td><a href="https://github.com/leafony/ai05-env-sensors/tree/main/platformio/accel_shock_fifo">accel_shock_fifo</a></td><td>衝撃検出後の加速度100点をFIFOから取得</td><td>ブラウザーでのX/Y/Z・合成加速度の波形表示、CSV保存</td></tr></tbody></table>
-<p>各サンプルともI2Cは400 kHz、SDAはAP03のPB9（D14）、SCLはPB8（D15）です。シリアル出力は115200 bpsで、USBシリアルリーフなどを介してPCへ接続します。<strong>AP03＋標準構成のAI05で、定期的な読み取り、動き検出割り込み、衝撃後の100点取得と波形表示を実機確認済みです。</strong> AP03Bを含む他のMCUリーフでの動作は未確認です。</p>
+<p>各サンプルともI2Cは400 kHz、SDAはAP03のPB9（D14）、SCLはPB8（D15）です。シリアル出力は115200 bpsで、USBシリアルリーフなどを介してPCへ接続します。<strong>AP03＋標準構成のAI05で、定期的な読み取り、動き検出割り込み、衝撃後の100点取得と波形表示を実機確認済みです。</strong></p>
 <h3 id="センサ値を定期的に読む">センサ値を定期的に読む</h3>
 <p><code>read_sensors</code>は、BME280を <code>0x76</code>、LIS2DW12を <code>0x18</code> で検出します。温度は°C、湿度は%RH、気圧はhPa、加速度はgで表示します。静止中でも加速度には重力が含まれます。D3の割り込みは使用しません。</p>
-<p>選択実装のSHT40・SGP40・BME680にも読み取り処理があり、未実装のセンサはスキップします。BME280とBME680はチップIDで判別します。SGP40の出力はVOC生信号（<code>SRAW_VOC</code>）、BME680のガス出力は抵抗値で、VOC Index・IAQスコア・ppmへの換算は含みません。これらの選択実装センサは実機未確認です。</p>
+<p>選択実装のSHT40・SGP40・BME680にも読み取り処理があり、未実装のセンサはスキップします。BME280とBME680はチップIDで判別します。SGP40の出力はVOC生信号（<code>SRAW_VOC</code>）、BME680のガス出力は抵抗値で、VOC Index・IAQスコア・ppmへの換算は含みません。</p>
 <h3 id="動き検出の割り込みを受け取る">動き検出の割り込みを受け取る</h3>
 <p><code>accel_wakeup</code>は、LIS2DW12のINT1 → Leafony BusのD3 → AP03のPB3で割り込みを受けます。Leafony Busで接続すれば追加配線は不要です。初期設定は100 Hz・±2 g、動き検出のしきい値0.250 g、継続時間20 msです。</p>
 <p>初期化中は基板を静止させ、<code>LIS2DW12: ready</code>と<code>Move the board...</code>の表示後に軽く動かします。<code>Wake-up #1</code>などの行が表示され、動きを繰り返すとイベント数が増えます。静止中には測定値を定期出力しません。表示する加速度は処理時点の重力を含む値で、割り込みを発生させた瞬間のピーク値ではありません。イベント数は処理できた割り込みの数で、動かした回数とは一致しない場合があります。</p>

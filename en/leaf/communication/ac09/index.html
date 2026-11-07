@@ -107,7 +107,7 @@ Description / headings (excerpt): Specifications, pin assignment and development
 <p>Product specifications, including the exact module part number, the full range of supported bands and operators, and current consumption, will be announced once confirmed. The related example describes 1NCE and SORACOM settings; it does not guarantee operation with every SIM, region or leaf configuration.</p>
 <h2 id="power-and-control">Power and control</h2>
 <p>The Leafony Bus 3.3V terminal supplies the module’s VBAT input. An onboard TPS61021ADSGT generates the RF power supply (VBAT_FEM), and a TLV71718PDQNT generates the 1.8V signal-circuit supply (VDDIO).</p>
-<p>The module’s power state is controlled through the I/O expander. The <a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">published sample</a> uses AV06 as a battery-powered configuration example. Also see the <a href="/en/questions/ac09-voltage/">power-supply Q&#x26;A</a>. Measured peak current and test results for specific battery and leaf configurations will be announced after verification.</p>
+<p>The module’s power state is controlled through the I/O expander. The <a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">published sample</a> uses AV06 as a battery-powered configuration example. Also see the <a href="/en/questions/ac09-voltage/">power-supply Q&#x26;A</a>.</p>
 <h2 id="pin-assignment">Pin assignment</h2>
 <p><a href="/leaf/communication/ac09/ac09-pinout-en.svg"><img src="/leaf/communication/ac09/ac09-pinout-en.svg" alt="AC09 Leafony Bus pin assignment, showing power, I2C, UART and control signals" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
 <p>Click the diagram to enlarge it. MCU denotes the processor leaf, and arrows show the direction of UART signals. RESET and INT_N are the reset and interrupt signals of the PCAL6408A I/O expander.</p>
@@ -227,7 +227,7 @@ Description / headings (excerpt): Specifications, pin assignment and development
 <ul>
 <li><a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">Save temperature and humidity data to Google Sheets with AC09 Cat-M1 TY</a>: Uses AP03B to read temperature and humidity from the AI05 Env Sensors leaf and record them in Google Sheets. The Docs guide sets the transmission interval to 10 minutes; the GitHub development template uses 30 seconds.</li>
 </ul>
-<p><a href="/en/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kit development preparation</a> covers assembly and sample settings. The complete sequence has not been tested on AP03B + AI05 + AC09 kit hardware.</p>
+<p><a href="/en/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kit development preparation</a> covers assembly and sample settings.</p>
 <h2 id="documents">Documents</h2>
 <p>The design and development repository is currently private. Access to the following GitHub documents requires signing a separate non-disclosure agreement (NDA). Please <a href="https://shop.leafony.com/pages/contact-us">contact us (Japanese)</a> for details.</p>
 <ul>

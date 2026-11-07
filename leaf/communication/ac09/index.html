@@ -107,7 +107,7 @@ URL: https://docs.leafony.com/leaf/communication/ac09/
 <p>搭載モジュールの正式型番、対応バンド・通信事業者の全範囲、消費電流などの製品仕様は、確認でき次第案内します。関連サンプルは1NCE・SORACOMのSIM設定を扱いますが、すべてのSIM・地域・リーフ構成での動作を保証するものではありません。</p>
 <h2 id="電源と制御">電源と制御</h2>
 <p>Leafony Busの3.3V端子からモジュールのVBATへ給電します。基板上のTPS61021ADSGTでRF部用の電源（VBAT_FEM）を、TLV71718PDQNTで信号回路用の1.8V電源（VDDIO）を生成します。</p>
-<p>モジュールの電源状態はI/Oエキスパンダを介して制御します。電池駆動の構成例として、<a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">掲載サンプル</a>ではAV06を使用しています。<a href="/questions/ac09-voltage/">電源選びのQ&#x26;A</a>も参照してください。ピーク電流の実測値や、電池・リーフ構成ごとの動作確認結果は、確認後に案内予定です。</p>
+<p>モジュールの電源状態はI/Oエキスパンダを介して制御します。電池駆動の構成例として、<a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">掲載サンプル</a>ではAV06を使用しています。<a href="/questions/ac09-voltage/">電源選びのQ&#x26;A</a>も参照してください。</p>
 <h2 id="ピン配置">ピン配置</h2>
 <p><a href="/leaf/communication/ac09/ac09-pinout.svg"><img src="/leaf/communication/ac09/ac09-pinout.svg" alt="AC09のLeafony Busピン配置図。電源、I2C、UARTと制御信号の対応" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
 <p>図をクリックすると拡大できます。図中のMCUはプロセッサリーフで、矢印はUART信号の方向です。RESETとINT_Nは、I/OエキスパンダPCAL6408Aのリセットと割り込みを表します。</p>
@@ -227,7 +227,7 @@ URL: https://docs.leafony.com/leaf/communication/ac09/
 <ul>
 <li><a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">AC09 Cat-M1 TYで温湿度データをGoogle スプレッドシートに保存</a>：AP03BでAI05 Env Sensorsリーフの温湿度データを読み取り、Google スプレッドシートに記録します。Docsでは送信間隔を10分に設定します。GitHub開発版のひな形は30秒です。</li>
 </ul>
-<p><a href="/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kitの開発準備</a>で組み立てとサンプルの設定を確認できます。AP03B＋AI05＋AC09のキット実機での一連の動作は未確認です。</p>
+<p><a href="/getting-started/cellular-lpwa-cat-m1/">Cat-M1 Kitの開発準備</a>で組み立てとサンプルの設定を確認できます。</p>
 <h2 id="ドキュメント">ドキュメント</h2>
 <p>設計・開発リポジトリは現在非公開です。以下のGitHub資料へのアクセスには、別途NDA（秘密保持契約）の締結が必要です。詳しくは<a href="https://shop.leafony.com/pages/contact-us">お問い合わせ</a>ください。</p>
 <ul>

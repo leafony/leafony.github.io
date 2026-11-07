@@ -64,7 +64,7 @@ URL: https://docs.leafony.com/examples/beginner/stm32-mcu/env-sensors/
 
 <table><thead><tr><th>機材</th><th>用途</th></tr></thead><tbody><tr><td><a href="/leaf/processor/ap03/">AP03 STM32 MCU</a></td><td>サンプルを実行するマイコン</td></tr><tr><td><a href="/leaf/io/ai05/">AI05 Env Sensors</a></td><td>BME280とLIS2DW12による測定</td></tr><tr><td>USBシリアルリーフ、データ転送対応のUSBケーブル</td><td>PCとの接続</td></tr><tr><td>構成に合う電源・固定部品</td><td>3.3 Vの供給とリーフの固定</td></tr><tr><td>PCとPlatformIO</td><td>ビルド・書き込み・シリアル表示</td></tr></tbody></table>
 <p>リーフの組み替えは、USB・電池・外部電源を含めてすべての給電を止めてから行います。<a href="/getting-started/assembly/">組み立て・交換</a>と<a href="/leaf/io/ai05/#%E6%8E%A5%E7%B6%9A%E6%99%82%E3%81%AE%E6%B3%A8%E6%84%8F">AI05の接続条件</a>を確認してください。AI01 4-SensorsやAX06 Grove&#x26;5Vとの併用には信号・アドレスの重複があります。</p>
-<p>このサンプルの対象はAP03です。AP03Bなど、他のマイコンでの動作は未確認です。環境が未設定の場合は<a href="/environment/stm32/platformio/">STM32のPlatformIO設定</a>から準備します。</p>
+<p>このサンプルの対象はAP03です。環境が未設定の場合は<a href="/environment/stm32/platformio/">STM32のPlatformIO設定</a>から準備します。</p>
 <h2 id="サンプルを取得してビルドする">サンプルを取得してビルドする</h2>
 <p><a href="https://github.com/leafony/ai05-env-sensors">AI05 Env Sensorsリポジトリ</a>を取得します。VS Codeでは<code>platformio/read_sensors</code>フォルダーを開いてください。ターミナルでは次のように実行できます。</p>
 <pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> clone</span><span style="color:#9ECBFF"> https://github.com/leafony/ai05-env-sensors.git</span></span>

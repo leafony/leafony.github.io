@@ -33,7 +33,7 @@ Description / headings (excerpt): Send temperature and humidity from the Cellula
 <p>AP03B reads temperature and humidity from AI05’s BME280 at I2C address <code>0x76</code>, and AC09 sends the data over a Cellular LPWA Cat-M1 network. This example does not send pressure or acceleration. You can check the saved measurements in Google Sheets.</p>
 <p>This guide sets <code>SEND_INTERVAL_MS</code> to <code>600000UL</code> (10 minutes). The GitHub development template uses <code>30000UL</code> (30 seconds), so change the interval as described under <a href="#configuration">Configuration</a>.</p>
 <p>The intended configuration runs from a battery connected to AV06 with USB disconnected. After programming, the firmware automatically waits at startup until it can obtain the time from the modem, then starts sending temperature and humidity. Entering the time from a computer is not required.</p>
-<p>The complete path from power-on to saving in Google Sheets with AP03B + AI05 + AC09 has not yet been tested on hardware. Follow the steps below to check sensor readings, communication and saved results in sequence.</p>
+<p>Follow the steps below to check sensor readings, communication and saved results in sequence.</p>
 <!-- TODO: Add a photo of the completed assembly and a screenshot of the recorded results. -->
 <h2 id="system-configuration">System configuration</h2>
 <p>Temperature and humidity data follow this path:</p>
@@ -527,8 +527,8 @@ Open Menu (メニュー) → SORACOM Air for Cellular (SORACOM Air for セルラ
 <pre class="astro-code leafony-readable-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>UTC clock set from modem</span></span></code></pre>
 <p>The network connection stays active while only time acquisition is failing. If an AT command response times out and communication status becomes unknown, the firmware waits 30 seconds, then retries from modem initialization and Cellular LPWA Cat-M1 connection. If network registration itself is rejected, it follows the normal reconnection procedure.</p>
 <p>The acquired clock advances while the STM32 is running. After a power cycle, time acquisition starts again automatically. A USB connection or serial <code>TIME</code> input is not required.</p>
-<p>This method requires the network and modem configuration to return the correct date and time through <code>AT+CCLK?</code>. Waiting alone will not start transmission in an environment that does not update the time. Automatic time acquisition with AC09 and the selected SIM has not yet been tested on hardware. Before battery operation, check that the time is acquired automatically after power-on. The example does not bypass certificate verification or transmit using a fixed date.</p>
-<p>The MCU and modem remain active during the wait. Sleep-based power saving and battery life have not been evaluated.</p>
+<p>This method requires the network and modem configuration to return the correct date and time through <code>AT+CCLK?</code>. Waiting alone will not start transmission in an environment that does not update the time. Before battery operation, check that the time is acquired automatically after power-on. The example does not bypass certificate verification or transmit using a fixed date.</p>
+<p>The MCU and modem remain active during the wait.</p>
 <h2 id="check-operation">Check operation</h2>
 <h3 id="serial-monitor-output">Serial monitor output</h3>
 <p>The firmware prints <code>Saved to Google Sheets</code> in a cycle where saving is confirmed. The following illustrates the output format; it is not a log captured from hardware.</p>
