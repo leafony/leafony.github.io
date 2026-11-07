@@ -109,6 +109,9 @@ Description / headings (excerpt): Specifications, pin assignment and development
 <p>The Leafony Bus 3.3V terminal supplies the module’s VBAT input. An onboard TPS61021ADSGT generates the RF power supply (VBAT_FEM), and a TLV71718PDQNT generates the 1.8V signal-circuit supply (VDDIO).</p>
 <p>The module’s power state is controlled through the I/O expander. The <a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">published sample</a> uses AV06 as a battery-powered configuration example. Also see the <a href="/en/questions/ac09-voltage/">power-supply Q&#x26;A</a>. Measured peak current and test results for specific battery and leaf configurations will be announced after verification.</p>
 <h2 id="pin-assignment">Pin assignment</h2>
+<p><a href="/leaf/communication/ac09/ac09-pinout-en.svg"><img src="/leaf/communication/ac09/ac09-pinout-en.svg" alt="AC09 Leafony Bus pin assignment, showing power, I2C, UART and control signals" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
+<p>Click the diagram to enlarge it. MCU denotes the processor leaf, and arrows show the direction of UART signals. RESET and INT_N are the reset and interrupt signals of the PCAL6408A I/O expander.</p>
+<p>Select AC09 in the <a href="/en/pcb/pinout-editor/">Pin Assignment Editor</a> to edit the same diagram and save it as PNG or SVG.</p>
 <p>The following table lists the main Leafony Bus signals used by AC09. UART directions are shown from the processor leaf’s perspective.</p>
 
 
@@ -165,7 +168,12 @@ Description / headings (excerpt): Specifications, pin assignment and development
 
 
 
-<table><thead><tr><th align="left">Pin</th><th align="left">Leafony Bus signal</th><th align="left">AC09 connection or function</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">3.3V</td><td align="left">Power input (VBAT)</td></tr><tr><td align="left">5</td><td align="left">RESET</td><td align="left">I/O expander reset</td></tr><tr><td align="left">7</td><td align="left">D6</td><td align="left">UART input: receives the module’s RTS signal (processor CTS)</td></tr><tr><td align="left">11</td><td align="left">D8</td><td align="left">UART transmit: connects to the module’s RX</td></tr><tr><td align="left">13</td><td align="left">D9</td><td align="left">UART receive: input from the module’s TX</td></tr><tr><td align="left">22</td><td align="left">D2</td><td align="left">I/O expander interrupt output (INT)</td></tr><tr><td align="left">23</td><td align="left">SDA</td><td align="left">I2C data</td></tr><tr><td align="left">25</td><td align="left">SCL</td><td align="left">I2C clock</td></tr><tr><td align="left">26</td><td align="left">D4</td><td align="left">UART output: sends to the module’s CTS (processor RTS)</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th align="left">Pin</th><th align="left">Leafony Bus signal</th><th align="left">AC09 connection or function</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">3.3V</td><td align="left">Power input (VBAT)</td></tr><tr><td align="left">5</td><td align="left">RESET</td><td align="left">I/O expander reset</td></tr><tr><td align="left">7</td><td align="left">D6</td><td align="left">UART input: receives the module’s RTS signal (processor CTS)</td></tr><tr><td align="left">11</td><td align="left">D8</td><td align="left">UART transmit: connects to the module’s RX</td></tr><tr><td align="left">13</td><td align="left">D9</td><td align="left">UART receive: input from the module’s TX</td></tr><tr><td align="left">22</td><td align="left">D2</td><td align="left">I/O expander interrupt output (INT)</td></tr><tr><td align="left">23</td><td align="left">SDA</td><td align="left">I2C data</td></tr><tr><td align="left">25</td><td align="left">SCL</td><td align="left">I2C clock</td></tr><tr><td align="left">26</td><td align="left">D4</td><td align="left">UART output: sends to the module’s CTS (processor RTS)</td></tr><tr><td align="left">27</td><td align="left">GND</td><td align="left">Power and signal ground</td></tr></tbody></table>
 <h3 id="i2c-address">I2C address</h3>
 <p>The I/O expander address is <strong>0x21</strong>. <a href="/en/leaf/communication/ac08/">AC08 Mary</a> and AC04 King M use the same address, so connecting these leaves to the same I2C bus causes an address conflict. Check the <a href="/en/leaf/i2c-address-map/">I2C address map</a> when combining leaves.</p>
 <h2 id="antennas">Antennas</h2>

@@ -109,6 +109,9 @@ URL: https://docs.leafony.com/leaf/communication/ac09/
 <p>Leafony Busの3.3V端子からモジュールのVBATへ給電します。基板上のTPS61021ADSGTでRF部用の電源（VBAT_FEM）を、TLV71718PDQNTで信号回路用の1.8V電源（VDDIO）を生成します。</p>
 <p>モジュールの電源状態はI/Oエキスパンダを介して制御します。電池駆動の構成例として、<a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">掲載サンプル</a>ではAV06を使用しています。<a href="/questions/ac09-voltage/">電源選びのQ&#x26;A</a>も参照してください。ピーク電流の実測値や、電池・リーフ構成ごとの動作確認結果は、確認後に案内予定です。</p>
 <h2 id="ピン配置">ピン配置</h2>
+<p><a href="/leaf/communication/ac09/ac09-pinout.svg"><img src="/leaf/communication/ac09/ac09-pinout.svg" alt="AC09のLeafony Busピン配置図。電源、I2C、UARTと制御信号の対応" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
+<p>図をクリックすると拡大できます。図中のMCUはプロセッサリーフで、矢印はUART信号の方向です。RESETとINT_Nは、I/OエキスパンダPCAL6408Aのリセットと割り込みを表します。</p>
+<p>同じ図は<a href="/pcb/pinout-editor/">ピン配置図作成</a>でAC09を選ぶと編集でき、PNG・SVGで保存できます。</p>
 <p>以下はAC09で使用する主なLeafony Bus信号です。UARTの方向はプロセッサリーフから見た方向を示します。</p>
 
 
@@ -165,7 +168,12 @@ URL: https://docs.leafony.com/leaf/communication/ac09/
 
 
 
-<table><thead><tr><th align="left">ピン番号</th><th align="left">Leafony Bus信号</th><th align="left">AC09での接続・用途</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">3.3V</td><td align="left">電源入力（VBAT）</td></tr><tr><td align="left">5</td><td align="left">RESET</td><td align="left">I/Oエキスパンダのリセット</td></tr><tr><td align="left">7</td><td align="left">D6</td><td align="left">UART入力：モジュールのRTSから受信（プロセッサ側CTS）</td></tr><tr><td align="left">11</td><td align="left">D8</td><td align="left">UART送信：モジュールのRXへ接続</td></tr><tr><td align="left">13</td><td align="left">D9</td><td align="left">UART受信：モジュールのTXから入力</td></tr><tr><td align="left">22</td><td align="left">D2</td><td align="left">I/Oエキスパンダの割り込み出力（INT）</td></tr><tr><td align="left">23</td><td align="left">SDA</td><td align="left">I2Cデータ</td></tr><tr><td align="left">25</td><td align="left">SCL</td><td align="left">I2Cクロック</td></tr><tr><td align="left">26</td><td align="left">D4</td><td align="left">UART出力：モジュールのCTSへ送信（プロセッサ側RTS）</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th align="left">ピン番号</th><th align="left">Leafony Bus信号</th><th align="left">AC09での接続・用途</th></tr></thead><tbody><tr><td align="left">1</td><td align="left">3.3V</td><td align="left">電源入力（VBAT）</td></tr><tr><td align="left">5</td><td align="left">RESET</td><td align="left">I/Oエキスパンダのリセット</td></tr><tr><td align="left">7</td><td align="left">D6</td><td align="left">UART入力：モジュールのRTSから受信（プロセッサ側CTS）</td></tr><tr><td align="left">11</td><td align="left">D8</td><td align="left">UART送信：モジュールのRXへ接続</td></tr><tr><td align="left">13</td><td align="left">D9</td><td align="left">UART受信：モジュールのTXから入力</td></tr><tr><td align="left">22</td><td align="left">D2</td><td align="left">I/Oエキスパンダの割り込み出力（INT）</td></tr><tr><td align="left">23</td><td align="left">SDA</td><td align="left">I2Cデータ</td></tr><tr><td align="left">25</td><td align="left">SCL</td><td align="left">I2Cクロック</td></tr><tr><td align="left">26</td><td align="left">D4</td><td align="left">UART出力：モジュールのCTSへ送信（プロセッサ側RTS）</td></tr><tr><td align="left">27</td><td align="left">GND</td><td align="left">電源・信号の基準</td></tr></tbody></table>
 <h3 id="i2cアドレス">I2Cアドレス</h3>
 <p>I/Oエキスパンダのアドレスは<strong>0x21</strong>です。<a href="/leaf/communication/ac08/">AC08 Mary</a>およびAC04 King Mと共通のため、同じI2Cバスに接続するとアドレスが重複します。組み合わせるリーフは<a href="/leaf/i2c-address-map/">I2Cアドレスマップ</a>で確認してください。</p>
 <h2 id="アンテナ">アンテナ</h2>
