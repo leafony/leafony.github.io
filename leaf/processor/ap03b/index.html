@@ -263,7 +263,7 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 
 
 <table><thead><tr><th>接点番号（表 / 裏）</th><th>Leafony Bus信号</th><th>MCUポート・接続</th></tr></thead><tbody><tr><td>F1 / B1</td><td>3.3V</td><td>3.3V電源</td></tr><tr><td>F2 / B2</td><td>SWDIO</td><td>PA13</td></tr><tr><td>F3 / B3</td><td>VBUS</td><td>MCU・電源回路には未接続</td></tr><tr><td>F4 / B4</td><td>AREF</td><td>R5未実装のためMCUには未接続</td></tr><tr><td>F5 / B5</td><td>RESET</td><td>NRST</td></tr><tr><td>F6 / B6</td><td>A0</td><td>PA4</td></tr><tr><td>F7 / B7</td><td>D6</td><td>PA8</td></tr><tr><td>F8 / B8</td><td>A1</td><td>PA0</td></tr><tr><td>F9 / B9</td><td>D7</td><td>PB12</td></tr><tr><td>F10 / B10</td><td>A2</td><td>PA1</td></tr><tr><td>F11 / B11</td><td>D8</td><td>PA9</td></tr><tr><td>F12 / B12</td><td>A3</td><td>PB0</td></tr><tr><td>F13 / B13</td><td>D9</td><td>PA10（U2経由。BOOT0 Low時に接続）</td></tr><tr><td>F14 / B14</td><td>A4</td><td>PC1</td></tr><tr><td>F15 / B15</td><td>D10</td><td>PB6</td></tr><tr><td>F16 / B16</td><td>A5</td><td>PC0</td></tr><tr><td>F17 / B17</td><td>D11</td><td>PA7</td></tr><tr><td>F18 / B18</td><td>D0</td><td>PA3</td></tr><tr><td>F19 / B19</td><td>D12</td><td>PA6</td></tr><tr><td>F20 / B20</td><td>D1</td><td>PA2</td></tr><tr><td>F21 / B21</td><td>D13</td><td>PA5</td></tr><tr><td>F22 / B22</td><td>D2</td><td>PC7</td></tr><tr><td>F23 / B23</td><td>SDA</td><td>PB9（R2：10 kΩで3.3Vへプルアップ）</td></tr><tr><td>F24 / B24</td><td>D3</td><td>PB3</td></tr><tr><td>F25 / B25</td><td>SCL</td><td>PB8（R1：10 kΩで3.3Vへプルアップ）</td></tr><tr><td>F26 / B26</td><td>D4</td><td>PB5</td></tr><tr><td>F27 / B27</td><td>GND</td><td>GND</td></tr><tr><td>F28 / B28</td><td>D5</td><td>PB4</td></tr><tr><td>F29 / B29</td><td>SWCLK</td><td>PA14</td></tr></tbody></table>
-<p>接続は<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony_bus.kicad_sch">Leafony Bus回路図</a>と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/stm32.kicad_sch">MCU回路図</a>を参照しています。R5・R7・R12・R14は未実装です。</p>
+<p>接続は<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">Leafony Bus回路図</a>と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">MCU回路図</a>を参照しています。R5・R7・R12・R14は未実装です。</p>
 <h2 id="スイッチとled">スイッチとLED</h2>
 
 
@@ -291,7 +291,7 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 
 
 <table><thead><tr><th>部品</th><th>基板上の表示</th><th>役割</th></tr></thead><tbody><tr><td>SW1</td><td>PG</td><td>BOOT0のHigh / Lowを切り替えます。</td></tr><tr><td>SW2</td><td>RST</td><td>押すとRESETをGNDへ接続します。</td></tr><tr><td>D1</td><td>D1</td><td>BOOT0がHighのときに点灯します。</td></tr></tbody></table>
-<p>LEDはBOOT0の状態表示です。プログラムの実行状態や、書き込みの成功を示すものではありません。起動モードの詳細は、MCUの設定と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/reset_prog.kicad_sch">リセット・プログラム切り替え回路</a>を確認してください。</p>
+<p>LEDはBOOT0の状態表示です。プログラムの実行状態や、書き込みの成功を示すものではありません。起動モードの詳細は、MCUの設定と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">リセット・プログラム切り替え回路</a>を確認してください。</p>
 <h3 id="boot0によるd9の切り替え">BOOT0によるD9の切り替え</h3>
 <p>D9とPA10の間にはアナログスイッチU2があります。BOOT0がLowのときに接続し、Highのときは切り離します。D9を使う通信リーフと組み合わせる場合は、PGスイッチの状態を確認してください。D0・D1・D6・D7は、それぞれ表のMCUポートへ直接接続されています。</p>
 <h2 id="開発環境">開発環境</h2>
@@ -307,16 +307,18 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 <h2 id="設計資料">設計資料</h2>
 <ul>
 <li><a href="https://github.com/leafony/ap03b-stm32">AP03B STM32 リポジトリ</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_pro">KiCadプロジェクト</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_sch">回路図：トップシート</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/stm32.kicad_sch">回路図：MCU・電源・クロック</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony_bus.kicad_sch">回路図：Leafony Bus</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/reset_prog.kicad_sch">回路図：リセット・BOOT0切り替え</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_pcb">基板レイアウト</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/output/schematic.pdf">回路図（PDF）</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/output/layout.pdf">基板レイアウト（PDF）</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_pro">KiCadプロジェクト</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_sch">回路図：トップシート</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">回路図：MCU・電源・クロック</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">回路図：Leafony Bus</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">回路図：リセット・BOOT0切り替え</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_pcb">基板レイアウト（KiCad）</a></li>
 <li><a href="https://github.com/leafony/ap03b-stm32/blob/main/docs/leafony-ap03b-stm32-bom.csv">部品表（BOM）</a></li>
 <li><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STM32L452RE メーカー資料</a></li>
 </ul>
-<p>製品名はAP03Bですが、設計ファイル名は <code>leafony-ap03-stm32</code> です。KiCad 9.0形式を読み込める環境で、専用ライブラリを含むディレクトリ構成を保って開いてください。一部部品の3Dモデルはリポジトリに含まれていません。</p>
+<p>設計ファイル名は <code>ap03b-stm32</code> です。KiCad 10.0形式を読み込める環境で、専用ライブラリを含むディレクトリ構成を保って開いてください。一部部品の3Dモデルはリポジトリに含まれていません。</p>
 <h2 id="変更履歴">変更履歴</h2>
 <ul>
 <li>2026年9月19日：AP03B STM32 MCUのページを追加</li>

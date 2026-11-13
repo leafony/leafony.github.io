@@ -263,7 +263,7 @@ Description / headings (excerpt): AP03B STM32L452REI6 specifications, Leafony Bu
 
 
 <table><thead><tr><th>Contact (front / back)</th><th>Leafony Bus signal</th><th>MCU port / connection</th></tr></thead><tbody><tr><td>F1 / B1</td><td>3.3V</td><td>3.3V power</td></tr><tr><td>F2 / B2</td><td>SWDIO</td><td>PA13</td></tr><tr><td>F3 / B3</td><td>VBUS</td><td>Not connected to the MCU or power circuit</td></tr><tr><td>F4 / B4</td><td>AREF</td><td>Not connected to MCU because R5 is not fitted</td></tr><tr><td>F5 / B5</td><td>RESET</td><td>NRST</td></tr><tr><td>F6 / B6</td><td>A0</td><td>PA4</td></tr><tr><td>F7 / B7</td><td>D6</td><td>PA8</td></tr><tr><td>F8 / B8</td><td>A1</td><td>PA0</td></tr><tr><td>F9 / B9</td><td>D7</td><td>PB12</td></tr><tr><td>F10 / B10</td><td>A2</td><td>PA1</td></tr><tr><td>F11 / B11</td><td>D8</td><td>PA9</td></tr><tr><td>F12 / B12</td><td>A3</td><td>PB0</td></tr><tr><td>F13 / B13</td><td>D9</td><td>PA10 (through U2; connected when BOOT0 is low)</td></tr><tr><td>F14 / B14</td><td>A4</td><td>PC1</td></tr><tr><td>F15 / B15</td><td>D10</td><td>PB6</td></tr><tr><td>F16 / B16</td><td>A5</td><td>PC0</td></tr><tr><td>F17 / B17</td><td>D11</td><td>PA7</td></tr><tr><td>F18 / B18</td><td>D0</td><td>PA3</td></tr><tr><td>F19 / B19</td><td>D12</td><td>PA6</td></tr><tr><td>F20 / B20</td><td>D1</td><td>PA2</td></tr><tr><td>F21 / B21</td><td>D13</td><td>PA5</td></tr><tr><td>F22 / B22</td><td>D2</td><td>PC7</td></tr><tr><td>F23 / B23</td><td>SDA</td><td>PB9 (R2: 10 kΩ pull-up to 3.3V)</td></tr><tr><td>F24 / B24</td><td>D3</td><td>PB3</td></tr><tr><td>F25 / B25</td><td>SCL</td><td>PB8 (R1: 10 kΩ pull-up to 3.3V)</td></tr><tr><td>F26 / B26</td><td>D4</td><td>PB5</td></tr><tr><td>F27 / B27</td><td>GND</td><td>GND</td></tr><tr><td>F28 / B28</td><td>D5</td><td>PB4</td></tr><tr><td>F29 / B29</td><td>SWCLK</td><td>PA14</td></tr></tbody></table>
-<p>Connections are based on the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony_bus.kicad_sch">Leafony Bus schematic</a> and <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/stm32.kicad_sch">MCU schematic</a>. R5, R7, R12 and R14 are not populated.</p>
+<p>Connections are based on the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">Leafony Bus schematic</a> and <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">MCU schematic</a>. R5, R7, R12 and R14 are not populated.</p>
 <h2 id="switches-and-led">Switches and LED</h2>
 
 
@@ -291,7 +291,7 @@ Description / headings (excerpt): AP03B STM32L452REI6 specifications, Leafony Bu
 
 
 <table><thead><tr><th>Component</th><th>Board marking</th><th>Function</th></tr></thead><tbody><tr><td>SW1</td><td>PG</td><td>Selects BOOT0 high / low.</td></tr><tr><td>SW2</td><td>RST</td><td>Connects RESET to GND when pressed.</td></tr><tr><td>D1</td><td>D1</td><td>Lights when BOOT0 is high.</td></tr></tbody></table>
-<p>The LED indicates the BOOT0 state, not program execution or a successful upload. For boot-mode details, check the MCU configuration and the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/reset_prog.kicad_sch">reset / program selection circuit</a>.</p>
+<p>The LED indicates the BOOT0 state, not program execution or a successful upload. For boot-mode details, check the MCU configuration and the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">reset / program selection circuit</a>.</p>
 <h3 id="d9-switching-by-boot0">D9 switching by BOOT0</h3>
 <p>Analog switch U2 is between D9 and PA10. They connect when BOOT0 is low and disconnect when it is high. Check the PG switch when combining the board with a communication leaf that uses D9. D0, D1, D6 and D7 connect directly to the MCU ports listed above.</p>
 <h2 id="development-environment">Development environment</h2>
@@ -307,16 +307,18 @@ Description / headings (excerpt): AP03B STM32L452REI6 specifications, Leafony Bu
 <h2 id="design-documents">Design documents</h2>
 <ul>
 <li><a href="https://github.com/leafony/ap03b-stm32">AP03B STM32 repository</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_pro">KiCad project</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_sch">Schematic: top sheet</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/stm32.kicad_sch">Schematic: MCU, power and clocks</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony_bus.kicad_sch">Schematic: Leafony Bus</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/reset_prog.kicad_sch">Schematic: reset and BOOT0 switching</a></li>
-<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/leafony-ap03-stm32.kicad_pcb">PCB layout</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/output/schematic.pdf">Schematic (PDF)</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/output/layout.pdf">PCB layout (PDF)</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_pro">KiCad project</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_sch">Schematic: top sheet</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">Schematic: MCU, power and clocks</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">Schematic: Leafony Bus</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">Schematic: reset and BOOT0 switching</a></li>
+<li><a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/ap03b-stm32.kicad_pcb">PCB layout (KiCad)</a></li>
 <li><a href="https://github.com/leafony/ap03b-stm32/blob/main/docs/leafony-ap03b-stm32-bom.csv">Bill of materials (BOM)</a></li>
 <li><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STM32L452RE manufacturer information</a></li>
 </ul>
-<p>The product is named AP03B, but its design files are named <code>leafony-ap03-stm32</code>. Open them in an environment that reads KiCad 9.0 files, preserving the directory structure and dedicated libraries. Some component 3D models are not included in the repository.</p>
+<p>The design files are named <code>ap03b-stm32</code>. Open them in an environment that reads KiCad 10.0 files, preserving the directory structure and dedicated libraries. Some component 3D models are not included in the repository.</p>
 <h2 id="revision-history">Revision history</h2>
 <ul>
 <li>September 19, 2026: Added the AP03B STM32 MCU page.</li>
