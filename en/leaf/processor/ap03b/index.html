@@ -28,7 +28,7 @@ Page: AP03B STM32 MCU
 
 URL: https://docs.leafony.com/en/leaf/processor/ap03b/
 
-Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Leafony Bus pinout, PG and reset controls, and AP03-compatible board settings. / Features / Specifications / Power and external connections / Pin connections</textarea> </div> </details> </div> </leafony-ai-help> </details> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const s=async n=>{try{await navigator.clipboard.writeText(t.value),o.textContent=n}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{s(this.dataset.copied??"")}}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script>  <nav class="article-toc" aria-label="Table of contents" data-document-toc-container data-astro-cid-fzx4jmue> <p class="article-toc-title" data-astro-cid-fzx4jmue>Table of contents</p> <ol data-document-toc data-astro-cid-fzx4jmue> <li data-astro-cid-fzx4jmue><a href="#features" data-astro-cid-fzx4jmue>Features</a></li><li data-astro-cid-fzx4jmue><a href="#specifications" data-astro-cid-fzx4jmue>Specifications</a></li><li data-astro-cid-fzx4jmue><a href="#power-and-external-connections" data-astro-cid-fzx4jmue>Power and external connections</a></li><li data-astro-cid-fzx4jmue><a href="#pin-connections" data-astro-cid-fzx4jmue>Pin connections</a></li><li data-astro-cid-fzx4jmue><a href="#switches-and-led" data-astro-cid-fzx4jmue>Switches and LED</a></li><li class="toc-subheading" data-astro-cid-fzx4jmue><a href="#d9-switching-by-boot0" data-astro-cid-fzx4jmue>D9 switching by BOOT0</a></li><li data-astro-cid-fzx4jmue><a href="#development-environment" data-astro-cid-fzx4jmue>Development environment</a></li><li data-astro-cid-fzx4jmue><a href="#design-documents" data-astro-cid-fzx4jmue>Design documents</a></li><li data-astro-cid-fzx4jmue><a href="#revision-history" data-astro-cid-fzx4jmue>Revision history</a></li> </ol> </nav> <div class="prose sl-markdown-content" data-doc-body data-pagefind-body lang="en" data-astro-cid-fzx4jmue><div class="leaf-image-grid leaf-photo-strip" style="--leaf-photo-count: 2">
+Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Leafony Bus pinout, PG and reset controls, and AP03-compatible board settings. / Features / Specifications / Power and external connections / Pin connections</textarea> </div> </details> </div> </leafony-ai-help> </details> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const s=async n=>{try{await navigator.clipboard.writeText(t.value),o.textContent=n}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{s(this.dataset.copied??"")}}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script>  <nav class="article-toc" aria-label="Table of contents" data-document-toc-container data-astro-cid-fzx4jmue> <p class="article-toc-title" data-astro-cid-fzx4jmue>Table of contents</p> <ol data-document-toc data-astro-cid-fzx4jmue> <li data-astro-cid-fzx4jmue><a href="#features" data-astro-cid-fzx4jmue>Features</a></li><li data-astro-cid-fzx4jmue><a href="#specifications" data-astro-cid-fzx4jmue>Specifications</a></li><li data-astro-cid-fzx4jmue><a href="#power-and-external-connections" data-astro-cid-fzx4jmue>Power and external connections</a></li><li data-astro-cid-fzx4jmue><a href="#pin-connections" data-astro-cid-fzx4jmue>Pin connections</a></li><li data-astro-cid-fzx4jmue><a href="#switches-and-led" data-astro-cid-fzx4jmue>Switches and LED</a></li><li data-astro-cid-fzx4jmue><a href="#development-environment" data-astro-cid-fzx4jmue>Development environment</a></li><li data-astro-cid-fzx4jmue><a href="#design-documents" data-astro-cid-fzx4jmue>Design documents</a></li><li data-astro-cid-fzx4jmue><a href="#revision-history" data-astro-cid-fzx4jmue>Revision history</a></li> </ol> </nav> <div class="prose sl-markdown-content" data-doc-body data-pagefind-body lang="en" data-astro-cid-fzx4jmue><div class="leaf-image-grid leaf-photo-strip" style="--leaf-photo-count: 2">
   <a href="/leaf/processor/ap03b/top.png">
     <img src="/leaf/processor/ap03b/top_display.webp" alt="AP03B v1.1 top side, with the STM32 in the center and the side-emitting LED at the lower right" width="1000" height="1000" loading="lazy" decoding="async">
   </a>
@@ -39,7 +39,7 @@ Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Lea
 <!-- v1.1 schematic and BOM: leafony/ap03b-stm32@c20552ca90cd3daa757dea9dcaf8e50dfcef9442 -->
 <h2 id="features">Features</h2>
 <p>AP03B v1.1 is an <a href="/en/terms/#mcu">MCU (microcontroller)</a> leaf that reads sensors and controls communication leaves and other modules. It uses the STM32L452RET6 and has the same Leafony Bus pin assignments as the <a href="/en/leaf/processor/ap03/">AP03 STM32 MCU</a>.</p>
-<p>It connects to other leaves through the Leafony Bus and operates from 3.3V. The board includes a PG switch for BOOT0, a reset switch, and an LED indicating the BOOT0 state. It is the MCU leaf in the <a href="/en/products/cellular-lpwa-cat-m1/">Cellular LPWA Cat-M1 Kit</a>.</p>
+<p>It connects to other leaves through the Leafony Bus and operates from 3.3V. The board includes a PG switch for BOOT0, a reset switch, and an LED indicating the BOOT0 state.</p>
 <h2 id="specifications">Specifications</h2>
 
 
@@ -102,167 +102,13 @@ Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Lea
 <p>See <a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STMicroelectronics product information</a> for CPU and memory specifications. The actual clock depends on the firmware configuration.</p>
 <p>All components are mounted on the top side. The second layer (L2) is a dedicated ground plane. The top (L1), inner (L3) and bottom (L4) layers also have ground pours. Plated through vias sit outside the pads and have a 0.45 mm diameter and a 0.25 mm drill.</p>
 <h2 id="power-and-external-connections">Power and external connections</h2>
-<p>Supply the Leafony Bus 3.3V terminal from a power leaf or other suitable source. <strong>The VBUS terminal is not connected to the AP03B circuitry.</strong> There is no USB connector on the board; provide a separate interface for a computer or debugger.</p>
-<p>SDA and SCL each have a 10 kΩ pull-up resistor to 3.3V. Before connecting external devices, check the <a href="/en/leafony-bus/">Leafony Bus specification</a> and the other device’s power and signal voltages.</p>
+<p>Supply the Leafony Bus 3.3V terminal from a power leaf or other suitable source. <strong>The VBUS terminal is not connected to the AP03B circuitry.</strong></p>
+<p>R2 pulls SDA up to 3.3V, and R1 does the same for SCL. Both resistors are 10 kΩ. Before connecting external devices, check the <a href="/en/leafony-bus/">Leafony Bus specification</a> and the other device’s power and signal voltages.</p>
 <p>AREF connection resistor R5 is DNP (not populated), so the bus AREF terminal is not connected to the MCU’s analog supply/reference circuit in the standard configuration.</p>
 <h2 id="pin-connections">Pin connections</h2>
-<p>The following table describes the standard Leafony Bus to MCU connections. Front and back contacts with the same number (such as F1 / B1) carry the same signal. MCU port names are schematic names, not Arduino sketch pin numbers.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>Contact (front / back)</th><th>Leafony Bus signal</th><th>MCU port / connection</th></tr></thead><tbody><tr><td>F1 / B1</td><td>3.3V</td><td>3.3V power</td></tr><tr><td>F2 / B2</td><td>SWDIO</td><td>PA13</td></tr><tr><td>F3 / B3</td><td>VBUS</td><td>Not connected to the MCU or power circuit</td></tr><tr><td>F4 / B4</td><td>AREF</td><td>Not connected to MCU because R5 is not fitted</td></tr><tr><td>F5 / B5</td><td>RESET</td><td>NRST</td></tr><tr><td>F6 / B6</td><td>A0</td><td>PA4</td></tr><tr><td>F7 / B7</td><td>D6</td><td>PA8</td></tr><tr><td>F8 / B8</td><td>A1</td><td>PA0</td></tr><tr><td>F9 / B9</td><td>D7</td><td>PB12</td></tr><tr><td>F10 / B10</td><td>A2</td><td>PA1</td></tr><tr><td>F11 / B11</td><td>D8</td><td>PA9</td></tr><tr><td>F12 / B12</td><td>A3</td><td>PB0</td></tr><tr><td>F13 / B13</td><td>D9</td><td>PA10 (through U2; connected when BOOT0 is low)</td></tr><tr><td>F14 / B14</td><td>A4</td><td>PC1</td></tr><tr><td>F15 / B15</td><td>D10</td><td>PB6</td></tr><tr><td>F16 / B16</td><td>A5</td><td>PC0</td></tr><tr><td>F17 / B17</td><td>D11</td><td>PA7</td></tr><tr><td>F18 / B18</td><td>D0</td><td>PA3</td></tr><tr><td>F19 / B19</td><td>D12</td><td>PA6</td></tr><tr><td>F20 / B20</td><td>D1</td><td>PA2</td></tr><tr><td>F21 / B21</td><td>D13</td><td>PA5</td></tr><tr><td>F22 / B22</td><td>D2</td><td>PC7</td></tr><tr><td>F23 / B23</td><td>SDA</td><td>PB9 (R2: 10 kΩ pull-up to 3.3V)</td></tr><tr><td>F24 / B24</td><td>D3</td><td>PB3</td></tr><tr><td>F25 / B25</td><td>SCL</td><td>PB8 (R1: 10 kΩ pull-up to 3.3V)</td></tr><tr><td>F26 / B26</td><td>D4</td><td>PB5</td></tr><tr><td>F27 / B27</td><td>GND</td><td>GND</td></tr><tr><td>F28 / B28</td><td>D5</td><td>PB4</td></tr><tr><td>F29 / B29</td><td>SWCLK</td><td>PA14</td></tr></tbody></table>
+<p>Front and back contacts with the same number (such as F1 / B1) carry the same signal. The Port columns show MCU port names, which differ from the pin numbers used in Arduino sketches.</p>
+<p><a href="/leaf/processor/ap03b/ap03b-pinout-en.svg"><img src="/leaf/processor/ap03b/ap03b-pinout-en.svg" alt="AP03B Leafony Bus pin assignment showing all 29 contacts and their STM32 connections on the standard assembly" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
+<p>Click the diagram to enlarge it. Select AP03B in the <a href="/en/pcb/pinout-editor/">Pin Assignment Editor</a> to edit the diagram and save it as PNG or SVG.</p>
 <p>Connections are based on the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">Leafony Bus schematic</a> and <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">MCU schematic</a>. R5, R7, R12 and R14 are not populated.</p>
 <h2 id="switches-and-led">Switches and LED</h2>
 
@@ -291,9 +137,7 @@ Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Lea
 
 
 <table><thead><tr><th>Component</th><th>Marking or location</th><th>Function</th></tr></thead><tbody><tr><td>SW1</td><td>PG</td><td>Selects BOOT0 high / low.</td></tr><tr><td>SW2</td><td>RST marking on the underside</td><td>Connects RESET to GND when pressed.</td></tr><tr><td>D1</td><td>Lower right on the top side, with the bus contacts at the top</td><td>Lights when BOOT0 is high. The LED faces outward at the lower edge so you can see it from the side of a stack.</td></tr></tbody></table>
-<p>The LED indicates the BOOT0 state, not program execution or a successful upload. For boot-mode details, check the MCU configuration and the <a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">reset / program selection circuit</a>.</p>
-<h3 id="d9-switching-by-boot0">D9 switching by BOOT0</h3>
-<p>Analog switch U2 is between D9 and PA10. They connect when BOOT0 is low and disconnect when it is high. Check the PG switch when combining the board with a communication leaf that uses D9. D0, D1, D6 and D7 connect directly to the MCU ports listed above.</p>
+<p>The LED indicates the BOOT0 state, not program execution or a successful upload.</p>
 <h2 id="development-environment">Development environment</h2>
 <p>AP03B v1.1 supports the existing AP03 board definition. In the Arduino IDE, when using the STM32duino “STM32 MCU based boards” package, select <strong>Generic STM32L4 series</strong> as the board and <strong>Leafony AP03</strong> as the board part number. For a new PlatformIO project, set <code>board = leafony_ap03</code> in <code>platformio.ini</code>. <a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/boards.txt">STM32duino board definitions</a> · <a href="https://docs.platformio.org/en/latest/boards/ststm32/leafony_ap03.html">PlatformIO AP03 settings</a></p>
 <p>For the Cat-M1 Kit’s AP03B + AI05 + AC09 configuration, use the <a href="/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">Google Sheets temperature and humidity sample</a>. Open <code>platformio/google_sheets</code> in the AC09 development repository and select the PlatformIO environment <code>leafony_ap03b</code>. Follow the sample instructions for uploading through the AZ01C USB-C leaf and operating PG/RST.</p>
@@ -318,8 +162,6 @@ Description / headings (excerpt): AP03B v1.1 (STM32L452RET6) specifications, Lea
 <li><a href="https://github.com/leafony/ap03b-stm32/blob/main/docs/leafony-ap03b-stm32-bom.csv">Bill of materials (BOM)</a></li>
 <li><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STM32L452RE manufacturer information</a></li>
 </ul>
-<p>Keep the project directory structure and its custom libraries together when opening the KiCad 10.0 project. The 3D viewer uses both the standard KiCad models and models included in the project.</p>
-<p>All 11 chip capacitors in the standard assembly are made by YAGEO. C9 (10 µF) uses a 0603 package (1.6 × 0.8 mm). The other ten use 0402 packages (1.0 × 0.5 mm). The BOM lists the manufacturer part numbers for ordering.</p>
 <h2 id="revision-history">Revision history</h2>
 <ul>
 <li>November 20, 2026: Updated the board specifications, components and AP03-compatible board settings for v1.1.</li>

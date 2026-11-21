@@ -28,7 +28,7 @@
 
 URL: https://docs.leafony.com/leaf/processor/ap03b/
 
-概要・見出し（抜粋）: AP03B v1.1（STM32L452RET6）の基板仕様、Leafony Busのピン接続、PG・リセット操作とAP03互換の開発環境。 / 特徴 / 仕様 / 電源と外部接続 / ピン接続</textarea> </div> </details> </div> </leafony-ai-help> </details> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const s=async n=>{try{await navigator.clipboard.writeText(t.value),o.textContent=n}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{s(this.dataset.copied??"")}}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script>  <nav class="article-toc" aria-label="目次" data-document-toc-container data-astro-cid-fzx4jmue> <p class="article-toc-title" data-astro-cid-fzx4jmue>目次</p> <ol data-document-toc data-astro-cid-fzx4jmue> <li data-astro-cid-fzx4jmue><a href="#特徴" data-astro-cid-fzx4jmue>特徴</a></li><li data-astro-cid-fzx4jmue><a href="#仕様" data-astro-cid-fzx4jmue>仕様</a></li><li data-astro-cid-fzx4jmue><a href="#電源と外部接続" data-astro-cid-fzx4jmue>電源と外部接続</a></li><li data-astro-cid-fzx4jmue><a href="#ピン接続" data-astro-cid-fzx4jmue>ピン接続</a></li><li data-astro-cid-fzx4jmue><a href="#スイッチとled" data-astro-cid-fzx4jmue>スイッチとLED</a></li><li class="toc-subheading" data-astro-cid-fzx4jmue><a href="#boot0によるd9の切り替え" data-astro-cid-fzx4jmue>BOOT0によるD9の切り替え</a></li><li data-astro-cid-fzx4jmue><a href="#開発環境" data-astro-cid-fzx4jmue>開発環境</a></li><li data-astro-cid-fzx4jmue><a href="#設計資料" data-astro-cid-fzx4jmue>設計資料</a></li><li data-astro-cid-fzx4jmue><a href="#変更履歴" data-astro-cid-fzx4jmue>変更履歴</a></li> </ol> </nav> <div class="prose sl-markdown-content" data-doc-body data-pagefind-body lang="ja" data-astro-cid-fzx4jmue><div class="leaf-image-grid leaf-photo-strip" style="--leaf-photo-count: 2">
+概要・見出し（抜粋）: AP03B v1.1（STM32L452RET6）の基板仕様、Leafony Busのピン接続、PG・リセット操作とAP03互換の開発環境。 / 特徴 / 仕様 / 電源と外部接続 / ピン接続</textarea> </div> </details> </div> </leafony-ai-help> </details> <script type="module">class c extends HTMLElement{connectedCallback(){const e=this.querySelector("[data-copy-prompt]"),t=this.querySelector("textarea"),a=this.querySelector(".ai-help-prompt"),o=this.querySelector("[role=status]");if(!e||!t||!a||!o)return;e.hidden=!1;const s=async n=>{try{await navigator.clipboard.writeText(t.value),o.textContent=n}catch{a.open=!0,t.focus(),t.select(),o.textContent=this.dataset.manual??""}};e.onclick=()=>{s(this.dataset.copied??"")}}}customElements.get("leafony-ai-help")||customElements.define("leafony-ai-help",c);</script>  <nav class="article-toc" aria-label="目次" data-document-toc-container data-astro-cid-fzx4jmue> <p class="article-toc-title" data-astro-cid-fzx4jmue>目次</p> <ol data-document-toc data-astro-cid-fzx4jmue> <li data-astro-cid-fzx4jmue><a href="#特徴" data-astro-cid-fzx4jmue>特徴</a></li><li data-astro-cid-fzx4jmue><a href="#仕様" data-astro-cid-fzx4jmue>仕様</a></li><li data-astro-cid-fzx4jmue><a href="#電源と外部接続" data-astro-cid-fzx4jmue>電源と外部接続</a></li><li data-astro-cid-fzx4jmue><a href="#ピン接続" data-astro-cid-fzx4jmue>ピン接続</a></li><li data-astro-cid-fzx4jmue><a href="#スイッチとled" data-astro-cid-fzx4jmue>スイッチとLED</a></li><li data-astro-cid-fzx4jmue><a href="#開発環境" data-astro-cid-fzx4jmue>開発環境</a></li><li data-astro-cid-fzx4jmue><a href="#設計資料" data-astro-cid-fzx4jmue>設計資料</a></li><li data-astro-cid-fzx4jmue><a href="#変更履歴" data-astro-cid-fzx4jmue>変更履歴</a></li> </ol> </nav> <div class="prose sl-markdown-content" data-doc-body data-pagefind-body lang="ja" data-astro-cid-fzx4jmue><div class="leaf-image-grid leaf-photo-strip" style="--leaf-photo-count: 2">
   <a href="/leaf/processor/ap03b/top.png">
     <img src="/leaf/processor/ap03b/top_display.webp" alt="AP03B v1.1の表面。中央にSTM32、右下に側面発光LED" width="1000" height="1000" loading="lazy" decoding="async">
   </a>
@@ -39,7 +39,7 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 <!-- v1.1の回路図・部品表: leafony/ap03b-stm32@c20552ca90cd3daa757dea9dcaf8e50dfcef9442 -->
 <h2 id="特徴">特徴</h2>
 <p>AP03B v1.1は、センサの値を読み取り、通信リーフなどを制御する<a href="/terms/#mcu">MCU（マイコン）</a>リーフです。STM32L452RET6を搭載し、<a href="/leaf/processor/ap03/">AP03 STM32 MCU</a>と同じLeafony Busのピン割り当てを使います。</p>
-<p>Leafony Busを介して他のリーフと接続し、3.3Vの電源で動作します。基板上にはBOOT0を切り替えるPGスイッチ、リセットスイッチ、BOOT0の状態を示すLEDを備えています。<a href="/products/cellular-lpwa-cat-m1/">Cellular LPWA Cat-M1 Kit</a>のマイコンリーフとして使用します。</p>
+<p>Leafony Busを介して他のリーフと接続し、3.3Vの電源で動作します。基板上にはBOOT0を切り替えるPGスイッチ、リセットスイッチ、BOOT0の状態を示すLEDを備えています。</p>
 <h2 id="仕様">仕様</h2>
 
 
@@ -102,167 +102,13 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 <p>CPU・メモリの仕様は<a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STMicroelectronicsの製品情報</a>を参照してください。実際の動作クロックはファームウェアの設定によります。</p>
 <p>部品はすべて表面に実装します。内層のL2はGND専用で、表面（L1）・内層のL3・裏面（L4）にもGNDを配置しています。層間の接続にはパッド外の貫通ビア（外径0.45 mm、穴径0.25 mm）を使います。</p>
 <h2 id="電源と外部接続">電源と外部接続</h2>
-<p>電源リーフなどからLeafony Busの3.3V端子へ給電します。<strong>VBUS端子はAP03Bの回路には接続されていません。</strong> 基板にUSBコネクタはなく、パソコンやデバッガとの接続には別途インターフェースを用意します。</p>
-<p>SDAとSCLは、それぞれ10 kΩの抵抗で3.3Vへプルアップされています。外部機器を接続するときは、<a href="/leafony-bus/">Leafony Busの仕様</a>と相手側の電源・信号電圧を確認してください。</p>
+<p>電源リーフなどからLeafony Busの3.3V端子へ給電します。<strong>VBUS端子はAP03Bの回路には接続されていません。</strong></p>
+<p>SDAはR2、SCLはR1で3.3Vへプルアップされています。抵抗値はいずれも10 kΩです。外部機器を接続するときは、<a href="/leafony-bus/">Leafony Busの仕様</a>と相手側の電源・信号電圧を確認してください。</p>
 <p>AREFの接続用抵抗R5はDNP（未実装）のため、標準構成ではバスのAREF端子はMCUのアナログ電源・基準電圧回路へ接続されません。</p>
 <h2 id="ピン接続">ピン接続</h2>
-<p>以下は標準実装時のLeafony BusとMCUの接続です。表裏の同じ番号の接点（F1 / B1など）は同一信号です。MCUポート名は回路図上の名称で、Arduinoスケッチで指定するピン番号とは区別してください。</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th>接点番号（表 / 裏）</th><th>Leafony Bus信号</th><th>MCUポート・接続</th></tr></thead><tbody><tr><td>F1 / B1</td><td>3.3V</td><td>3.3V電源</td></tr><tr><td>F2 / B2</td><td>SWDIO</td><td>PA13</td></tr><tr><td>F3 / B3</td><td>VBUS</td><td>MCU・電源回路には未接続</td></tr><tr><td>F4 / B4</td><td>AREF</td><td>R5未実装のためMCUには未接続</td></tr><tr><td>F5 / B5</td><td>RESET</td><td>NRST</td></tr><tr><td>F6 / B6</td><td>A0</td><td>PA4</td></tr><tr><td>F7 / B7</td><td>D6</td><td>PA8</td></tr><tr><td>F8 / B8</td><td>A1</td><td>PA0</td></tr><tr><td>F9 / B9</td><td>D7</td><td>PB12</td></tr><tr><td>F10 / B10</td><td>A2</td><td>PA1</td></tr><tr><td>F11 / B11</td><td>D8</td><td>PA9</td></tr><tr><td>F12 / B12</td><td>A3</td><td>PB0</td></tr><tr><td>F13 / B13</td><td>D9</td><td>PA10（U2経由。BOOT0 Low時に接続）</td></tr><tr><td>F14 / B14</td><td>A4</td><td>PC1</td></tr><tr><td>F15 / B15</td><td>D10</td><td>PB6</td></tr><tr><td>F16 / B16</td><td>A5</td><td>PC0</td></tr><tr><td>F17 / B17</td><td>D11</td><td>PA7</td></tr><tr><td>F18 / B18</td><td>D0</td><td>PA3</td></tr><tr><td>F19 / B19</td><td>D12</td><td>PA6</td></tr><tr><td>F20 / B20</td><td>D1</td><td>PA2</td></tr><tr><td>F21 / B21</td><td>D13</td><td>PA5</td></tr><tr><td>F22 / B22</td><td>D2</td><td>PC7</td></tr><tr><td>F23 / B23</td><td>SDA</td><td>PB9（R2：10 kΩで3.3Vへプルアップ）</td></tr><tr><td>F24 / B24</td><td>D3</td><td>PB3</td></tr><tr><td>F25 / B25</td><td>SCL</td><td>PB8（R1：10 kΩで3.3Vへプルアップ）</td></tr><tr><td>F26 / B26</td><td>D4</td><td>PB5</td></tr><tr><td>F27 / B27</td><td>GND</td><td>GND</td></tr><tr><td>F28 / B28</td><td>D5</td><td>PB4</td></tr><tr><td>F29 / B29</td><td>SWCLK</td><td>PA14</td></tr></tbody></table>
+<p>表裏の同じ番号の接点（F1 / B1など）は同一信号です。図の「Port」欄にあるMCUポート名は、Arduinoスケッチで指定するピン番号とは区別してください。</p>
+<p><a href="/leaf/processor/ap03b/ap03b-pinout.svg"><img src="/leaf/processor/ap03b/ap03b-pinout.svg" alt="AP03BのLeafony Busピン配置図。標準実装時の29接点とSTM32のポートの対応" width="1400" height="1036" loading="lazy" decoding="async"></a></p>
+<p>図をクリックすると拡大できます。<a href="/pcb/pinout-editor/">ピン配置図作成</a>でAP03Bを選ぶと、同じ図を編集してPNG・SVGで保存できます。</p>
 <p>接続は<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/leafony_bus.kicad_sch">Leafony Bus回路図</a>と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/stm32.kicad_sch">MCU回路図</a>を参照しています。R5・R7・R12・R14は未実装です。</p>
 <h2 id="スイッチとled">スイッチとLED</h2>
 
@@ -291,9 +137,7 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 
 
 <table><thead><tr><th>部品</th><th>基板上の目印</th><th>役割</th></tr></thead><tbody><tr><td>SW1</td><td>PG</td><td>BOOT0のHigh / Lowを切り替えます。</td></tr><tr><td>SW2</td><td>裏面に「RST」と表示</td><td>押すとRESETをGNDへ接続します。</td></tr><tr><td>D1</td><td>表面右下（バス接点を上に見たとき）</td><td>BOOT0がHighのときに点灯します。発光面は基板の下辺から外側を向いており、リーフを重ねても側面から確認できます。</td></tr></tbody></table>
-<p>LEDはBOOT0の状態表示です。プログラムの実行状態や、書き込みの成功を示すものではありません。起動モードの詳細は、MCUの設定と<a href="https://github.com/leafony/ap03b-stm32/blob/main/kicad/ap03b-stm32/reset_prog.kicad_sch">リセット・プログラム切り替え回路</a>を確認してください。</p>
-<h3 id="boot0によるd9の切り替え">BOOT0によるD9の切り替え</h3>
-<p>D9とPA10の間にはアナログスイッチU2があります。BOOT0がLowのときに接続し、Highのときは切り離します。D9を使う通信リーフと組み合わせる場合は、PGスイッチの状態を確認してください。D0・D1・D6・D7は、それぞれ表のMCUポートへ直接接続されています。</p>
+<p>LEDはBOOT0の状態表示です。プログラムの実行状態や、書き込みの成功を示すものではありません。</p>
 <h2 id="開発環境">開発環境</h2>
 <p>AP03B v1.1は既存のAP03ボード定義を使用できます。Arduino IDEでSTM32duinoの「STM32 MCU based boards」を使用する場合は、ボードに「Generic STM32L4 series」、Board part numberに「Leafony AP03」を選びます。PlatformIOで新規プロジェクトを作る場合は、<code>platformio.ini</code>に<code>board = leafony_ap03</code>を指定します。<a href="https://github.com/stm32duino/Arduino_Core_STM32/blob/main/boards.txt">STM32duinoのボード定義</a>・<a href="https://docs.platformio.org/en/latest/boards/ststm32/leafony_ap03.html">PlatformIOのAP03設定</a></p>
 <p>Cat-M1 KitのAP03B＋AI05＋AC09では、<a href="/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/">Google スプレッドシートへの温湿度送信サンプル</a>を利用できます。AC09開発リポジトリの<code>platformio/google_sheets</code>を開き、PlatformIOの<code>leafony_ap03b</code>環境を選びます。AZ01C USB-Cリーフによる書き込みとPG/RST操作は、サンプルの手順を参照してください。</p>
@@ -318,8 +162,6 @@ URL: https://docs.leafony.com/leaf/processor/ap03b/
 <li><a href="https://github.com/leafony/ap03b-stm32/blob/main/docs/leafony-ap03b-stm32-bom.csv">部品表（BOM）</a></li>
 <li><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32l452re.html">STM32L452RE メーカー資料</a></li>
 </ul>
-<p>KiCad 10.0形式のプロジェクトを開くときは、専用ライブラリを含むディレクトリ構成を保ってください。3D表示にはKiCad標準の3Dモデルと、プロジェクト同梱のモデルを使います。</p>
-<p>標準実装のチップコンデンサ11個はすべてYAGEO製です。C9（10 µF）は0603インチ（1.6 × 0.8 mm）、ほかの10個は0402インチ（1.0 × 0.5 mm）です。発注用のメーカー型番は部品表で確認できます。</p>
 <h2 id="変更履歴">変更履歴</h2>
 <ul>
 <li>2026年11月20日：v1.1の基板仕様、部品、AP03互換のボード設定を反映</li>
