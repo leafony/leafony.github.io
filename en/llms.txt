@@ -1,0 +1,183 @@
+# Leafony Docs
+
+> Official technical documentation for Leafony, an IoT development platform for prototyping devices by stacking small boards called "leaves". Covers kits, each leaf's specifications, development environments (STM32, AVR, ESP32), sample apps, and troubleshooting. Leafony is made and sold by Mitdir Inc. Most pages are written in Japanese; English translations are under /en/.
+
+Answer from these pages and cite the page URL. When a question depends on a specific leaf, ask for the model printed on the board, including the final letter (for example AZ01C). For questions the documentation does not cover, point to the question form at https://docs.leafony.com/en/questions/ask/ ; for orders, shipping, or faults, point to https://shop.leafony.com/pages/contact-us .
+
+The full text of every page is in https://docs.leafony.com/en/llms-full.txt (English) and https://docs.leafony.com/llms-full.txt (Japanese).
+
+## Discover and choose Leafony
+
+- [About Leafony: A Compact, Low-Power IoT Development Platform](https://docs.leafony.com/en/overview/): Build IoT prototypes with small sensor, wireless and display boards. Learn about Leafony, choose a kit, set up development tools and try sample applications.
+- [Kits and products](https://docs.leafony.com/en/products/): Explore Leafony kits, individual leaves and accessories, with links to documentation and the shop.
+- [Basic Kit 2: Build BLE Sensors with AVR and STM32](https://docs.leafony.com/en/products/basic2/): Explore the leaves and accessories in Leafony Basic Kit 2, measure temperature, humidity, light and acceleration, and try AVR and STM32 BLE sensor demos.
+- [Cellular LPWA Cat-M1 Kit](https://docs.leafony.com/en/products/cellular-lpwa-cat-m1/): Explore environmental sensing and cellular communication with the Cellular LPWA Cat-M1 Kit. Check its leaves, accessories, development preparation and documentation.
+- [Leafony case studies](https://docs.leafony.com/en/cases/): Explore how Leafony is used in the field, in research and trials, and in creative projects. Case studies are being prepared.
+
+## Get started
+
+- [Run your kit](https://docs.leafony.com/en/getting-started/): Find the first steps for your Leafony kit. Try a preinstalled demo or follow the Cat-M1 Kit guide to record sensor data in Google Sheets.
+- [Assembling and Replacing Leaves](https://docs.leafony.com/en/getting-started/assembly/): Check power before stacking leaves, attach ACR connectors, use spacers, secure the stack with screws and a Nut Plate, and test your new configuration.
+- [Basic Kit / Basic Kit 2: Your First AVR Demo](https://docs.leafony.com/en/getting-started/basic/): Use the preinstalled AVR demo to view temperature, humidity, illuminance and acceleration over BLE. These first steps are shared by Basic Kit and Basic Kit 2 and need no development tools.
+- [Basic Kit 2: Try STM32 Logging and BLE](https://docs.leafony.com/en/getting-started/basic2/): An optional guide to sensor logging and BLE after swapping in the STM32 MCU included in Basic Kit 2. Start with the assembled AVR demo when your kit arrives.
+- [ESP32 Wi-Fi Kit / Kit 2 Getting Started Guide](https://docs.leafony.com/en/getting-started/esp32/): Try the Wi-Fi-equipped Leaf!
+- [STM32 MCU Getting Started Guide](https://docs.leafony.com/en/getting-started/stm32/): Choose a development tool for STM32 MCU, review the preparation overview, and find setup guides and your first examples.
+- [Cat-M1 Kit Start Guide](https://docs.leafony.com/en/getting-started/cellular-lpwa-cat-m1/): Send temperature and humidity directly to the cloud with the compact, low-power Cellular LPWA Cat-M1 Kit. Check the contents, assemble the kit, upload the sample, and record data in Google Sheets.
+
+## Write programs
+
+- [Environment Setting](https://docs.leafony.com/en/environment/): Find the development environment setup guide for your Leafony STM32, AVR, or ESP32 processor leaf.
+- [Libraries and board definitions](https://docs.leafony.com/en/environment/libraries/): Choose board definitions for your Leafony MCU and find the libraries and installation methods used by the examples.
+- [STM32 MCU Development Environment Settings Manual](https://docs.leafony.com/en/environment/stm32/)
+- [STM32 MCU: Arduino IDE Setup](https://docs.leafony.com/en/environment/stm32/arduino_ide/): Set up Arduino IDE for the AP03 STM32 MCU leaf and upload a program.
+- [STM32 MCU: PlatformIO Setup](https://docs.leafony.com/en/environment/stm32/platformio/): Set up PlatformIO for the AP03 STM32 MCU leaf and upload a program.
+- [How to connect the debugger](https://docs.leafony.com/en/environment/stm32/stm32_debug/)
+- [STM32 MCU: STM32CubeIDE Setup](https://docs.leafony.com/en/environment/stm32/stm32cube_ide/): Build an AP03 STM32 Hello World project, upload it over UART and check serial output.
+- [AVR MCU Development Environment Settings Manual](https://docs.leafony.com/en/environment/avr/)
+- [AVR MCU: Arduino IDE Setup](https://docs.leafony.com/en/environment/avr/arduino/): Set up Arduino IDE for the AP01 AVR MCU leaf and upload a program.
+- [AVR MCU: PlatformIO Setup](https://docs.leafony.com/en/environment/avr/platformio/): Set up PlatformIO for the AP01 AVR MCU leaf and upload a program.
+- [ESP32 MCU Development Environment Settings Manual](https://docs.leafony.com/en/environment/esp32/): Set up Arduino IDE or PlatformIO for the Leafony AP02 ESP32 MCU leaf. Choose a development tool and follow its installation and program upload guide.
+- [ESP32 MCU: Arduino IDE Setup](https://docs.leafony.com/en/environment/esp32/arduino/): Set up Arduino IDE for the AP02 ESP32 MCU leaf and upload a program.
+- [ESP32 MCU: PlatformIO Setup](https://docs.leafony.com/en/environment/esp32/platformio/): Set up PlatformIO for the AP02 ESP32 MCU leaf and upload a program.
+- [Sample Applications](https://docs.leafony.com/en/examples/): Find Leafony examples for measuring, recording, sending, displaying, and notifications. Browse all STM32, AVR, and ESP32 examples, development tools, and preparation steps.
+- [How to run an example](https://docs.leafony.com/en/examples/reproducing/): Choose the right Leafony hardware, development tool, and source files, then check the build, upload, and execution results in order.
+
+## Combine and design
+
+- [Combining Leaves and Choosing a Power Supply](https://docs.leafony.com/en/guides/combining-leaves/): Check the MCU and software, power supply, GPIO and communication pins, I2C addresses, and component clearance when combining Leafony leaves.
+- [Leafony Bus Specifications and Connections](https://docs.leafony.com/en/leafony-bus/): Learn the names of the 29 Leafony Bus contacts, the roles of 3.3V and VBUS, MCU-specific pin functions, and the power, signal, and size requirements to check.
+- [I2C Address Map](https://docs.leafony.com/en/leaf/i2c-address-map/): List of I2C device addresses used on each leaf
+- [Low-Power IoT Sensor Design and Battery Runtime Calculations](https://docs.leafony.com/en/lowpower/): Estimate power, average current and battery runtime for Leafony IoT sensors, use STM32 sleep modes and learn how to measure energy use on your device.
+- [Measure Current and Reduce Power Consumption](https://docs.leafony.com/en/guides/measuring-power/): Define the measurement boundary and power paths, connect an AX05B and current meter, record an active/transmit/sleep cycle, and compare average current.
+- [Home-made leaf development](https://docs.leafony.com/en/pcb/): CAD templates, pin assignments, a pin assignment editor, and the I2C address map for designing your own leaf
+- [CR-8000 Design Force Template Design Data](https://docs.leafony.com/en/pcb/cr-8000_design_force/)
+- [KiCad Template Project](https://docs.leafony.com/en/pcb/kicad/): How to register the template, configure libraries, and start designing a Leafony expansion leaf with KiCad 10.0.x
+- [Pin Assignment Editor](https://docs.leafony.com/en/pcb/pinout-editor/): Create Leafony pin assignment diagrams and tables comparing pin usage across leaves, then download them as PNG or SVG images.
+
+## Leaf reference
+
+- [Leaf Reference](https://docs.leafony.com/en/leaf/): Find leaf specifications by what you can do: measurement, communication, display, and more.
+- [Processor](https://docs.leafony.com/en/leaf/processor/)
+- [AP01 AVR MCU](https://docs.leafony.com/en/leaf/processor/ap01/)
+- [AP02 ESP32 MCU](https://docs.leafony.com/en/leaf/processor/ap02/)
+- [AP03 STM32 MCU: Arduino-Compatible Microcontroller Leaf](https://docs.leafony.com/en/leaf/processor/ap03/): Find Leafony AP03 STM32L452REI6 specifications, pin assignments, schematics and Arduino board settings, with sensor-reading and BLE beacon examples.
+- [AP03B STM32 MCU](https://docs.leafony.com/en/leaf/processor/ap03b/): AP03B v1.1 (STM32L452RET6) specifications, Leafony Bus pinout, PG and reset controls, and AP03-compatible board settings.
+- [AP05 STM32N6](https://docs.leafony.com/en/leaf/processor/ap05/)
+- [Communication](https://docs.leafony.com/en/leaf/communication/)
+- [AC02 BLE Sugar](https://docs.leafony.com/en/leaf/communication/ac02/)
+- [AC03 LoRa Easy](https://docs.leafony.com/en/leaf/communication/ac03/)
+- [AC07 LoRa Mary](https://docs.leafony.com/en/leaf/communication/ac07/)
+- [AC08 LTE-M Mary](https://docs.leafony.com/en/leaf/communication/ac08/)
+- [AC09 Cat-M1 TY](https://docs.leafony.com/en/leaf/communication/ac09/): Specifications, pin assignment and development documents for the AC09 leaf with a Taiyo Yuden Cellular LPWA Cat-M1 module
+- [IO](https://docs.leafony.com/en/leaf/io/)
+- [AI01 4-Sensors: Temperature, Humidity, Light and Acceleration](https://docs.leafony.com/en/leaf/io/ai01/): Explore Leafony AI01 sensor ranges, I2C addresses and pin assignments for HTS221TR, OPT3001 and LIS2DHTR, with AVR, ESP32 and STM32 code examples.
+- [AI02 SP&PIR](https://docs.leafony.com/en/leaf/io/ai02/)
+- [AI03 MIC&VR&LED](https://docs.leafony.com/en/leaf/io/ai03/)
+- [AI04 LCD](https://docs.leafony.com/en/leaf/io/ai04/)
+- [AI05 Env Sensors](https://docs.leafony.com/en/leaf/io/ai05/): AI05 specifications and connections, with AP03 PlatformIO examples for sensor readings, motion interrupts, and 100-sample FIFO capture and waveform display after a shock.
+- [AIx1 Motor](https://docs.leafony.com/en/leaf/io/aix1/)
+- [Power](https://docs.leafony.com/en/leaf/power/)
+- [AV01 CR2032](https://docs.leafony.com/en/leaf/power/av01/)
+- [AV02 CR2450](https://docs.leafony.com/en/leaf/power/av02/)
+- [AV03 AA BAT](https://docs.leafony.com/en/leaf/power/av03/)
+- [AV04A 2V～4.5V](https://docs.leafony.com/en/leaf/power/av04/)
+- [AV05 Solar Charger — Documentation in Preparation](https://docs.leafony.com/en/leaf/power/av05/): Documentation status for the AV05 Solar Charger leaf for solar power and charging, and the information to confirm before use.
+- [AV06 1.8V–5.5V](https://docs.leafony.com/en/leaf/power/av06/)
+- [Extension](https://docs.leafony.com/en/leaf/extension/)
+- [AX01 Shield](https://docs.leafony.com/en/leaf/extension/ax01/)
+- [AX02 29 pin](https://docs.leafony.com/en/leaf/extension/ax02/)
+- [AX02B 29-pin](https://docs.leafony.com/en/leaf/extension/ax02b/)
+- [AX03 Leaf x2](https://docs.leafony.com/en/leaf/extension/ax03/)
+- [AX04 Spacer](https://docs.leafony.com/en/leaf/extension/ax04/)
+- [AX05 I Meas](https://docs.leafony.com/en/leaf/extension/ax05/)
+- [AX05B I Meas Current Measurement Leaf](https://docs.leafony.com/en/leaf/extension/ax05b/)
+- [AX06 Grove&5V](https://docs.leafony.com/en/leaf/extension/ax06/)
+- [AX07 Back to back](https://docs.leafony.com/en/leaf/extension/ax07/)
+- [AX08 29pin header](https://docs.leafony.com/en/leaf/extension/ax08/)
+- [Others](https://docs.leafony.com/en/leaf/others/)
+- [AZ01 USB](https://docs.leafony.com/en/leaf/others/az01/)
+- [AZ01C USB-C](https://docs.leafony.com/en/leaf/others/az01c/): USB-C to UART and USB power for Leafony, including manual-reset programming with AP01 AVR MCU.
+- [AZ02 RTC&microSD](https://docs.leafony.com/en/leaf/others/az02/)
+- [AZ61 Connector](https://docs.leafony.com/en/leaf/others/az61/)
+- [AZ62 Connector Cover](https://docs.leafony.com/en/leaf/others/az62/)
+- [AZ63 Nut Plate](https://docs.leafony.com/en/leaf/others/az63/)
+- [AZ66 Basic kit case](https://docs.leafony.com/en/leaf/others/az66/)
+
+## Help and support
+
+- [Help and questions](https://docs.leafony.com/en/questions/): Search answers about identifying leaves, power, uploads, connections and using Leafony. Open the question form if you cannot find an answer.
+- [Terms](https://docs.leafony.com/en/terms/): Understand terms used in Leafony documentation: BLE, I2C, SPI and UART communication; MCU, MEMS and PWM; leaves, the Leafony bus and related organizations.
+
+## News and site information
+
+- [License](https://docs.leafony.com/en/license/): Learn about Leafony software and board layout licenses, commercial use, selling your own leaves, and the conditions for using the Leafony trademark.
+- [Privacy and analytics](https://docs.leafony.com/en/privacy/): How Leafony documentation uses Google Analytics and Microsoft Clarity.
+
+## Questions and answers
+
+- [FAQ](https://docs.leafony.com/en/faq/)
+- [What supply voltage does AC09 need for cellular communication?](https://docs.leafony.com/en/questions/ac09-voltage/): AC09 uses a 3.3V supply. For battery operation, we recommend AV06 with an external battery such as dry cells. Learn how this differs from the Basic Kit 2 coin-cell supply.
+- [Can I connect an external sensor?](https://docs.leafony.com/en/questions/external-sensors/): Use an expansion leaf or the AI05 I2C header. Check power, signal levels, pin assignments, and I2C addresses.
+- [What sensors are available?](https://docs.leafony.com/en/questions/sensor-options/): Explore temperature, humidity, light, acceleration, and pressure sensing with AI01 and AI05. Distinguish discontinued AI02/AI03 leaves and optional sensors.
+- [Where can I buy Leafony?](https://docs.leafony.com/en/questions/where-to-buy/): Buy kits and leaves from Leafony Shop. Each product page has current prices, stock, and lead times.
+- [Are the wireless leaves certified for use in Japan?](https://docs.leafony.com/en/questions/radio-certification/): Learn how certified module and antenna combinations work and where to check certification markings on the module.
+- [How should I match the STM32 Core and RTC library versions?](https://docs.leafony.com/en/questions/stm32-rtc-core/): STM32RTC and the Arduino Core require compatible versions. Check current requirements when using an older sample too.
+- [Can a Windows C# app receive Leafony BLE data?](https://docs.leafony.com/en/questions/windows-ble/): With a configuration that supports GATT communication, you can build a receiver using Windows BLE APIs. Start by checking UUIDs and the data format.
+- [Where can I find the BLE data format and UUIDs?](https://docs.leafony.com/en/questions/ble-data-format/): Check the sample’s transmitter and receiver code together. 4-Sensors_BLE is an example that sends comma-separated text.
+- [Why can I discover a BLE beacon but not connect to it?](https://docs.leafony.com/en/questions/ble-beacon-connection/): STM32 Simple BLE Beacon is configured for reading Advertising data without a connection. It serves a different purpose from a connected receiver sample.
+- [Should I start with Arduino IDE or PlatformIO?](https://docs.leafony.com/en/questions/development-tools/): Choose an environment supported by your sample. Check the MCU model and sample configuration before choosing the tool.
+- [Why does my STM32 program not run after an “upload complete” message?](https://docs.leafony.com/en/questions/stm32-upload-run/): Check the AP03 Program/Run switch, reset sequence, and upload verification log. The completion message alone can be misleading.
+- [How do I fix a “No such file or directory” build error?](https://docs.leafony.com/en/questions/library-not-found/): Match the missing header to the library specified by the sample. Similar names can refer to different authors and implementations.
+- [Does cellular communication with AC09 need a SIM and a service plan?](https://docs.leafony.com/en/questions/ac09-sim/): AC09 uses a nanoSIM. Check the 1NCE or SORACOM sample settings alongside your kit and network requirements.
+- [Can AC09 send measurements to Google Sheets over cellular communication?](https://docs.leafony.com/en/questions/ac09-google-sheets/): Sample and settings for sending BME280 temperature and humidity to Google Sheets with the Cat-M1 Kit's AP03B + AI05 + AC09 configuration.
+- [Why did my I2C sensor stop responding after I added a leaf?](https://docs.leafony.com/en/questions/i2c-address-conflict/): Check for duplicate I2C addresses and pull-up requirements. Combinations such as AI05 with AX06 or AC08 with AC09 need address checks.
+- [Which programming languages can I use with STM32?](https://docs.leafony.com/en/questions/stm32-language/): Leafony AP03 development is intended to use C/C++ with Arduino IDE or STM32CubeIDE. Arduino sketches are based on C++.
+- [Can I use Python with Leafony?](https://docs.leafony.com/en/questions/python/): On-leaf development is intended to use C/C++ with Arduino IDE, or STM32CubeIDE for STM32 leaves. Python can receive and analyze data on a PC.
+
+## Sample apps
+
+- [Blink an LED with STM32CubeIDE](https://docs.leafony.com/en/examples-stm/blink/): Use an STM32CubeIDE project to turn the AP03 STM32 MCU LED on and off every second. Covers downloading, importing, building, programming, and checking the result.
+- [Read battery](https://docs.leafony.com/en/examples/beginner/avr-mcu/basic/read_battery/): Read the battery voltage using the AD converter on the CR2032 coin cell leaf.
+- [Button](https://docs.leafony.com/en/examples/beginner/esp32-mcu/esp32/button/): Displays the status of the boot mode switch on the ESP32 MCU leaf on the serial monitor.
+- [Temperature and humidity sensor](https://docs.leafony.com/en/examples/beginner/stm32-mcu/basic/temp_humid_sensors/): This sample reads the value of the temperature and humidity sensor on the 4-Sensors Leaf and displays it on a serial monitor.
+- [Read temperature, humidity, pressure and acceleration with AI05](https://docs.leafony.com/en/examples/beginner/stm32-mcu/env-sensors/): Read environmental data and 3-axis acceleration every second with AP03 and AI05 Env Sensors. Find the required leaves, sample upload steps, measured output and an explanation of the readings.
+- [Temperature and humidity sensor](https://docs.leafony.com/en/examples/beginner/avr-mcu/basic/temp_humid_sensors/): This sample reads the value of the temperature and humidity sensor on the 4-Sensors Leaf and displays it on a serial monitor.
+- [Read HTS221 Temperature and Humidity with ESP32](https://docs.leafony.com/en/examples/beginner/esp32-mcu/basic/temp_humid_sensors/): Use Leafony AP02 ESP32 MCU and AI01 4-Sensors to read HTS221 data in Arduino's serial monitor. Covers assembly, sample code and two-point correction.
+- [Illum sensor](https://docs.leafony.com/en/examples/beginner/stm32-mcu/basic/illum_sensor/): This sample reads the value of the illuminance sensor on the 4-Sensors leaf and displays it on the serial monitor.
+- [Illum sensor](https://docs.leafony.com/en/examples/beginner/avr-mcu/basic/illum_sensor/): This sample reads the value of the illuminance sensor on the 4-Sensors leaf and displays it on the serial monitor.
+- [Illum sensor](https://docs.leafony.com/en/examples/beginner/esp32-mcu/basic/illum_sensor/): This sample reads the value of the illuminance sensor mounted on the 4-Sensors leaf and displays it on the serial monitor.
+- [Accelerometer](https://docs.leafony.com/en/examples/beginner/stm32-mcu/basic/accelerometer/): Read acceleration with AP03 STM32 MCU and AI01 4-Sensors using Arduino IDE. Includes required libraries, the I2C address, 115200 bps output, and checks.
+- [Accelerometer](https://docs.leafony.com/en/examples/beginner/avr-mcu/basic/accelerometer/): This sample reads the value of the accelerometer on the 4-Sensors Leaf and displays it on a serial monitor.
+- [Accelerometer](https://docs.leafony.com/en/examples/beginner/esp32-mcu/basic/accelerometer/): This sample reads the value of the accelerometer mounted on the 4-Sensors leaf and displays it on the serial monitor.
+- [Read battery](https://docs.leafony.com/en/examples/beginner/stm32-mcu/basic/read_battery/): Read the battery voltage using the AD converter on the CR2032 coin cell leaf.
+- [IR sensor](https://docs.leafony.com/en/examples/beginner/avr-mcu/exten/ir_sensor/): Using an infrared sensor IC (AKM AK9754AE) for close-range detection on the SP&PIR Leaf, let's create a system that makes a sound when a person approa
+- [IR sensor](https://docs.leafony.com/en/examples/beginner/esp32-mcu/exten/ir_sensor/): Using an infrared sensor IC (AKM AK9754AE) for close-range detection on the SP&PIR Leaf, let's create a system that makes a sound when a person approa
+- [IR sensor](https://docs.leafony.com/en/examples/beginner/stm32-mcu/exten/ir_sensor/): Using an infrared sensor IC (AKM AK9754AE) for close-range detection on the SP&PIR Leaf, let's create a system that makes a sound when a person approa
+- [Sound level meter](https://docs.leafony.com/en/examples/beginner/avr-mcu/exten/sound_level/): Let's assemble leaves as shown in the figure below.
+- [Sound level meter](https://docs.leafony.com/en/examples/beginner/esp32-mcu/exten/sound_level/): As you rotate the volume, the number of LEDs light up in proportion to the amount of rotation. You can also turn on the number of LEDs according to th
+- [Sound level meter](https://docs.leafony.com/en/examples/beginner/stm32-mcu/exten/sound_level/): As you rotate the volume, the number of LEDs light up in proportion to the amount of rotation. You can also turn on the number of LEDs according to th
+- [Distance sensor](https://docs.leafony.com/en/examples/advanced/avr-mcu/exten/distance_sensor/): An example of using Seeed Studio's Grove series of sensors. The distance measured by the ultrasonic sensor is displayed on the LCD. Ultrasonic sensors
+- [Real time clock](https://docs.leafony.com/en/examples/beginner/esp32-mcu/esp32/rtc/): In order to make this sketch work, you need to install the libraries If you haven't installed it yet, refer to Environment to install it.
+- [Speaker](https://docs.leafony.com/en/examples/beginner/stm32-mcu/exten/speaker/): Use the piezoelectric loudspeaker in the SP&PIR Leaf to make the melody sound.
+- [micro SD](https://docs.leafony.com/en/examples/beginner/esp32-mcu/esp32/microsd/): c++ / Connect the SD card to the following pins: SD Card ESP32 D2 - D3 SS CMD MOSI VSS GND VDD 3.3V CLK SCK VSS GND D0 MISO D1 - / include "FS.h" incl
+- [LCD](https://docs.leafony.com/en/examples/beginner/stm32-mcu/exten/lcd/): Let's assemble leaves as shown in the figure below.
+- [Web Bluetooth IoT with STM32](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/stm32_webbluetooth_iot/): This sample is an STM32 implementation of the one introduced in the Basic Kit Web Bluetooth IoT. The Web Bluetooth application uses the same one as th
+- [Speaker](https://docs.leafony.com/en/examples/beginner/esp32-mcu/exten/speaker/): Use the piezoelectric loudspeaker in the SP&PIR Leaf to make the melody sound.
+- [STM32 Simple BLE Beacon](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/stm32_simple_ble_beacon/): This is a simple BLE Beacon sample design using STM32 Leaf. Send the string "HELLO BEACON" for a period of time, then repeat the sleep cycle.
+- [Blink](https://docs.leafony.com/en/examples/beginner/avr-mcu/basic/blink/): Turns on and off the LEDs on the AVR MCU leaf every second.
+- [LCD](https://docs.leafony.com/en/examples/beginner/esp32-mcu/exten/lcd/): Let's assemble leaves as shown in the figure below.
+- [Wi-Fi touch sensor](https://docs.leafony.com/en/examples/advanced/esp32-mcu/esp32/wifi_touchsensor/): View ESP32 Wi-Fi Kit touch readings in a phone or PC browser. Connect to Leafony's Wi-Fi and explore 29pin header touch inputs and the detection threshold.
+- [STM32 Logger Beacon](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/stm32_logger_ble_beacon/): This is a sample design of a BLE Beacon that can record temperature, humidity and measurement time using the Flash memory in the STM32 leaf.
+- [Speaker](https://docs.leafony.com/en/examples/beginner/avr-mcu/exten/speaker/): Use the piezoelectric loudspeaker in the SP&PIR Leaf to make the melody sound.
+- [Log and Visualize ESP32 Sensor Data in Google Sheets](https://docs.leafony.com/en/examples/advanced/esp32-mcu/esp32/esp32_googlesheets_1/): Send readings from ESP32 Wi-Fi Kit 2 with 4-Sensors or DHT22 to Google Sheets. Set up Apps Script, Arduino or PlatformIO, and plot your data in Grafana.
+- [LCD](https://docs.leafony.com/en/examples/beginner/avr-mcu/exten/lcd/): The display has 8 characters per line and 2 lines . Hello, World! has 13 characters and does not fit on one line. This sample uses Hello! , which fits
+- [4-sensors LCD](https://docs.leafony.com/en/examples/advanced/avr-mcu/exten/4-sensors_lcd/): (/examples/advanced/avr-mcu/exten/4-sensors_lcd/lcd_overview2.png)
+- [ESP32 BLE Beacon](https://docs.leafony.com/en/examples/advanced/esp32-mcu/esp32/esp32_ble_beacon/): This is an example of a BLE Beacon type environmental sensor application using ESP32. By adding sensor data to the Attribute of the GATT Server, it ca
+- [STM32 LoRa message communication](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/stm32_lora_tx/): Build an AP03 STM32 MCU and AC07 LoRa Mary transmitter and receiver. Use Arduino IDE or PlatformIO to send hello messages and check reception.
+- [PIR melody test](https://docs.leafony.com/en/examples/advanced/avr-mcu/exten/pir_melody_test/): Using the infrared sensor IC for short range detection (AKM AK9754AE) installed in the SP&PIR leaf, let's create a system that plays a melody when a p
+- [Watering plants with a motor](https://docs.leafony.com/en/examples/advanced/avr-mcu/motor/motor_demo/): This sample app is a combination of the one introduced in the Basic Kit Web Bluetooth IoT and Motorleaf. Using Bluetooth, you can control the electric
+- [Web Bluetooth IoT](https://docs.leafony.com/en/examples/advanced/avr-mcu/basic/webbluetooth_iot/): This sample is the same as the one introduced in Basic Kit Getting Started Guide. Let's read the source code to understand how it works.
+- [Save temperature and humidity to Google Sheets with AC09 Cat-M1 TY](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/): Send temperature and humidity from the Cellular LPWA Cat-M1 Kit’s AI05 Env Sensors to Google Sheets every 10 minutes using AP03B and AC09.
+- [Google Sheets IoT](https://docs.leafony.com/en/examples/advanced/avr-mcu/basic/google_sheets_iot/): We will create an IoT environment sensor using Leafony Beacon1) and Raspberry Pi, and visualize the sensor data using Google Spreadsheet.
+- [LoRa](https://docs.leafony.com/en/examples/advanced/avr-mcu/lora/lora/): Using LoRa Easy leaf, sensor data (temperature, humidity, illumination, tilt) can be sent to a distant location and output to a PC terminal.
+- [Camera](https://docs.leafony.com/en/examples/advanced/avr-mcu/exten/camera/): An example of using Seeed Studio's Grove series sensors. Let's try to save an image taken by the camera once a minute to a microSD card.

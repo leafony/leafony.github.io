@@ -1,0 +1,198 @@
+# Leafony Docs
+
+> Leafony（リーフォニー）は、小さな基板「リーフ」を重ねて、センサや無線通信を使う機器を試作できるIoT開発プラットフォームです。このサイトはキット・各リーフの仕様・開発環境（STM32/AVR/ESP32）・サンプルアプリ・トラブル対応をまとめた公式技術資料です。製造・販売はミットディア株式会社。英語版は /en/ 以下にあります。
+
+回答するときは、根拠にしたページのURLを示してください。リーフによって手順が異なる質問では、基板に印刷された型番を末尾の文字まで（例：AZ01C）確認してください。資料にない内容は質問フォーム https://docs.leafony.com/questions/ask/ を、注文・配送・故障は https://shop.leafony.com/pages/contact-us を案内してください。
+
+全ページの本文は https://docs.leafony.com/llms-full.txt（日本語）と https://docs.leafony.com/en/llms-full.txt（英語）にまとめています。
+
+## Leafonyを知る・選ぶ
+
+- [Leafonyとは｜超小型・低消費電力のIoT開発プラットフォーム](https://docs.leafony.com/overview/): 小さな基板を組み合わせてIoT機器を試作できるLeafonyの概要。センサ・無線通信・表示の活用例と、キット選びから開発環境、サンプルアプリまでの始め方を紹介します。
+- [キット・製品一覧](https://docs.leafony.com/products/): Leafonyのキット・単品リーフ・アクセサリを選び、技術資料とショップを確認できます。
+- [Basic Kit](https://docs.leafony.com/products/basic/)
+- [Basic Kit 2｜AVR・STM32で作るBLEセンサ](https://docs.leafony.com/products/basic2/): 温湿度・照度・加速度を測り、BLEで送信できるLeafony Basic Kit 2。AVRとSTM32のマイコン、センサ、電源などの内容物と、購入後に試せるデモ・開発手順を紹介します。
+- [Cellular LPWA Cat-M1 Kit](https://docs.leafony.com/products/cellular-lpwa-cat-m1/): 環境計測とセルラー通信を試すCellular LPWA Cat-M1 Kit。構成リーフ・付属品の内容物と、開発準備・技術資料を確認できます。
+- [Connector](https://docs.leafony.com/products/conn/)
+- [ESP32 Wi-Fi Kit](https://docs.leafony.com/products/esp32/)
+- [ESP32 Wi-Fi Kit 2](https://docs.leafony.com/products/esp32_2/)
+- [Extension Kit](https://docs.leafony.com/products/extension/)
+- [Nut Plate & Connector Cover](https://docs.leafony.com/products/nut/)
+- [Leafony活用事例](https://docs.leafony.com/cases/): 現場での利用から研究・実証、作品づくりまで。Leafonyを使った取り組みを紹介するページです。事例の掲載を準備しています。
+
+## はじめて動かす
+
+- [はじめて動かす](https://docs.leafony.com/getting-started/): お持ちのLeafonyキットに合わせて、最初の動作確認を案内します。出荷時のデモや、Cat-M1 KitでセンサデータをGoogle スプレッドシートに記録する手順から始められます。
+- [リーフの組み立て・交換](https://docs.leafony.com/getting-started/assembly/): リーフを重ねる前の電源確認、ACRコネクタの取り付け、スペーサーとねじ・Nut Plateによる固定、組み替え後の動作確認を案内します。
+- [Basic Kit・Basic Kit 2｜最初のAVRデモ](https://docs.leafony.com/getting-started/basic/): 購入時のAVR構成のまま、BLEで温湿度・照度・加速度を表示します。Basic KitとBasic Kit 2で共通の、開発環境が不要な最初の動作確認です。
+- [Basic Kit 2｜STM32で記録とBLE通信を試す](https://docs.leafony.com/getting-started/basic2/): Basic Kit 2のSTM32 MCUへ交換してセンサデータの記録とBLE通信を試す任意の手順です。購入直後は組み立て済みのAVRデモから始めます。
+- [ESP32 Wi-Fi Kit/Kit 2 スタートガイド](https://docs.leafony.com/getting-started/esp32/): Wi-Fiでパソコンやスマートフォンにタッチセンサの値を送信
+- [STM32 MCU スタートガイド](https://docs.leafony.com/getting-started/stm32/): STM32 MCUの開発ツールを選び、準備物・個別の設定手順・最初に試すサンプルを確認できます。
+- [Cat-M1 Kit スタートガイド](https://docs.leafony.com/getting-started/cellular-lpwa-cat-m1/): 小型・省電力のCellular LPWA Cat-M1 Kitで、温度と湿度を直接クラウドへ。内容物の確認から組み立て、サンプルの書き込み、Google スプレッドシートへの記録までを案内します。
+
+## プログラムを作る
+
+- [開発環境設定](https://docs.leafony.com/environment/): STM32・AVR・ESP32のCPU別に、Leafonyの開発環境構築手順を案内します。
+- [ライブラリとボード定義](https://docs.leafony.com/environment/libraries/): LeafonyのCPUに合うボード定義と、サンプルで使うライブラリの配布元・導入方法を確認します。
+- [STM32 MCU：Arduino IDEの設定](https://docs.leafony.com/environment/stm32/arduino_ide/): Arduino IDEでAP03 STM32 MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [STM32 MCU：PlatformIOの設定](https://docs.leafony.com/environment/stm32/platformio/): PlatformIOでAP03 STM32 MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [デバッガの接続方法](https://docs.leafony.com/environment/stm32/stm32_debug/)
+- [STM32 MCU：STM32CubeIDEの設定](https://docs.leafony.com/environment/stm32/stm32cube_ide/): AP03 STM32のHello Worldをビルドし、UARTで書き込んでシリアル出力を確認します。
+- [AVR MCU：Arduino IDEの設定](https://docs.leafony.com/environment/avr/arduino/): Arduino IDEでAP01 AVR MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [AVR MCU：PlatformIOの設定](https://docs.leafony.com/environment/avr/platformio/): PlatformIOでAP01 AVR MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [ESP32 MCU：Arduino IDEの設定](https://docs.leafony.com/environment/esp32/arduino/): Arduino IDEでAP02 ESP32 MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [ESP32 MCU：PlatformIOの設定](https://docs.leafony.com/environment/esp32/platformio/): PlatformIOでAP02 ESP32 MCUリーフの開発環境を整え、プログラムを書き込む手順です。
+- [サンプルアプリ・応用例](https://docs.leafony.com/examples/): 測る・記録する・送る・表示する・通知する目的からLeafonyの実例を探せます。STM32・AVR・ESP32別の全サンプル、開発ツール、準備手順も案内します。
+- [サンプルの動かし方](https://docs.leafony.com/examples/reproducing/): Leafonyのサンプルを動かすときの機種・開発ツール・ソースの選び方と、ビルド、書き込み、実行結果を順に確認する手順。
+
+## 組み合わせて設計する
+
+- [リーフの組み合わせ・電源の選び方](https://docs.leafony.com/guides/combining-leaves/): リーフを組み合わせるときに、MCUとソフトウェア、給電、GPIO・通信端子、I2Cアドレス、部品の干渉を順に確認するガイドです。
+- [Leafonyバスの仕様と接続](https://docs.leafony.com/leafony-bus/): Leafonyバスの29端子、3.3VとVBUS、MCUごとのピン機能の違い、組み合わせ時に確認する電源・信号・寸法を説明します。
+- [I2Cアドレスマップ](https://docs.leafony.com/leaf/i2c-address-map/): 各リーフに搭載されているI2Cデバイスのアドレス一覧
+- [IoTセンサの省電力設計と電池寿命の計算](https://docs.leafony.com/lowpower/): Leafonyを使ったIoTセンサの省電力設計を解説。消費電力と平均電流の求め方、電池寿命の理論計算、STM32のスリープ活用と実機での電力測定の進め方を紹介します。
+- [消費電流を測って省電力化する](https://docs.leafony.com/guides/measuring-power/): AX05Bと電流測定器で測定範囲と給電経路を確認し、動作・通信・スリープの一周期を記録して平均電流を比較する手順です。
+- [自作リーフ開発](https://docs.leafony.com/pcb/): リーフの自作に使えるCADテンプレート、ピンアサイン、ピン配置図作成ツール、I2Cアドレスマップの案内
+- [CR-8000 Design Force テンプレート設計データ](https://docs.leafony.com/pcb/cr-8000_design_force/)
+- [KiCad テンプレートプロジェクト](https://docs.leafony.com/pcb/kicad/): KiCad 10.0系でLeafonyの拡張リーフを設計するための、テンプレート登録、ライブラリ設定、設計開始の手順
+- [ピン配置図作成](https://docs.leafony.com/pcb/pinout-editor/): Leafonyのピン配置図と複数リーフのピン使用状況表を作成し、PNG・SVG画像として保存できます。
+
+## リーフ技術資料
+
+- [リーフ技術資料](https://docs.leafony.com/leaf/): 測定・通信・表示など、できることから探すリーフの技術資料
+- [AP01 AVR MCU](https://docs.leafony.com/leaf/processor/ap01/)
+- [AP02 ESP32 MCU](https://docs.leafony.com/leaf/processor/ap02/)
+- [AP03 STM32 MCU｜Arduino対応マイコンリーフ](https://docs.leafony.com/leaf/processor/ap03/): STM32L452REI6を搭載したLeafony AP03の仕様、ピン配置、回路図。Arduino IDEのボード設定、温湿度センサの読み取り、BLEビーコンのサンプルへ案内します。
+- [AP03B STM32 MCU](https://docs.leafony.com/leaf/processor/ap03b/): AP03B v1.1（STM32L452RET6）の基板仕様、Leafony Busのピン接続、PG・リセット操作とAP03互換の開発環境。
+- [AP05 STM32N6](https://docs.leafony.com/leaf/processor/ap05/)
+- [AP06 RA4M1 MCU](https://docs.leafony.com/leaf/processor/ap06/): AP06試作基板の仕様と29接点のピンアサイン図。UART・I²C・SPIの端子、USB・CANとの共用条件、AZ01Cを使ったシリアル書き込みを確認できます。
+- [AC02 BLE Sugar](https://docs.leafony.com/leaf/communication/ac02/)
+- [AC03 LoRa Easy](https://docs.leafony.com/leaf/communication/ac03/)
+- [AC04 LTE-M King M（生産終了）](https://docs.leafony.com/leaf/communication/ac04/)
+- [AC05 LTE-M King S（生産終了）](https://docs.leafony.com/leaf/communication/ac05/)
+- [AC06 Wi-Fi Mary（生産終了）](https://docs.leafony.com/leaf/communication/ac06/)
+- [AC07 LoRa Mary](https://docs.leafony.com/leaf/communication/ac07/)
+- [AC08 LTE-M Mary](https://docs.leafony.com/leaf/communication/ac08/)
+- [AC09 Cat-M1 TY](https://docs.leafony.com/leaf/communication/ac09/): 太陽誘電製Cellular LPWA Cat-M1モジュールを搭載したAC09リーフの仕様、ピン配置、開発資料
+- [AI01 4-Sensors｜温湿度・照度・加速度センサ](https://docs.leafony.com/leaf/io/ai01/): Leafony AI01 4-Sensorsの仕様と使い方。HTS221TR・OPT3001・LIS2DHTRの測定範囲やI2Cアドレス、ピン配置、AVR・ESP32・STM32での読み取り例を掲載しています。
+- [AI02 SP&PIR](https://docs.leafony.com/leaf/io/ai02/)
+- [AI03 MIC&VR&LED](https://docs.leafony.com/leaf/io/ai03/)
+- [AI04 LCD](https://docs.leafony.com/leaf/io/ai04/)
+- [AI05 Env Sensors](https://docs.leafony.com/leaf/io/ai05/): AI05の仕様・接続条件と、AP03でセンサ値の読み取り、動き検出割り込み、衝撃後100点のFIFO記録・波形表示を試すPlatformIOサンプル
+- [AIx1 Motor](https://docs.leafony.com/leaf/io/aix1/)
+- [AV01 CR2032](https://docs.leafony.com/leaf/power/av01/)
+- [AV02 CR2450](https://docs.leafony.com/leaf/power/av02/)
+- [AV03 AA BAT](https://docs.leafony.com/leaf/power/av03/)
+- [AV04 2V～4.5V](https://docs.leafony.com/leaf/power/av04/)
+- [AV05 Solar Charger（資料準備中）](https://docs.leafony.com/leaf/power/av05/): 太陽電池を利用した電源供給・充電向けのAV05 Solar Charger。公開資料の準備状況と、利用前に確認が必要な項目を案内します。
+- [AV06 1.8V～5.5V](https://docs.leafony.com/leaf/power/av06/)
+- [AX01 Shield](https://docs.leafony.com/leaf/extension/ax01/)
+- [AX02 29 pin](https://docs.leafony.com/leaf/extension/ax02/)
+- [AX02B 29-pin](https://docs.leafony.com/leaf/extension/ax02b/)
+- [AX03 Leaf x2](https://docs.leafony.com/leaf/extension/ax03/)
+- [AX04 Spacer](https://docs.leafony.com/leaf/extension/ax04/)
+- [AX05 I Meas](https://docs.leafony.com/leaf/extension/ax05/)
+- [AX05B I Meas 電流測定リーフ](https://docs.leafony.com/leaf/extension/ax05b/)
+- [AX06 Grove&5V](https://docs.leafony.com/leaf/extension/ax06/)
+- [AX07 Back to back](https://docs.leafony.com/leaf/extension/ax07/)
+- [AX08 29pin header](https://docs.leafony.com/leaf/extension/ax08/)
+- [AZ01 USB](https://docs.leafony.com/leaf/others/az01/)
+- [AZ01C USB-C](https://docs.leafony.com/leaf/others/az01c/)
+- [AZ02 RTC&microSD](https://docs.leafony.com/leaf/others/az02/)
+- [AZ61 Connector](https://docs.leafony.com/leaf/others/az61/)
+- [AZ62 Connector Cover](https://docs.leafony.com/leaf/others/az62/)
+- [AZ63 Nut Plate](https://docs.leafony.com/leaf/others/az63/)
+- [AZ66 Basic Kit Case](https://docs.leafony.com/leaf/others/az66/)
+- [AZ67 AAA battery holder](https://docs.leafony.com/leaf/others/az67/)
+- [AZ68 18650 battery holder](https://docs.leafony.com/leaf/others/az68/)
+
+## 困ったとき
+
+- [困ったとき・質問する](https://docs.leafony.com/questions/): リーフの見分け方や電源・書き込み・接続のトラブル、使い方の疑問をまとめて検索できます。回答が見つからない場合は質問フォームへ進めます。
+- [用語の説明](https://docs.leafony.com/terms/): Leafonyの技術資料で使う用語を解説。BLE・I2C・SPI・UARTなどの通信、MCU・MEMS・PWM、リーフとLeafonyバスの仕組み、関連組織の名称を確認できます。
+
+## お知らせ・サイト情報
+
+- [ライセンス](https://docs.leafony.com/license/): Leafonyのソフトウェアと基板レイアウトのライセンス、商用利用・自作リーフの販売、Leafonyの商標表記に関する条件を案内します。
+- [お知らせ](https://docs.leafony.com/news/): Leafonyドキュメントの更新情報や、公開された設計情報、サポート状況などのお知らせです。
+- [プライバシー・アクセス解析](https://docs.leafony.com/privacy/): Leafony ドキュメントにおける Google アナリティクスとMicrosoft Clarityの利用について。
+
+## 質問と回答
+
+- [よくある質問](https://docs.leafony.com/faq/)
+- [AC09のセルラー通信には、何ボルトの電源が必要ですか？](https://docs.leafony.com/questions/ac09-voltage/): AC09は3.3Vで給電します。電池駆動にはAV06と乾電池などの組み合わせがおすすめです。Basic Kit 2のコイン電池電源との違いも説明します。
+- [外部のセンサーを接続できますか？](https://docs.leafony.com/questions/external-sensors/): 拡張リーフやAI05のI2C端子から接続できます。電源・信号電圧・ピン割り当て・I2Cアドレスを確認します。
+- [どんなセンサーがありますか？](https://docs.leafony.com/questions/sensor-options/): AI01・AI05の温湿度・照度・加速度・気圧などを紹介します。販売終了のAI02・AI03と、追加実装のセンサーを区別して説明します。
+- [Leafonyはどこで買えますか？](https://docs.leafony.com/questions/where-to-buy/): Leafony Shopでキットやリーフを購入できます。在庫・価格・納期は各商品ページでご案内しています。
+- [無線リーフの技適は取得されていますか？](https://docs.leafony.com/questions/radio-certification/): 認証されたモジュールとアンテナを指定条件で使う場合の考え方と、モジュール本体の表示の確認方法を説明します。
+- [STM32のCoreとRTCライブラリは、どう組み合わせますか？](https://docs.leafony.com/questions/stm32-rtc-core/): STM32RTCとArduino Coreには対応する版の組み合わせがあります。旧サンプルを使う場合も、現在の対応条件を確認できます。
+- [WindowsのC#アプリからLeafonyのBLEデータを受信できますか？](https://docs.leafony.com/questions/windows-ble/): GATT通信に対応した構成なら、WindowsのBLE APIで受信するアプリを検討できます。送受信するUUIDとデータ形式の確認から始めます。
+- [BLEで送られるデータの形式やUUIDは、どこで確認できますか？](https://docs.leafony.com/questions/ble-data-format/): 使っているサンプルの送信処理と受信側コードを確認します。4-Sensors_BLEはカンマ区切りのテキストを送る例です。
+- [BLE Beaconは見つかるのに、接続できないのはなぜですか？](https://docs.leafony.com/questions/ble-beacon-connection/): STM32 Simple BLE Beaconは、接続せずにAdvertising dataを読む設定です。接続して値を受け取るサンプルとは用途が異なります。
+- [Arduino IDEとPlatformIO、どちらから始めればいいですか？](https://docs.leafony.com/questions/development-tools/): 使いたいサンプルに合う開発環境を選べます。ツールより先に、MCUの型番とサンプルの対象構成を確認すると進めやすくなります。
+- [STM32で「書き込み完了」と出たのに、プログラムが動きません](https://docs.leafony.com/questions/stm32-upload-run/): AP03のProgram／Runスイッチ、リセット操作、書き込み・検証ログを確認します。画面の完了表示だけでは判断しにくい場合があります。
+- [「No such file or directory」と出て、サンプルをビルドできません](https://docs.leafony.com/questions/library-not-found/): エラーに出たヘッダ名と、サンプルが指定するライブラリを照合します。同じような名前でも作者や実装が違う場合があります。
+- [AC09のセルラー通信には、SIMや通信契約が必要ですか？](https://docs.leafony.com/questions/ac09-sim/): AC09はnanoSIMを使います。サンプルにある1NCE・SORACOMの設定と、使うキット・回線の対応条件を確認します。
+- [AC09のセルラー通信で、測定値をGoogle スプレッドシートへ送れますか？](https://docs.leafony.com/questions/ac09-google-sheets/): Cat-M1 KitのAP03B＋AI05＋AC09で、BME280の温湿度をGoogle スプレッドシートへ送るサンプルと設定を案内します。
+- [リーフを追加したら、I2Cセンサーが読めなくなりました](https://docs.leafony.com/questions/i2c-address-conflict/): 同じI2Cアドレスの重複やプルアップを確認します。AI05とAX06、AC08とAC09などはアドレスの照合が必要です。
+- [STM32はどんなプログラミング言語で動かせますか？](https://docs.leafony.com/questions/stm32-language/): Leafony AP03では、Arduino IDEまたはSTM32CubeIDEを使うC/C++開発を想定しています。ArduinoのスケッチはC++がベースです。
+- [Pythonでも使えますか？](https://docs.leafony.com/questions/python/): リーフ本体はArduino IDE、STM32ではSTM32CubeIDEを使うC/C++開発を想定しています。PythonはPC側でのデータ受信・分析に利用できます。
+
+## サンプルアプリ
+
+- [STM32CubeIDEでLED点滅](https://docs.leafony.com/examples-stm/blink/): AP03 STM32 MCUのLEDを1秒おきに点灯・消灯するSTM32CubeIDEプロジェクト。入手、インポート、ビルド、書き込み、成功の確認まで案内します。
+- [バッテリ電圧読み取り](https://docs.leafony.com/examples/beginner/avr-mcu/basic/read_battery/): CR2032コイン電池リーフに搭載されたADコンバータを使って電池の電圧を読み取りましょう。
+- [ボタン入力](https://docs.leafony.com/examples/beginner/esp32-mcu/esp32/button/): ESP32 MCUリーフに搭載されたBoot mode スイッチの状態をシリアルモニタに表示させます。
+- [温湿度センサ読み取り](https://docs.leafony.com/examples/beginner/stm32-mcu/basic/temp_humid_sensors/): 4-Sensorsリーフに搭載された温湿度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [AI05で温湿度・気圧・加速度を読む](https://docs.leafony.com/examples/beginner/stm32-mcu/env-sensors/): AP03とAI05 Env Sensorsで温湿度・気圧・3軸加速度を1秒ごとに読み取ります。必要なリーフ、サンプルの書き込み方、実測ログと数字の見方を紹介します。
+- [温湿度センサ読み取り](https://docs.leafony.com/examples/beginner/avr-mcu/basic/temp_humid_sensors/): 4-Sensorsリーフに搭載された温湿度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [ESP32で温湿度センサHTS221を読み取る](https://docs.leafony.com/examples/beginner/esp32-mcu/basic/temp_humid_sensors/): Leafony AP02 ESP32 MCUとAI01 4-Sensorsを使い、温度・湿度をArduino IDEのシリアルモニタに表示する手順。組み立て、HTS221のサンプルコード、2点間補正を解説します。
+- [照度センサ読み取り](https://docs.leafony.com/examples/beginner/stm32-mcu/basic/illum_sensor/): 4-Sensorsリーフに搭載された照度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [照度センサ読み取り](https://docs.leafony.com/examples/beginner/avr-mcu/basic/illum_sensor/): 4-Sensorsリーフに搭載された照度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [照度センサ読み取り](https://docs.leafony.com/examples/beginner/esp32-mcu/basic/illum_sensor/): 4-Sensorsリーフに搭載された照度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [加速度センサ読み取り](https://docs.leafony.com/examples/beginner/stm32-mcu/basic/accelerometer/): AP03 STM32 MCUとAI01 4-Sensorsで加速度を読み取るArduino IDEサンプル。必要ライブラリ、I2Cアドレス、115200bpsでの表示と確認方法を説明します。
+- [加速度センサ読み取り](https://docs.leafony.com/examples/beginner/avr-mcu/basic/accelerometer/): 4-Sensorsリーフに搭載された加速度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [加速度センサ読み取り](https://docs.leafony.com/examples/beginner/esp32-mcu/basic/accelerometer/): 4-Sensorsリーフに搭載された加速度センサの値を読み取って、シリアルモニタに表示するサンプルです。
+- [バッテリ電圧読み取り](https://docs.leafony.com/examples/beginner/stm32-mcu/basic/read_battery/): CR2032コイン電池リーフに搭載されたADコンバータを使って電池の電圧を読み取りましょう。
+- [人感センサ](https://docs.leafony.com/examples/beginner/avr-mcu/exten/ir_sensor/): SP&PIRリーフに搭載された近距離検出用途の赤外線センサIC(AKM AK9754AE)を使って、人が近づいたら音が鳴るシステムを作りましょう。
+- [人感センサ](https://docs.leafony.com/examples/beginner/esp32-mcu/exten/ir_sensor/): SP&PIRリーフに搭載された近距離検出用途の赤外線センサIC(AKM AK9754AE)を使って、人が近づいたら音が鳴るシステムを作りましょう。
+- [人感センサ](https://docs.leafony.com/examples/beginner/stm32-mcu/exten/ir_sensor/): SP&PIRリーフに搭載された近距離検出用途の赤外線センサIC(AKM AK9754AE)を使って、人が近づいたら音が鳴るシステムを作りましょう。
+- [サウンドレベルメータ](https://docs.leafony.com/examples/beginner/avr-mcu/exten/sound_level/): ボリュームを回転させると回転量に応じた数のLEDが点灯。また、マイクにより周囲の音量に応じた数のLEDを点灯させることができます。
+- [サウンドレベルメータ](https://docs.leafony.com/examples/beginner/esp32-mcu/exten/sound_level/): ボリュームを回転させると回転量に応じた数のLEDが点灯。また、マイクにより周囲の音量に応じた数のLEDを点灯させることができます。
+- [サウンドレベルメータ](https://docs.leafony.com/examples/beginner/stm32-mcu/exten/sound_level/): ボリュームを回転させると回転量に応じた数のLEDが点灯。また、マイクにより周囲の音量に応じた数のLEDを点灯させることができます。
+- [超音波センサで距離測定](https://docs.leafony.com/examples/advanced/avr-mcu/exten/distance_sensor/): Seeed Studio の Grove シリーズのセンサを利用した例。超音波センサで測定した距離をLCDに表示させます。超音波センサは、通常、デジタルピンに入力するが、LCDのスイッチ1とGrove&5VのDin1が同じピンを使用しているため、UARTピンに接続しUARTピンをデジタルピンとして使
+- [リアルタイムクロック](https://docs.leafony.com/examples/beginner/esp32-mcu/esp32/rtc/): このスケッチを動かすためには、ライブラリのインストールが必要です。 まだインストールしていない場合は開発環境設定ページを参考にライブラリをインストールしてください。
+- [スピーカ](https://docs.leafony.com/examples/beginner/stm32-mcu/exten/speaker/): SP&PIRリーフに搭載された圧電スピーカを使って、メロディーを鳴らしましょう。
+- [自動測定監視システム(抵抗と温度を測定してGoogle Sheetsに保存)](https://docs.leafony.com/examples/advanced/avr-mcu/basic/resistance_measurement/): このサンプルはGoogle SheetsをつかったIoTサービス入門で紹介したものと抵抗測定を組み合わせたものです。 Leafony で恒温槽内複数の被測定基板の抵抗と温度を測定してBeaconで送信しRaspberry Piを使ってGoogle スプレッドシートに測定データを保存します。
+- [micro SD](https://docs.leafony.com/examples/beginner/esp32-mcu/esp32/microsd/): c++ / Connect the SD card to the following pins: SD Card ESP32 D2 - D3 SS CMD MOSI VSS GND VDD 3.3V CLK SCK VSS GND D0 MISO D1 - / include "FS.h" incl
+- [LCD](https://docs.leafony.com/examples/beginner/stm32-mcu/exten/lcd/): 下図のようにリーフを組み立てましょう。
+- [体重計](https://docs.leafony.com/examples/advanced/avr-mcu/basic/bathroom_scales/): このサンプルはWeb Bluetoothを使ったIoTアプリ入門で紹介したものと歪センサーを組み合わせたものです。BLEを使って体重をスマートフォンやパソコンに表示することができます。
+- [STM32で Web Bluetoothを使ったIoTアプリ入門](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_webbluetooth_iot/): このサンプルはBasic KitのWeb Bluetoothを使ったIoTアプリ入門で紹介したものをSTM32で実現したものです。Web Bluetooth アプリはBasic Kitと同じものを使用します。詳細はBasic KitのWeb Bluetoothを使ったIoTアプリ入門をご覧ください。
+- [スピーカ](https://docs.leafony.com/examples/beginner/esp32-mcu/exten/speaker/): SP&PIRリーフに搭載された圧電スピーカを使って、メロディーを鳴らしましょう。
+- [STM32 Simple BLE Beacon](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_simple_ble_beacon/): STM32リーフを使ったシンプルなBLE Beaconのサンプルデザインです。 「HELLO BEACON」という文字列を一定期間送信してからスリープを繰り返します。
+- [LED点滅](https://docs.leafony.com/examples/beginner/avr-mcu/basic/blink/): AVR MCUリーフに搭載されたLEDを1秒間隔で、点灯/消灯を繰り返します。
+- [LCD](https://docs.leafony.com/examples/beginner/esp32-mcu/exten/lcd/): 下図のようにリーフを組み立てましょう。
+- [Wi-Fi タッチセンサ](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/wifi_touchsensor/): ESP32 Wi-Fi Kitのタッチセンサ値をスマートフォンやPCのブラウザで表示するデモ。LeafonyのWi-Fiへの接続、29pin headerのタッチ入力、検出閾値を確認できます。
+- [STM32 Logger Beacon](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_logger_ble_beacon/): STM32リーフに搭載されたFlashメモリを使って、温湿度と測定時間を記録することが可能なBLE Beaconのサンプルデザインです。 STM32リーフとBLEリーフを使った、センサデータのログ機能付きの実用的なIoTシステムのサンプルデザインです。 このサンプルには下記の機能が実装されています。
+- [スピーカ](https://docs.leafony.com/examples/beginner/avr-mcu/exten/speaker/): SP&PIRリーフに搭載された圧電スピーカを使って、メロディーを鳴らしましょう。
+- [ESP32でGoogle スプレッドシートにセンサデータを記録・可視化する](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googlesheets_1/): ESP32 Wi-Fi Kit 2と4-SensorsまたはDHT22で測定したデータをGoogle Sheetsに保存。Apps Scriptの設定、リーフの組み立て、Arduino・PlatformIOのサンプル、Grafanaでのグラフ化を解説します。
+- [Google Sheetsを使ったIoTサービス](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_google_sheets_iot/): Leafony blockは、センシングデータをBeacon ^1 の電波で飛ばします。beaconの電波をRaspberry Piが受け、インターネット経由でGoogle スプレッドシートに書かせて、データの可視化ができます。
+- [LCD](https://docs.leafony.com/examples/beginner/avr-mcu/exten/lcd/): 表示は 1行8文字、2行 です。 Hello, World! は13文字なので1行には収まりません。下記のサンプルは、表示範囲に収まる Hello! を使っています。
+- [センサの値をLCDに表示](https://docs.leafony.com/examples/advanced/avr-mcu/exten/4-sensors_lcd/): (/examples/advanced/avr-mcu/exten/4-sensors_lcd/lcd_overview2.png)
+- [ESP32 BLE Beacon](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_ble_beacon/): ESP32を使ったBLE Beacon型の環境センサアプリケーションの例です。 GATT ServerのAttributeにセンサデータを入れることで、データをブロードキャストするBeaconとして動作するとともに、 外部から接続要求があった場合にはサーバクライアント型の通信を行い、Characte
+- [STM32 LoRa メッセージ通信](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_lora_tx/): AP03 STM32 MCUとAC07 LoRa Maryの送受信機を用意し、Arduino IDEまたはPlatformIOでhelloメッセージを送って受信結果を確認します。
+- [人の接近を検知しメロディを鳴らす](https://docs.leafony.com/examples/advanced/avr-mcu/exten/pir_melody_test/): SP&PIRリーフに搭載された近距離検出用途の赤外線センサIC(AKM AK9754AE)を使って、人が近づいたらメロディが鳴るシステムを作りましょう。
+- [低電力にポスト投函検出してLINE通知（過去版）](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_post_notify/): ESP32の省電力動作と加速度センサを使ったポスト投函検出の過去の実装例。LINE Notifyは2025年3月31日に終了しており、掲載の通知手順は現在利用できません。
+- [STM32 LoRa クイックスタート](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_lora_tx_sensors/): (/examples/advanced/stm32-mcu/stm32/stm32_lora_tx_sensors/ap07_fig2.jpg)
+- [Motorを使って植木に水やり](https://docs.leafony.com/examples/advanced/avr-mcu/motor/motor_demo/): このサンプルはBasic KitのWeb Bluetoothを使ったIoTアプリ入門で紹介したものとMotorリーフを組み合わせたものです。BLEを使って電動ポンプのオン/オフを制御し植木に水やりをしたり、スマートフォンやパソコンにセンサの情報を送信することができます。 詳細はBasic KitのW
+- [STM32 LoRa 署名付き通信](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_lora_signed_communication/): このチュートリアルではAC07 LoRa Maryリーフに搭載されるATECC608Aを使用して、LoRaの通信に署名をつける方法を紹介します。 通信に署名をつけることで、データの送り元が、受信者が意図したデバイスであるかどうかを判定することができ、通信の安全性が向上します。
+- [Web Bluetoothを使ったIoTアプリ入門](https://docs.leafony.com/examples/advanced/avr-mcu/basic/webbluetooth_iot/): このサンプルはBasic Kit スタートガイドで紹介したものと同様です。ソースコードを読みながら、動作を理解していきましょう。 ※本ウェブサイトに記載している会社名、商品名は、各社の商標または登録商標です。
+- [STM32 セルラー通信クイックスタート](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/lte-m_soracom_1/): ^1 : このサンプルのセルラー通信は、携帯電話のLTE網を使うIoT向けのCat-M1方式です。
+- [AC09 Cat-M1 TYで温湿度データをGoogle スプレッドシートに保存](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/ac09_google_sheets/): Cellular LPWA Cat-M1 KitのAI05 Env Sensorsで測定した温湿度データを、AP03BとAC09で10分間隔でGoogle スプレッドシートに送信・保存するサンプル
+- [STM32 LoRa 受信機](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_lora_rx/): AC07 LoRa Mary でデータを受信する最もシンプルなサンプルプロジェクトです。 LoRa送信機やLoRa送信機 + 4-Sensorsのデータを受信することができます。
+- [Google SheetsをつかったIoTサービス入門](https://docs.leafony.com/examples/advanced/avr-mcu/basic/google_sheets_iot/): Leafony Beacon1)とRaspberry Piとを使ってIoT環境センサを作り、Google スプレッドシートを使って、センサデータを可視化します。
+- [STM32で人物検出する推論ネットワークの実装](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_person_detection/): - Emmbedded Software Packages Manager というウィンドウが開かれます。 - STMicroelectronics というタブを選択します。 - X-CUBE-AI をクリックすると様々なバージョンの Artificial Intelligence が表示されますの
+- [LoRaを使ってセンサの値を表示](https://docs.leafony.com/examples/advanced/avr-mcu/lora/lora/): LoRa Easyリーフを使って、センサデータ（温度・湿度・照度・傾き）を、遠く離れた場所に送り、パソコンのターミナルに出力します。
+- [カメラの撮影](https://docs.leafony.com/examples/advanced/avr-mcu/exten/camera/): Seeed Studio の Grove シリーズのセンサを利用した例。定点観測用カメラ。1分に一回カメラで撮影した画像をmicroSDカードに保存してみよう。
+- [【過去版】ESP32とGoogle Sheetsでセンサデータを記録する](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googlesheets_1_old/): ESP32 MCUと4-Sensorsを使う旧サンプルのGoogle Sheets設定手順。旧Apps Script画面向けの資料として残し、現在のESP32 Wi-Fi Kit 2向け手順へ案内します。
+- [【過去版】Google Sheets連携のESP32組み立て・設定](https://docs.leafony.com/examples/advanced/esp32-mcu/esp32/esp32_googlesheets_2_old/): ESP32 MCUと4-Sensorsを使う旧Google Sheets連携サンプルの組み立てとスケッチ設定。使用リーフ、Wi-Fi接続、送信間隔の設定と現行手順へのリンクを掲載しています。
