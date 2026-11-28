@@ -8186,7 +8186,7 @@ In the catalog, **Upcoming examples** are not yet published. **Previous versions
 
 ---
 
-# Help and questions
+# FAQ
 
 URL: https://docs.leafony.com/en/faq/
 
@@ -12859,7 +12859,7 @@ See the [AP03B STM32 MCU reference](https://docs.leafony.com/en/leaf/processor/a
 
 ---
 
-# Help and questions
+# FAQ
 
 URL: https://docs.leafony.com/en/questions/
 
@@ -13080,7 +13080,7 @@ Start by running the demo that is already written, with the kit as assembled. Ge
 - **Basic Kit 2:** It arrives assembled with the AVR MCU. Insert the coin cell and try the [demo that shows sensor values over BLE](https://docs.leafony.com/en/getting-started/basic/). No development environment is needed.
 - **Cellular LPWA Cat-M1 Kit:** Follow the [Cat-M1 Kit Start Guide](https://docs.leafony.com/en/getting-started/cellular-lpwa-cat-m1/) from assembly to recording data in Google Sheets.
 
-Once the demo works, set up the development tools for your MCU in [Development environment](https://docs.leafony.com/en/environment/) and move on to your own programs from the [Sample apps](https://docs.leafony.com/en/examples/). If the demo does not work, check by symptom in [Help and questions](https://docs.leafony.com/en/questions/).
+Once the demo works, set up the development tools for your MCU in [Development environment](https://docs.leafony.com/en/environment/) and move on to your own programs from the [Sample apps](https://docs.leafony.com/en/examples/). If the demo does not work, check by symptom in [FAQ](https://docs.leafony.com/en/questions/).
 
 ---
 

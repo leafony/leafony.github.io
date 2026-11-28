@@ -105,7 +105,7 @@ The full text of every page is in https://docs.leafony.com/en/llms-full.txt (Eng
 
 ## Help and support
 
-- [Help and questions](https://docs.leafony.com/en/questions/): Search answers about identifying leaves, power, uploads, connections and using Leafony. Open the question form if you cannot find an answer.
+- [FAQ](https://docs.leafony.com/en/questions/): Search answers about identifying leaves, power, uploads, connections and using Leafony. Open the question form if you cannot find an answer.
 - [Terms](https://docs.leafony.com/en/terms/): Understand terms used in Leafony documentation: BLE, I2C, SPI and UART communication; MCU, MEMS and PWM; leaves, the Leafony bus and related organizations.
 
 ## News and site information

@@ -9926,7 +9926,7 @@ GitHubの`main`や`master`へのリンクは、配布内容が更新されます
 
 ---
 
-# 困ったとき・質問する
+# よくある質問
 
 URL: https://docs.leafony.com/faq/
 
@@ -15218,7 +15218,7 @@ Connector Coverは、ACR (Anisotropic Conductive Rubber)をゴミの付着から
 
 ---
 
-# 困ったとき・質問する
+# よくある質問
 
 URL: https://docs.leafony.com/questions/
 
@@ -15439,7 +15439,7 @@ URL: https://docs.leafony.com/questions/first-steps/
 - **Basic Kit 2：** 購入時はAVRマイコンで組み立てられています。コイン電池を入れて、[BLEでセンサの値を表示するデモ](https://docs.leafony.com/getting-started/basic/)を試します。開発環境は要りません。
 - **Cellular LPWA Cat-M1 Kit：** [Cat-M1 Kit スタートガイド](https://docs.leafony.com/getting-started/cellular-lpwa-cat-m1/)で、組み立てからGoogle スプレッドシートへの記録まで進めます。
 
-デモが動いたら、[開発環境設定](https://docs.leafony.com/environment/)で手元のマイコンに合う開発ツールを準備し、[サンプルアプリ](https://docs.leafony.com/examples/)から自分のプログラムづくりへ進めます。デモが動かないときは、[困ったとき・質問する](https://docs.leafony.com/questions/)で症状から確認できます。
+デモが動いたら、[開発環境設定](https://docs.leafony.com/environment/)で手元のマイコンに合う開発ツールを準備し、[サンプルアプリ](https://docs.leafony.com/examples/)から自分のプログラムづくりへ進めます。デモが動かないときは、[よくある質問](https://docs.leafony.com/questions/)で症状から確認できます。
 
 ---
 
