@@ -15307,6 +15307,23 @@ AC09を電池で使う場合は、**[AV06 1.8V〜5.5V 電源リーフ](https://s
 
 ---
 
+# 電池でどれくらい動きますか？
+
+URL: https://docs.leafony.com/questions/battery-life/
+
+使う電池、組み合わせるリーフ、プログラムの動かし方で大きく変わります。平均の電流から目安を計算する方法を「省電力化の流れ」で解説しています。
+
+**使う電池、組み合わせるリーフ、プログラムの動かし方で大きく変わるため、一つの数字ではお答えできません。** 同じ構成でも、測定や通信の間隔を空けてスリープさせるほど長く動きます。
+
+目安は、電池の容量と、回路に流れる平均の電流から計算できます。計算のしかたと、STM32のスリープを使った省電力化、実機での測り方は[IoTセンサの省電力設計と電池寿命の計算](https://docs.leafony.com/lowpower/)で解説しています。
+
+- Basic Kit 2は、付属のCR2032コイン電池で動かせます。
+- ESP32を使うキットは消費電力が大きく、コイン電池では動きません。単4形電池などを使います。
+
+実際の構成での電流は、[AX05B 電流測定リーフ](https://docs.leafony.com/leaf/extension/ax05b/)などで測ると確かめられます。測定の手順は[消費電流を測って省電力化する](https://docs.leafony.com/guides/measuring-power/)を参照してください。
+
+---
+
 # BLE Beaconは見つかるのに、接続できないのはなぜですか？
 
 URL: https://docs.leafony.com/questions/ble-beacon-connection/
@@ -15338,6 +15355,24 @@ URL: https://docs.leafony.com/questions/ble-data-format/
 - **Beaconの場合：** GATTの通知ではなく、Advertising dataを読むサンプルもあります。[STM32 Simple BLE Beacon](https://docs.leafony.com/examples/advanced/stm32-mcu/stm32/stm32_simple_ble_beacon/)を参照してください。
 
 自分で送信項目を増やした場合は、受信側の項目数・順番・単位も合わせて変更すると利用しやすくなります。
+
+---
+
+# 商用利用・量産・カスタム基板の相談はできますか？
+
+URL: https://docs.leafony.com/questions/business-inquiry/
+
+製品への組み込み、量産、カスタム基板・ソフトウェアの開発は、お問い合わせフォームからミットディアにご相談ください。
+
+**はい、相談できます。** Leafonyを製造・販売している[ミットディア株式会社](https://mitdir.jp/)は、IoT機器の販売・カスタマイズやWebシステムの提供も行っています。製品への組み込み、量産、専用の基板やソフトウェアの開発を検討している場合は、[お問い合わせフォーム](https://docs.leafony.com/questions/ask/)からご相談ください。
+
+相談するときは、次のことが分かると検討が早く進みます。
+
+- 作りたいもの、使う場所や目的
+- 想定している数量と時期
+- 試作で使っているリーフの型番や構成（あれば）
+
+公開Q&Aへの掲載は「掲載しない」を選んでください。内容は担当者だけが確認します。
 
 ---
 
@@ -15393,6 +15428,21 @@ Groveの場合も、コネクタの形に加えて電圧や信号の対応を見
 
 ---
 
+# キットが届いたら、最初に何をすればいいですか？
+
+URL: https://docs.leafony.com/questions/first-steps/
+
+まずは組み立て済みのまま、書き込まれているデモを動かしてみてください。手順は「はじめて動かす」でキットごとに案内しています。
+
+**まずは組み立て済みのまま、書き込まれているデモを動かしてみてください。** 手順は[はじめて動かす](https://docs.leafony.com/getting-started/)で、キットごとに案内しています。
+
+- **Basic Kit 2：** 購入時はAVRマイコンで組み立てられています。コイン電池を入れて、[BLEでセンサの値を表示するデモ](https://docs.leafony.com/getting-started/basic/)を試します。開発環境は要りません。
+- **Cellular LPWA Cat-M1 Kit：** [Cat-M1 Kit スタートガイド](https://docs.leafony.com/getting-started/cellular-lpwa-cat-m1/)で、組み立てからGoogle スプレッドシートへの記録まで進めます。
+
+デモが動いたら、[開発環境設定](https://docs.leafony.com/environment/)で手元のマイコンに合う開発ツールを準備し、[サンプルアプリ](https://docs.leafony.com/examples/)から自分のプログラムづくりへ進めます。デモが動かないときは、[困ったとき・質問する](https://docs.leafony.com/questions/)で症状から確認できます。
+
+---
+
 # リーフを追加したら、I2Cセンサーが読めなくなった
 
 URL: https://docs.leafony.com/questions/i2c-address-conflict/
@@ -15443,6 +15493,22 @@ URL: https://docs.leafony.com/questions/library-not-found/
 | 別のヘッダが見つからない | そのライブラリが必要とする依存ライブラリを、サンプルや配布元のREADMEで確認して追加します。 |
 | PlatformIOの別の環境をビルドしている | 実行中の環境名と、`lib_deps`を書いた`[env:...]`が一致するようにします。 |
 | ヘッダは見つかるが、Coreとの互換性エラーになる | ヘッダ不足とは別の原因です。STM32の場合は[CoreとRTCライブラリの組み合わせ](https://docs.leafony.com/questions/stm32-rtc-core/)を確認します。 |
+
+---
+
+# 運営会社が変わりましたが、これまでの製品や資料は使えますか？
+
+URL: https://docs.leafony.com/questions/operator-change/
+
+Leafonyの製造・販売はミットディア株式会社が引き継ぎました。以前購入した製品や公開資料は、引き続き使えます。
+
+**はい、引き続き使えます。** Leafonyの製造・販売は[ミットディア株式会社](https://mitdir.jp/)が引き継ぎました。利用者の方に不便をかけないよう、以前購入した製品や、このサイトの資料・サンプルはそのまま使えるようにしています。
+
+製品のアップデートや資料の更新も、引き続き行っていきます。
+
+- 製品の購入は[Leafony Shop](https://shop.leafony.com/)で受け付けています。
+- 使い方や技術的な質問は、[お問い合わせフォーム](https://docs.leafony.com/questions/ask/)から送れます。
+- 支払い・請求書・領収書については、Shopの[よくある質問](https://shop.leafony.com/pages/faq3)をご確認ください。以前の運営会社で購入した分の適格請求書の登録番号も、そちらで案内しています。
 
 ---
 
@@ -15540,6 +15606,22 @@ AI05には、SHT40・SGP40・BME680を追加実装するための場所もあり
 
 ---
 
+# はじめてなら、どのキットを買えばいいですか？
+
+URL: https://docs.leafony.com/questions/starter-kit/
+
+はじめての方にはBasic Kit 2をおすすめします。温度・湿度・明るさ・加速度を測り、BLEで送る機器を、組み立て済みの状態から試せます。
+
+**はじめての方には[Basic Kit 2](https://docs.leafony.com/products/basic2/)をおすすめします。** 温度・湿度・明るさ・加速度を測り、BLE（省電力のBluetooth通信）でスマートフォンやパソコンへ送る小型のセンサ機器を作れます。
+
+- 届いた時点で組み立てとデモの書き込みが済んでいるので、開発環境を用意しなくても[最初のデモ](https://docs.leafony.com/getting-started/basic/)を動かせます。
+- AVRとSTM32の2種類のマイコンリーフが入っていて、入れ替えて開発を試せます。
+- コイン電池でも動くので、電池で動く小さなセンサの試作に向いています。
+
+携帯電話の回線（LTE-M）で離れた場所からデータを送りたい場合は、[Cellular LPWA Cat-M1 Kit](https://docs.leafony.com/products/cellular-lpwa-cat-m1/)が候補になります。Leafonyでできることの全体は[Leafonyとは](https://docs.leafony.com/overview/)、キットの一覧は[キット・製品一覧](https://docs.leafony.com/products/)で確認できます。価格・在庫・発売時期は[Leafony Shop](https://shop.leafony.com/collections/products)でご確認ください。
+
+---
+
 # STM32はどんなプログラミング言語で動かせますか？
 
 URL: https://docs.leafony.com/questions/stm32-language/
@@ -15600,6 +15682,25 @@ Arduino IDEでは完了表示が出ても、ログ下部に`Timeout error occure
 スイッチの場所とログの例は、[Arduino IDEの手順](https://docs.leafony.com/environment/stm32/arduino_ide/)または[PlatformIOの手順](https://docs.leafony.com/environment/stm32/platformio/)を参照してください。シリアル出力だけが見えない場合は、モニターのポートと速度がプログラムの`Serial.begin()`に合っているかも確認します。
 
 この手順はAP03向けです。ほかのMCUでは、その型番の書き込み手順をご覧ください。
+
+---
+
+# キットのほかに、何を用意すればいいですか？
+
+URL: https://docs.leafony.com/questions/what-to-prepare/
+
+Basic Kit 2のデモには、Web Bluetoothに対応したスマートフォンかパソコンを用意します。自分でプログラムを書き込むときは、パソコンとデータ転送対応のUSBケーブルが必要です。
+
+**やりたいことによって変わります。** Basic Kit 2の場合は次のとおりです。
+
+| やりたいこと | キットのほかに用意するもの |
+| --- | --- |
+| 届いたまま[デモ](https://docs.leafony.com/getting-started/basic/)を動かす | Bluetooth LEを使えるスマートフォンかパソコンと、Web Bluetoothに対応したブラウザ（Android・macOS・WindowsはGoogle Chrome、iPhone・iPadはBluefy） |
+| 自分でプログラムを書き込む | パソコン（Windows・macOS・Linux）とインターネット接続、キットのUSBリーフに合う**データ転送対応**のUSBケーブル |
+
+CR2032コイン電池は1個付属しています。USBケーブルは付属していません。USBリーフのコネクタは、AZ01ならmicro USB、AZ01CならUSB Type-Cです。充電専用のケーブルでは通信できないので、データ転送に対応したものを選んでください。
+
+ほかのキットや、センサ・電源のリーフを追加するときに必要なものは、各キットの[はじめて動かす](https://docs.leafony.com/getting-started/)ガイドと、[リーフの組み合わせ・電源の選び方](https://docs.leafony.com/guides/combining-leaves/)で確認できます。
 
 ---
 

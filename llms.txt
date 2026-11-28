@@ -137,6 +137,12 @@
 - [リーフを追加したら、I2Cセンサーが読めなくなった](https://docs.leafony.com/questions/i2c-address-conflict/): 同じI2Cアドレスの重複やプルアップを確認します。AI05とAX06、AC08とAC09などはアドレスの照合が必要です。
 - [STM32はどんなプログラミング言語で動かせますか？](https://docs.leafony.com/questions/stm32-language/): Leafony AP03では、Arduino IDEまたはSTM32CubeIDEを使うC/C++開発を想定しています。ArduinoのスケッチはC++がベースです。
 - [Pythonでも使えますか？](https://docs.leafony.com/questions/python/): リーフ本体はArduino IDE、STM32ではSTM32CubeIDEを使うC/C++開発を想定しています。PythonはPC側でのデータ受信・分析に利用できます。
+- [運営会社が変わりましたが、これまでの製品や資料は使えますか？](https://docs.leafony.com/questions/operator-change/): Leafonyの製造・販売はミットディア株式会社が引き継ぎました。以前購入した製品や公開資料は、引き続き使えます。
+- [商用利用・量産・カスタム基板の相談はできますか？](https://docs.leafony.com/questions/business-inquiry/): 製品への組み込み、量産、カスタム基板・ソフトウェアの開発は、お問い合わせフォームからミットディアにご相談ください。
+- [はじめてなら、どのキットを買えばいいですか？](https://docs.leafony.com/questions/starter-kit/): はじめての方にはBasic Kit 2をおすすめします。温度・湿度・明るさ・加速度を測り、BLEで送る機器を、組み立て済みの状態から試せます。
+- [キットのほかに、何を用意すればいいですか？](https://docs.leafony.com/questions/what-to-prepare/): Basic Kit 2のデモには、Web Bluetoothに対応したスマートフォンかパソコンを用意します。自分でプログラムを書き込むときは、パソコンとデータ転送対応のUSBケーブルが必要です。
+- [キットが届いたら、最初に何をすればいいですか？](https://docs.leafony.com/questions/first-steps/): まずは組み立て済みのまま、書き込まれているデモを動かしてみてください。手順は「はじめて動かす」でキットごとに案内しています。
+- [電池でどれくらい動きますか？](https://docs.leafony.com/questions/battery-life/): 使う電池、組み合わせるリーフ、プログラムの動かし方で大きく変わります。平均の電流から目安を計算する方法を「省電力化の流れ」で解説しています。
 
 ## サンプルアプリ
 

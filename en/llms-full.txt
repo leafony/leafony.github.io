@@ -12948,6 +12948,23 @@ The [published AC09 sample](https://docs.leafony.com/en/examples/advanced/stm32-
 
 ---
 
+# How long will it run on batteries?
+
+URL: https://docs.leafony.com/en/questions/battery-life/
+
+It varies greatly with the battery, the leaves you combine, and how the program runs. Low-power design explains how to estimate runtime from the average current.
+
+**It varies greatly with the battery, the leaves you combine, and how the program runs, so there is no single number.** Even with the same configuration, the device runs longer when it sleeps between measurements and transmissions.
+
+You can estimate runtime from the battery capacity and the average current in the circuit. [Low-Power IoT Sensor Design and Battery Runtime Calculations](https://docs.leafony.com/en/lowpower/) explains the calculation, reducing power with STM32 sleep, and measuring a real device.
+
+- Basic Kit 2 can run on the included CR2032 coin cell.
+- Kits that use ESP32 draw more power and do not run on a coin cell. Use AAA batteries or similar.
+
+You can check the current of your actual configuration by measuring it, for example with the [AX05B I Meas Current Measurement Leaf](https://docs.leafony.com/en/leaf/extension/ax05b/). For the steps, see [Measure Current and Reduce Power Consumption](https://docs.leafony.com/en/guides/measuring-power/).
+
+---
+
 # Why can I discover a BLE beacon but not connect to it?
 
 URL: https://docs.leafony.com/en/questions/ble-beacon-connection/
@@ -12979,6 +12996,24 @@ In the [AVR Web Bluetooth sample](https://docs.leafony.com/en/examples/advanced/
 - **Beacons:** Some samples use Advertising data instead of GATT notifications. See [STM32 Simple BLE Beacon](https://docs.leafony.com/en/examples/advanced/stm32-mcu/stm32/stm32_simple_ble_beacon/).
 
 If you add fields to the transmitted data, update the receiver’s field count, order, and units as well.
+
+---
+
+# Can I discuss commercial use, mass production, or custom boards?
+
+URL: https://docs.leafony.com/en/questions/business-inquiry/
+
+To build Leafony into a product, produce it in volume, or develop custom boards or software, contact Mitdir through the contact form.
+
+**Yes.** [Mitdir Inc.](https://mitdir.jp/), which makes and sells Leafony, also sells and customizes IoT devices and provides web systems. If you are considering building Leafony into a product, producing in volume, or developing dedicated boards or software, contact us through the [contact form](https://docs.leafony.com/en/questions/ask/).
+
+These details help us review your request faster:
+
+- What you want to build, and where and why it will be used
+- The expected quantity and schedule
+- The leaf models and configuration used in your prototype, if any
+
+For publication in the public Q&A, choose "No". Only the support team reads your request.
 
 ---
 
@@ -13034,6 +13069,21 @@ For Grove sensors, checking voltage and signals alongside the connector type hel
 
 ---
 
+# What should I do first when my kit arrives?
+
+URL: https://docs.leafony.com/en/questions/first-steps/
+
+Start by running the demo that is already written, with the kit as assembled. Get started explains the steps for each kit.
+
+**Start by running the demo that is already written, with the kit as assembled.** [Get started](https://docs.leafony.com/en/getting-started/) explains the steps for each kit.
+
+- **Basic Kit 2:** It arrives assembled with the AVR MCU. Insert the coin cell and try the [demo that shows sensor values over BLE](https://docs.leafony.com/en/getting-started/basic/). No development environment is needed.
+- **Cellular LPWA Cat-M1 Kit:** Follow the [Cat-M1 Kit Start Guide](https://docs.leafony.com/en/getting-started/cellular-lpwa-cat-m1/) from assembly to recording data in Google Sheets.
+
+Once the demo works, set up the development tools for your MCU in [Development environment](https://docs.leafony.com/en/environment/) and move on to your own programs from the [Sample apps](https://docs.leafony.com/en/examples/). If the demo does not work, check by symptom in [Help and questions](https://docs.leafony.com/en/questions/).
+
+---
+
 # I2C sensor stops responding after adding a leaf
 
 URL: https://docs.leafony.com/en/questions/i2c-address-conflict/
@@ -13084,6 +13134,22 @@ For example, the AI04 samples use `ST7032.h` from [tomozh’s arduino_ST7032](ht
 | A different header is missing | Check the sample or library README for required dependencies and install them. |
 | PlatformIO is building a different environment | Match the active environment name to the `[env:...]` section containing `lib_deps`. |
 | The header is found, but a Core compatibility error appears | This is a different cause from a missing header. For STM32, check [Core and RTC library compatibility](https://docs.leafony.com/en/questions/stm32-rtc-core/). |
+
+---
+
+# Leafony has a new operator. Can I keep using my products and the documentation?
+
+URL: https://docs.leafony.com/en/questions/operator-change/
+
+Mitdir Inc. has taken over manufacturing and sales of Leafony. Products you bought before and the published documentation remain usable.
+
+**Yes, you can keep using them.** [Mitdir Inc.](https://mitdir.jp/) has taken over manufacturing and sales of Leafony. To avoid inconvenience for users, products you bought before and the documentation and examples on this site remain usable as they are.
+
+We will continue to update the products and the documentation.
+
+- Products are sold at [Leafony Shop](https://shop.leafony.com/).
+- You can send usage and technical questions through the [contact form](https://docs.leafony.com/en/questions/ask/).
+- For payments, invoices, and receipts, see the Shop's [FAQ (Japanese)](https://shop.leafony.com/pages/faq3). It also gives the qualified invoice registration number for purchases made from the previous operator.
 
 ---
 
@@ -13181,6 +13247,22 @@ For a new project that needs approach detection or microphone input, or for othe
 
 ---
 
+# Which kit should I buy first?
+
+URL: https://docs.leafony.com/en/questions/starter-kit/
+
+We recommend Basic Kit 2 for first-time users. It arrives assembled and lets you try a device that measures temperature, humidity, light, and acceleration and sends the data over BLE.
+
+**For first-time users, we recommend [Basic Kit 2](https://docs.leafony.com/en/products/basic2/).** It lets you build a small sensor device that measures temperature, humidity, light, and acceleration and sends the data to a smartphone or computer over BLE (low-power Bluetooth).
+
+- It arrives assembled with a demo already written, so you can run the [first demo](https://docs.leafony.com/en/getting-started/basic/) without setting up a development environment.
+- It includes two MCU leaves, AVR and STM32, so you can swap them and try development on each.
+- It also runs on a coin cell, which suits prototyping small battery-powered sensors.
+
+If you want to send data from remote locations over the cellular network (LTE-M), consider the [Cellular LPWA Cat-M1 Kit](https://docs.leafony.com/en/products/cellular-lpwa-cat-m1/). For an overview of what you can do with Leafony, see [About Leafony](https://docs.leafony.com/en/overview/); for all kits, see [Kits and products](https://docs.leafony.com/en/products/). Check prices, stock, and release dates at [Leafony Shop](https://shop.leafony.com/collections/products).
+
+---
+
 # Which programming languages can I use with STM32?
 
 URL: https://docs.leafony.com/en/questions/stm32-language/
@@ -13241,6 +13323,25 @@ Arduino IDE may show a completion message while the log contains `Timeout error 
 See the [Arduino IDE instructions](https://docs.leafony.com/en/environment/stm32/arduino_ide/) or [PlatformIO instructions](https://docs.leafony.com/en/environment/stm32/platformio/) for switch locations and log examples. If only serial output is missing, check that the monitor’s port and baud rate match your program’s `Serial.begin()` setting.
 
 These steps apply to AP03. For another MCU, use that model’s upload instructions.
+
+---
+
+# What do I need besides the kit?
+
+URL: https://docs.leafony.com/en/questions/what-to-prepare/
+
+For the Basic Kit 2 demo, prepare a smartphone or computer that supports Web Bluetooth. To write your own programs, you need a computer and a USB cable that supports data transfer.
+
+**It depends on what you want to do.** For Basic Kit 2:
+
+| What you want to do | What to prepare besides the kit |
+| --- | --- |
+| Run the [demo](https://docs.leafony.com/en/getting-started/basic/) as delivered | A smartphone or computer with Bluetooth LE and a browser that supports Web Bluetooth (Google Chrome on Android, macOS, and Windows; Bluefy on iPhone and iPad) |
+| Write your own programs | A computer (Windows, macOS, or Linux) with an internet connection, and a USB cable that **supports data transfer** and fits the kit's USB leaf |
+
+One CR2032 coin cell is included. A USB cable is not included. The USB leaf connector is micro USB on AZ01 and USB Type-C on AZ01C. A charge-only cable cannot carry data, so choose one that supports data transfer.
+
+For other kits, or when you add sensor or power leaves, check each kit's [Get started](https://docs.leafony.com/en/getting-started/) guide and [Combining Leaves and Choosing a Power Supply](https://docs.leafony.com/en/guides/combining-leaves/).
 
 ---
 

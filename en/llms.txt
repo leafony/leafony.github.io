@@ -133,6 +133,12 @@ The full text of every page is in https://docs.leafony.com/en/llms-full.txt (Eng
 - [I2C sensor stops responding after adding a leaf](https://docs.leafony.com/en/questions/i2c-address-conflict/): Check for duplicate I2C addresses and pull-up requirements. Combinations such as AI05 with AX06 or AC08 with AC09 need address checks.
 - [Which programming languages can I use with STM32?](https://docs.leafony.com/en/questions/stm32-language/): Leafony AP03 development is intended to use C/C++ with Arduino IDE or STM32CubeIDE. Arduino sketches are based on C++.
 - [Can I use Python with Leafony?](https://docs.leafony.com/en/questions/python/): On-leaf development is intended to use C/C++ with Arduino IDE, or STM32CubeIDE for STM32 leaves. Python can receive and analyze data on a PC.
+- [Leafony has a new operator. Can I keep using my products and the documentation?](https://docs.leafony.com/en/questions/operator-change/): Mitdir Inc. has taken over manufacturing and sales of Leafony. Products you bought before and the published documentation remain usable.
+- [Can I discuss commercial use, mass production, or custom boards?](https://docs.leafony.com/en/questions/business-inquiry/): To build Leafony into a product, produce it in volume, or develop custom boards or software, contact Mitdir through the contact form.
+- [Which kit should I buy first?](https://docs.leafony.com/en/questions/starter-kit/): We recommend Basic Kit 2 for first-time users. It arrives assembled and lets you try a device that measures temperature, humidity, light, and acceleration and sends the data over BLE.
+- [What do I need besides the kit?](https://docs.leafony.com/en/questions/what-to-prepare/): For the Basic Kit 2 demo, prepare a smartphone or computer that supports Web Bluetooth. To write your own programs, you need a computer and a USB cable that supports data transfer.
+- [What should I do first when my kit arrives?](https://docs.leafony.com/en/questions/first-steps/): Start by running the demo that is already written, with the kit as assembled. Get started explains the steps for each kit.
+- [How long will it run on batteries?](https://docs.leafony.com/en/questions/battery-life/): It varies greatly with the battery, the leaves you combine, and how the program runs. Low-power design explains how to estimate runtime from the average current.
 
 ## Sample apps
 
