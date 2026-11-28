@@ -8196,17 +8196,17 @@ This page covers first-time questions such as “Which leaf do I have?” as wel
 
 **Identifying leaves**
 
-- [How do I identify the leaf I have?](https://docs.leafony.com/en/faq/#how-do-i-identify-the-leaf-i-have)
-- [Does the letter at the end of the model number matter?](https://docs.leafony.com/en/faq/#does-the-letter-at-the-end-of-the-model-number-matter)
-- [What if I cannot find or read the model number?](https://docs.leafony.com/en/faq/#what-if-i-cannot-find-or-read-the-model-number)
+- [Where can I find my leaf's model number?](https://docs.leafony.com/en/faq/#where-can-i-find-my-leafs-model-number)
+- [Do I need to check the letter at the end of the model number?](https://docs.leafony.com/en/faq/#do-i-need-to-check-the-letter-at-the-end-of-the-model-number)
+- [Cannot find or read the model number](https://docs.leafony.com/en/faq/#cannot-find-or-read-the-model-number)
 
 **Power and assembly**
 
-- [Power will not turn on](https://docs.leafony.com/en/faq/#if-it-doesnt-turn-on)
+- [Power will not turn on](https://docs.leafony.com/en/faq/#power-will-not-turn-on)
 
 **Computer connections and uploads**
 
-- [Serial port is missing](https://docs.leafony.com/en/faq/#if-you-cant-find-the-serial-port)
+- [Serial port is missing](https://docs.leafony.com/en/faq/#serial-port-is-missing)
 - [Upload fails](https://docs.leafony.com/en/faq/#upload-fails)
 
 **Display and wireless connections**
@@ -8215,9 +8215,9 @@ This page covers first-time questions such as “Which leaf do I have?” as wel
 - [BLE will not connect or no device is found](https://docs.leafony.com/en/faq/#ble-will-not-connect-or-no-device-is-found)
 
 - [ESP32 Wi-Fi cannot connect or the demo page will not open](https://docs.leafony.com/en/faq/#esp32-wifi)
-- [Restore the kit demo after uploading another program](https://docs.leafony.com/en/faq/#restore-demo)
+- [How do I restore the kit demo?](https://docs.leafony.com/en/faq/#restore-demo)
 
-## How do I identify the leaf I have?
+## Where can I find my leaf's model number?
 
 **Look for the model number (part number) printed on the board. Start with the back.** Many leaves have a code such as `AZ01C` or `AI04A` printed on the back. The position varies by leaf, so check the front too if you cannot find it.
 
@@ -8235,7 +8235,7 @@ This page covers first-time questions such as “Which leaf do I have?” as wel
 
 Before separating stacked leaves to check the markings, unplug the USB cable and disconnect batteries and any other power sources.
 
-## Does the letter at the end of the model number matter?
+## Do I need to check the letter at the end of the model number?
 
 **Yes. Check the complete printed model number when choosing instructions.**
 
@@ -8243,26 +8243,27 @@ A page title may use a shorter name such as `AP01` or `AI04`, while the board is
 
 After opening the documentation, check that the instructions apply to the model you have.
 
-## What if I cannot find or read the model number?
+## Cannot find or read the model number
 
 Try taking photos of both sides of the board with your smartphone and zooming in. If the markings are hidden in a stack, you can also compare the leaves listed on your kit's [product page](https://docs.leafony.com/en/products/) with the photos in the [leaf reference](https://docs.leafony.com/en/leaf/).
 
 To narrow down the candidates, compare **readable markings, connector type, and the positions of switches and components** with front and back photos in the documentation. For example, a USB-C connector suggests [AZ01C](https://docs.leafony.com/en/leaf/others/az01c/), a text display suggests [AI04](https://docs.leafony.com/en/leaf/io/ai04/), and a CR2032 holder suggests [AV01](https://docs.leafony.com/en/leaf/power/av01/). Compare the whole board and suffix rather than deciding from one feature alone. Disconnect all power before separating leaves to take photos.
 
-## If it doesn't turn on...
+## Power will not turn on
 
-If Leafony won't turn on, check the following:
+**Check the battery, the power switch, and the contact between leaves, in that order.** Go through the items below from the top.
 
 - Is there enough remaining battery power?
 - Is the button battery inserted in the correct direction?
 - Is the power switch turned on?
-- Are the connectors clean? If they are dirty, wipe them lightly with a paper wiper moistened with anhydrous ethanol. If the problem persists, replace the connectors. See Installing and removing connectors for details.
+- Are the connectors clean? If they are dirty, wipe them lightly with a paper wiper moistened with anhydrous ethanol. If the problem persists, replace the connectors. For the steps, see [Installing and removing connectors](https://docs.leafony.com/en/leaf/others/az61/#installing-and-removing-connectors).
 - Are the screws tight enough? If they are loose, tighten them alternately.
+
   [](https://docs.leafony.com/faq/assembly.png)
 
-## If you can't find the serial port...
+## Serial port is missing
 
-If you cannot find a Leafony serial port, check the following:
+**First check that your USB cable supports data transfer, then check the driver for your USB leaf.**
 
 - Use a USB cable that supports data transfer. A two-wire power-only USB cable cannot carry data.
 - Check that the driver required by your USB leaf is installed. See these resources for FTDI USB serial converter drivers:
@@ -8313,7 +8314,7 @@ This checklist is for the preinstalled touch-sensor demo in ESP32 Wi-Fi Kit / Ki
 
 If you changed the program, use the SSID and address configured by that program. To test with the preinstalled demo’s instructions, follow [the demo restoration steps](https://docs.leafony.com/en/faq/#restore-demo) and select the program for your MCU.
 
-## Restore the kit demo after uploading another program
+## How do I restore the kit demo?
 
 Resetting or cycling power restarts the uploaded program; it does not restore the preinstalled sketch. Select the demo for the MCU you have, then upload its source again.
 
@@ -13033,7 +13034,7 @@ For Grove sensors, checking voltage and signals alongside the connector type hel
 
 ---
 
-# Why did my I2C sensor stop responding after I added a leaf?
+# I2C sensor stops responding after adding a leaf
 
 URL: https://docs.leafony.com/en/questions/i2c-address-conflict/
 
@@ -13062,7 +13063,7 @@ See [Combining leaves](https://docs.leafony.com/en/guides/combining-leaves/) for
 
 ---
 
-# How do I fix a “No such file or directory” build error?
+# “No such file or directory” error when building a sample
 
 URL: https://docs.leafony.com/en/questions/library-not-found/
 
@@ -13222,7 +13223,7 @@ See [Libraries and board definitions](https://docs.leafony.com/en/environment/li
 
 ---
 
-# Why does my STM32 program not run after an “upload complete” message?
+# STM32 program does not run after “upload complete”
 
 URL: https://docs.leafony.com/en/questions/stm32-upload-run/
 

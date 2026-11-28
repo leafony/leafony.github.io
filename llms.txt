@@ -130,11 +130,11 @@
 - [BLEで送られるデータの形式やUUIDは、どこで確認できますか？](https://docs.leafony.com/questions/ble-data-format/): 使っているサンプルの送信処理と受信側コードを確認します。4-Sensors_BLEはカンマ区切りのテキストを送る例です。
 - [BLE Beaconは見つかるのに、接続できないのはなぜですか？](https://docs.leafony.com/questions/ble-beacon-connection/): STM32 Simple BLE Beaconは、接続せずにAdvertising dataを読む設定です。接続して値を受け取るサンプルとは用途が異なります。
 - [Arduino IDEとPlatformIO、どちらから始めればいいですか？](https://docs.leafony.com/questions/development-tools/): 使いたいサンプルに合う開発環境を選べます。ツールより先に、MCUの型番とサンプルの対象構成を確認すると進めやすくなります。
-- [STM32で「書き込み完了」と出たのに、プログラムが動きません](https://docs.leafony.com/questions/stm32-upload-run/): AP03のProgram／Runスイッチ、リセット操作、書き込み・検証ログを確認します。画面の完了表示だけでは判断しにくい場合があります。
-- [「No such file or directory」と出て、サンプルをビルドできません](https://docs.leafony.com/questions/library-not-found/): エラーに出たヘッダ名と、サンプルが指定するライブラリを照合します。同じような名前でも作者や実装が違う場合があります。
+- [STM32で「書き込み完了」と出たのにプログラムが動かない](https://docs.leafony.com/questions/stm32-upload-run/): AP03のProgram／Runスイッチ、リセット操作、書き込み・検証ログを確認します。画面の完了表示だけでは判断しにくい場合があります。
+- [「No such file or directory」と出てサンプルをビルドできない](https://docs.leafony.com/questions/library-not-found/): エラーに出たヘッダ名と、サンプルが指定するライブラリを照合します。同じような名前でも作者や実装が違う場合があります。
 - [AC09のセルラー通信には、SIMや通信契約が必要ですか？](https://docs.leafony.com/questions/ac09-sim/): AC09はnanoSIMを使います。サンプルにある1NCE・SORACOMの設定と、使うキット・回線の対応条件を確認します。
 - [AC09のセルラー通信で、測定値をGoogle スプレッドシートへ送れますか？](https://docs.leafony.com/questions/ac09-google-sheets/): Cat-M1 KitのAP03B＋AI05＋AC09で、BME280の温湿度をGoogle スプレッドシートへ送るサンプルと設定を案内します。
-- [リーフを追加したら、I2Cセンサーが読めなくなりました](https://docs.leafony.com/questions/i2c-address-conflict/): 同じI2Cアドレスの重複やプルアップを確認します。AI05とAX06、AC08とAC09などはアドレスの照合が必要です。
+- [リーフを追加したら、I2Cセンサーが読めなくなった](https://docs.leafony.com/questions/i2c-address-conflict/): 同じI2Cアドレスの重複やプルアップを確認します。AI05とAX06、AC08とAC09などはアドレスの照合が必要です。
 - [STM32はどんなプログラミング言語で動かせますか？](https://docs.leafony.com/questions/stm32-language/): Leafony AP03では、Arduino IDEまたはSTM32CubeIDEを使うC/C++開発を想定しています。ArduinoのスケッチはC++がベースです。
 - [Pythonでも使えますか？](https://docs.leafony.com/questions/python/): リーフ本体はArduino IDE、STM32ではSTM32CubeIDEを使うC/C++開発を想定しています。PythonはPC側でのデータ受信・分析に利用できます。
 
